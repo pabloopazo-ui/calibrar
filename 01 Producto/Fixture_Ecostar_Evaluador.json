@@ -1,0 +1,193 @@
+{
+ "meta": {
+  "nota": "FIXTURE — stub no evaluable; ver informe"
+ },
+ "bloque_0_ruteo": {
+  "reasoning": "Hay flujo abundante y verificado: 19.945 clics y ~900 conversaciones en cinco meses (t3, t4). E3 funciona en volumen aunque su objetivo esté mal elegido. El flujo se rompe en E5: índice de respuesta 24,3% y ~12 h de espera promedio (t7, t9) — tres de cada cuatro conversaciones no se contestan. E4 también está roto (t5, t6: sin transacción, todo a WhatsApp), pero es consecuencia de la misma decisión de canal y además no es lo que se rompe primero contando desde donde hay flujo: la conversación llega y muere antes de necesitar un carrito. E1 queda sin datos: no se preguntaron t13 ni t14.",
+  "cadena": [
+   {
+    "eslabon": 1,
+    "nombre": "Criterio y foco comercial",
+    "estado": "sin_datos",
+    "area": "Estrategia y diagnóstico"
+   },
+   {
+    "eslabon": 2,
+    "nombre": "Reputación y posicionamiento",
+    "estado": "sano",
+    "area": "Contenido y RRPP"
+   },
+   {
+    "eslabon": 3,
+    "nombre": "Generación de demanda",
+    "estado": "roto",
+    "area": "Paid Media y SEO"
+   },
+   {
+    "eslabon": 4,
+    "nombre": "Activo de conversión",
+    "estado": "roto",
+    "area": "Desarrollo web"
+   },
+   {
+    "eslabon": 5,
+    "nombre": "Captura y respuesta",
+    "estado": "roto",
+    "area": "Automatización y agentes"
+   },
+   {
+    "eslabon": 6,
+    "nombre": "Escala de la conversación",
+    "estado": "roto",
+    "area": "RPA y procesos"
+   },
+   {
+    "eslabon": 7,
+    "nombre": "Capacidad del equipo",
+    "estado": "sin_datos",
+    "area": "Capacitación y adopción"
+   }
+  ],
+  "eslabon_dominante": 5,
+  "area_recomendada": "Automatización y agentes",
+  "area_secundaria": "Desarrollo web",
+  "por_que_este_y_no_otro": "Tu publicidad está trayendo más conversación de la que alcanzas a contestar: de cada cuatro personas que escriben, respondes a una, y en promedio doce horas después. Subir el presupuesto hoy no te trae más ventas — te trae más gente esperando.",
+  "que_NO_es_tu_problema": "Tu contenido y tu comunidad. Tienes 7.790 seguidores, por sobre el promedio de tu categoría, y sumaste el 43% de esa base en seis meses. El contenido funciona. Lo que no funciona es lo que pasa después de que alguien escribe."
+ },
+ "bloque_4_etapas": {
+  "reasoning": "El orden lo fija la regla del balde. Cerrar la brecha de respuesta es lo más rápido de implementar y actúa sobre un problema ya comprobado con datos. Medir la venta viene después porque es el proyecto de mayor alcance. Reasignar presupuesto de pauta va último: sin tracking de venta, cualquier decisión sobre el presupuesto se toma a ciegas.",
+  "etapas": [
+   {
+    "orden": 1,
+    "nombre": "Contestar a todos, aunque sea para decir que vas a demorar",
+    "por_que_primero": "Es el único problema comprobado con datos propios y el más rápido de intervenir. Mientras tres de cada cuatro no reciban respuesta, todo lo demás que construyamos recibe menos de lo que podría.",
+    "quien_lo_hace": "mixto",
+    "pilar_precision": "Automatización y agentes",
+    "esfuerzo": "semanas",
+    "como_se_sabe_que_resultó": "El índice de respuesta en Business Suite sube por sobre 24,3% y el tiempo promedio baja de las doce horas. Ambos números están a la vista y no requieren instrumentación nueva."
+   },
+   {
+    "orden": 2,
+    "nombre": "Poder saber qué venta vino de dónde",
+    "por_que_primero": "Hoy no hay forma de conectar ninguna conversación ni ningún clic con una compra. Es el proyecto de mayor alcance de los tres y el que habilita decidir sobre el presupuesto con datos.",
+    "quien_lo_hace": "Precisión",
+    "pilar_precision": "Desarrollo web",
+    "esfuerzo": "semanas",
+    "como_se_sabe_que_resultó": "Existe al menos una venta registrada y atribuible a un origen. Antes de eso, cualquier cifra de retorno es una estimación."
+   },
+   {
+    "orden": 3,
+    "nombre": "Recién ahí, mover el presupuesto",
+    "por_que_primero": "Va último a propósito. Cambiar el objetivo de campaña o subir el presupuesto sin saber qué convierte es repetir la decisión que produjo este semestre.",
+    "quien_lo_hace": "Precisión",
+    "pilar_precision": "Paid Media y SEO",
+    "esfuerzo": "días",
+    "como_se_sabe_que_resultó": "La decisión de presupuesto se toma contra ventas atribuidas y no contra alcance."
+   }
+  ],
+  "fuera_de_nuestro_alcance": "La capacidad de la tienda física para atender el volumen que se genere, y la continuidad del pago de la tarjeta de la cuenta publicitaria — hubo dos interrupciones de entrega en el semestre por ese motivo. Podemos ordenar la respuesta y medir la venta; que haya quien atienda y que la cuenta no se corte es operación de Eco Star.",
+  "cierre": "La etapa uno se puede empezar esta semana midiendo cuántos de los mensajes que llegan son la misma pregunta. Ese dato lo tienen ustedes y define cuánto de esto se puede resolver sin contratar a nadie."
+ },
+ "bloque_1_data": {
+  "reasoning": "FIXTURE — stub no evaluable; ver informe",
+  "cifras_clave": [
+   {
+    "cifra": "24,3%",
+    "lectura": "FIXTURE — stub no evaluable; ver informe"
+   }
+  ]
+ },
+ "bloque_2_hipotesis": {
+  "reasoning": "FIXTURE — stub no evaluable; ver informe",
+  "hipotesis": [
+   {
+    "orden": 1,
+    "enunciado": "Tres de cada cuatro personas que te escriben no reciben respuesta.",
+    "evidencia": "FIXTURE — stub no evaluable; ver informe",
+    "como_se_verifica": "FIXTURE — stub no evaluable; ver informe",
+    "si_es_cierta": "FIXTURE — stub no evaluable; ver informe",
+    "por_que_no_era_visible": "FIXTURE — stub no evaluable; ver informe",
+    "atribucion": "estructura",
+    "alcance": "cuenta",
+    "capa": null,
+    "confianza": "alta",
+    "procedencia": "declarado"
+   },
+   {
+    "orden": 2,
+    "enunciado": "Le pediste a Meta conversación, y conversación es lo que te está entregando — no ventas.",
+    "evidencia": "FIXTURE — stub no evaluable; ver informe",
+    "como_se_verifica": "FIXTURE — stub no evaluable; ver informe",
+    "si_es_cierta": "FIXTURE — stub no evaluable; ver informe",
+    "por_que_no_era_visible": "FIXTURE — stub no evaluable; ver informe",
+    "atribucion": "gestion",
+    "alcance": "cuenta",
+    "capa": null,
+    "confianza": "alta",
+    "procedencia": "declarado"
+   },
+   {
+    "orden": 3,
+    "enunciado": "No puedes saber cuánto de tu venta viene de la pauta, porque no hay dónde registrarla.",
+    "evidencia": "FIXTURE — stub no evaluable; ver informe",
+    "como_se_verifica": "FIXTURE — stub no evaluable; ver informe",
+    "si_es_cierta": "FIXTURE — stub no evaluable; ver informe",
+    "por_que_no_era_visible": "FIXTURE — stub no evaluable; ver informe",
+    "atribucion": "compartida",
+    "alcance": "cuenta",
+    "capa": null,
+    "confianza": "alta",
+    "procedencia": "declarado"
+   }
+  ],
+  "reparto_atribucion": {
+   "gestion": 1,
+   "estructura": 1,
+   "compartida": 1
+  }
+ },
+ "bloque_3_soluciones": {
+  "reasoning": "FIXTURE — stub no evaluable; ver informe",
+  "soluciones": [
+   {
+    "orden": 1,
+    "verifica_hipotesis": 1,
+    "prediccion": "FIXTURE — stub no evaluable; ver informe",
+    "puede_hacerlo_solo": true,
+    "como_hacerlo_solo": "FIXTURE — stub no evaluable; ver informe"
+   },
+   {
+    "orden": 2,
+    "verifica_hipotesis": 2,
+    "prediccion": "FIXTURE — stub no evaluable; ver informe",
+    "puede_hacerlo_solo": false,
+    "como_hacerlo_solo": "FIXTURE — stub no evaluable; ver informe"
+   },
+   {
+    "orden": 3,
+    "verifica_hipotesis": 3,
+    "prediccion": "FIXTURE — stub no evaluable; ver informe",
+    "puede_hacerlo_solo": false,
+    "como_hacerlo_solo": "FIXTURE — stub no evaluable; ver informe"
+   }
+  ]
+ },
+ "seccion_1_stub": {
+  "reasoning": "FIXTURE — stub no evaluable; ver informe"
+ },
+ "seccion_2_stub": {
+  "reasoning": "FIXTURE — stub no evaluable; ver informe"
+ },
+ "seccion_3_stub": {
+  "reasoning": "FIXTURE — stub no evaluable; ver informe"
+ },
+ "seccion_4_stub": {
+  "reasoning": "FIXTURE — stub no evaluable; ver informe"
+ },
+ "seccion_5_stub": {
+  "reasoning": "FIXTURE — stub no evaluable; ver informe"
+ },
+ "seccion_6_stub": {
+  "reasoning": "FIXTURE — stub no evaluable; ver informe"
+ }
+}

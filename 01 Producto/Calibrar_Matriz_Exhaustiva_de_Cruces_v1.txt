@@ -1,0 +1,2087 @@
+MATRIZ EXHAUSTIVA DE CRUCES — Formulario de Diagnóstico "Calibrar"
+Precisión Agencia · Chile 2026 · Versión 1.7 (actualizada 24-sep-2026)
+========================================================================
+
+
+TL;DR
+Esta matriz documenta los ~50 cruces solicitados entre las 28 preguntas del formulario, asignando a cada combinación un diagnóstico, recomendación y severidad (CRÍTICO / MODERADO / LEVE), anclados en benchmarks 2025-2026 verificados (WordStream/LocaliQ, Triple Whale, Gartner, Lebesgue, HBR/MIT y fuentes chilenas).
+
+
+NOVEDADES v1.7 (24-sep-2026) — MÓDULO «PROFESIONAL INDEPENDIENTE», CON CAPA DE SALUD (PRD §2.6):
+  Aprobado por Pablo el 24-sep-2026. Es una CAPA sobre el instrumento: no agrega cruces ni cambia el ruteo.
+  Las 14 del triage conservan ids y valores de opción, así que los cruces A–M y el ruteo por la Cadena
+  aplican igual. Cambia cómo se pregunta y qué se anota. Texto completo en
+  «04 Cabina/assets/modulo_profesional.js» (PRO_GUIA), que es la redacción autoritativa del módulo.
+  Criterios de redacción: se entiende a la primera; pregunta por algo que pasó; alimenta un eslabón.
+  Núcleo del módulo (reemplaza al de empresa solo con el módulo activo):
+    N1  Sin dar nombres: descríbame al paciente/cliente que más le gusta atender.       → criterio (01)
+    N2  ¿Qué tienen en común los que sí terminan atendiéndose o contratando con usted?   → criterio (01)
+    N3  ¿Qué consultas o pacientes/clientes le hacen perder tiempo?                      → criterio de descarte (01)
+    N4  ¿Quién más pesa en la decisión y cómo se paga?                                    → financiamiento y decisores
+    N5  El último mes, ¿cuántas personas nuevas consultaron y cuántas se atendieron?     → línea base
+    N6  ¿Cuántos nuevos más podría atender al mes sin que se resienta la calidad?         → capacidad (06/07)
+    N7  De cada diez nuevos, ¿cuántos llegan recomendados?                                → dependencia de la recomendación (02/03)
+  Capa de salud: sin publicidad de captación (Código de Ética del Colegio Médico, arts. 48–52), sin datos de
+  pacientes (Ley 19.628 y 21.719), testimonios solo con autorización escrita (Ley 20.584, art. 5) y asistente
+  que se declara como tal (CONAR, art. 34). Con capa de salud, un 03 dominante se resuelve con buscadores,
+  contenido educativo y red de derivación, nunca con pauta de captación.
+
+
+NOVEDADES v1.4 (27-jul-2026) — LA MATRIZ DEJA DE SER SOLO DE PAUTA:
+  1. GRUPO H — RUTEO DE ÁREA por la Cadena de Crecimiento Comercial (6 eslabones E2–E7). Opera sobre las 12
+     preguntas de triage T1–T12 y decide, ANTES que todo, si el problema es de pauta o de otra área.
+     Regla de precedencia: el eslabón dominante es el primero que rompe contando desde donde HAY flujo.
+     Se tapa el balde antes de abrir la llave.
+  2. GRUPOS I, J, K, L — análisis profundo de los eslabones que no son pauta: procesos y automatización (E5/E6),
+     activos digitales y web (E4), capacidad del equipo (E7), reputación y posicionamiento (E2).
+     Los Grupos A–G pasan a ser el análisis profundo del eslabón E3 (demanda).
+  3. ANCLA NUEVA para E5/E6: costo hora administrativa RM ≈ $6.000 CLP [referencial]. Permite monetizar T11
+     (horas repetitivas) y es la única cifra comparable directo contra el precio de una automatización.
+  4. CAMBIO DE CALIFICACIÓN: "sin pauta activa" deja de ser descarte. Una empresa que capta por licitación y
+     cotiza a mano es prospecto prioritario de E5. Las 7 industriales descartadas en la decisión #9 del PRD
+     nunca fueron evaluadas para automatización.
+
+
+NOVEDADES v1.3 (27-jul-2026):
+  1. GRUPO G — cruces de señal externa. Permite diagnosticar SIN que el cliente responda nada, usando solo
+     lo observable (Biblioteca de Anuncios, código de la landing, precios públicos). Habilita la vía B del
+     PRD §5.9 y la calificación masiva de la base de prospección. Incluye regla inviolable de techo de
+     confianza: lo observable prueba presencia o ausencia en lo público, nunca intención ni cifras internas.
+  2. EJE DE ATRIBUCIÓN (gestión / estructura / compartida) — aplica a TODOS los grupos. Responde la pregunta
+     central de "La Decepcionada de Agencia": ¿el problema era la agencia o mi propio setup?
+  3. CALIFICACIÓN POR ALCANCE (cuenta / canal) en el flujo de capas. Un hallazgo de capa inferior acotado a
+     un canal no desplaza a uno de capa superior que afecta a toda la cuenta.
+
+
+Anclas cuantitativas clave para Chile/2026:
+* CPM Meta Chile ≈ US$2,44 — ha crecido +20–35% en los últimos 2 años [Lebesgue 2026; referencial]
+* CPL Meta global ≈ US$27,66 (+20,94% YoY, rango US$3,16–US$76,71) [WordStream/LocaliQ, 15-sep-2025]
+* CPL Meta Chile por industria (CLP) — fuentes locales [Muller y Pérez / Impulsados / Buyer Persona Calibrar — referencial]:
+    Retail: $2.500–$4.800 CLP
+    Servicios B2B: $8.500–$18.000 CLP
+    SaaS / Tech B2B: $12.000–$28.000 CLP
+    Inmobiliaria: $4.500–$12.000 CLP
+    Salud privada: $6.500–$15.000 CLP
+* Fase de aprendizaje Meta = 50 conversiones/ad set/7 días
+* Speed-to-lead: 5 min = 21× más calificación que a los 30 min [MIT/InsideSales; HBR 2011]
+* LTV:CAC saludable ≥ 3:1
+
+
+Los cruces más decisivos son los de viabilidad económica (ticket × presupuesto × plataforma) y los de configuración técnica (Pixel × CAPI × eventos).
+
+
+
+
+HALLAZGOS CLAVE
+1. La viabilidad económica se decide antes que la creatividad. Si el ticket (P5) no soporta el CPA mínimo dado el presupuesto (P9) y la plataforma (P7), ninguna optimización táctica rescata la cuenta. Regla: presupuesto diario ≈ 7× CPA objetivo (derivación: 50 conversiones/semana ÷ 7 días ≈ 7,1 conv/día × CPA) y ≥ 50 conversiones/semana por ad set. [Meta / Cometly / Stackmatix 2026 — unificado v1.2; una versión anterior decía 10×]
+
+
+2. El stack de medición (P16 Pixel + P18 CAPI + P19 eventos) es la causa raíz silenciosa. Sin CAPI en 2026 se sub-reporta 15-30% de conversiones; Pixel-only en iOS pierde 60-72% de la señal.
+
+
+3. El destino del tráfico (P11) y el objetivo (P10) deben formar una arquitectura coherente. "Conversiones sitio" + "WhatsApp directo" sin medición de mensajes es una incoherencia crítica.
+
+
+4. La audiencia (P22/P24) debe coincidir con la plataforma (P7). En Chile: WhatsApp 89,7%, Instagram 86,4%, Facebook 83,3%, TikTok 67,5% [OneDigital/REW/SeoNetDigital 2025-2026 — fuentes locales]; LinkedIn ~32% adultos [DataReportal 2025]. Nota: DataReportal reporta cifras levemente superiores (WhatsApp 93,8%, IG 87,2%, FB 85,6%) por metodología de encuesta diferente.
+
+
+5. El síntoma (P25) rara vez es la causa. "Leads no califican" → copy/segmentación o evento equivocado. "Califican pero no cierran" → speed-to-lead / proceso de ventas, no pauta.
+
+
+
+
+GRUPO A — CRUCES DE VIABILIDAD ECONÓMICA
+
+
+BENCHMARKS DE REFERENCIA (GRUPO A):
+
+
+Métrica / Benchmark
+	Valor y Fuente
+	CPL Meta Global Promedio
+	US$27,66 [WordStream/LocaliQ, sep-2025]
+	CPL Google Ads Global
+	US$70,11 [WordStream 2025]
+	CPM Meta Chile
+	US$2,44 [Lebesgue 2026]
+	CPL Meta Chile por industria (CLP) [referencial — fuentes locales]
+	Retail: $2.500–$4.800 / Servicios B2B: $8.500–$18.000 / SaaS B2B: $12.000–$28.000 / Inmobiliaria: $4.500–$12.000 / Salud privada: $6.500–$15.000
+	Crecimiento CPM Meta Chile
+	+20–35% en los últimos 2 años [Lebesgue / referencial]; encarece CAC sin cambios en presupuesto
+	Presupuesto Mínimo Meta Chile
+	$200.000–$500.000 CLP/mes [Impulsados 2026]
+	Ticket Promedio Ecommerce Chile
+	$47.295 CLP [CCS 2024]
+	Relación LTV:CAC Saludable
+	≥ 3:1 [Benchmarkit]
+	Fórmula Presupuesto Diario
+	≈ 7× CPA objetivo; 50 conv/semana [Meta / Cometly]
+	
+
+A.1 — P1 × P5 (Tipo de negocio × Ticket promedio)
+
+
+B2B + ticket <50K CLP
+  Implica: CAC B2B (3-5× B2C) probablemente supera el margen del ticket.
+  Diagnóstico: Modelo de adquisición pagada probablemente inviable salvo alto LTV.
+  Recomendación: Verificar LTV y tasa de recompra; si LTV es bajo, pivotar a orgánico/referidos.
+  Severidad: CRÍTICO
+
+
+B2B + ticket 150K-500K+
+  Implica: Ticket sano para B2B; soporta CAC y ciclo largo.
+  Diagnóstico: Viable; foco en calidad de lead y nurturing.
+  Recomendación: Optimizar por lead calificado (CPQL), no CPL bruto.
+  Severidad: LEVE
+
+
+B2C + ticket <50K
+  Implica: Ticket bajo típico B2C; exige volumen y CVR alto.
+  Diagnóstico: Viable solo con embudo eficiente y AOV creciente.
+  Recomendación: Subir AOV (bundles, envío gratis sobre umbral); medir contribución.
+  Severidad: MODERADO
+
+
+Ecommerce (cualquiera) + ticket <50K
+  Implica: Ticket cercano/bajo al promedio Chile ($47.295).
+  Diagnóstico: Viable con ROAS ≥ 3-4:1 en prospecting.
+  Recomendación: Foco en ROAS y recompra; catálogo + retargeting.
+  Severidad: LEVE
+
+
+B2C/Ecommerce + ticket >2M
+  Implica: Ticket alto; ciclo de consideración largo aun en B2C.
+  Diagnóstico: La pauta debe nutrir, no cerrar directo.
+  Recomendación: Retargeting secuencial + prueba social.
+  Severidad: MODERADO
+
+
+A.2 — P1 × P5 × P7 (Tipo × Ticket × Plataforma)
+
+
+B2B + ticket alto (≥500K) + LinkedIn activo
+  Diagnóstico: Alineado; ticket justifica el CPL premium de LinkedIn.
+  Severidad: LEVE
+
+
+B2B + ticket alto + solo Meta (sin LinkedIn/Google Search)
+  Diagnóstico: Cobertura de canal incompleta; se pierde captura de intención y segmentación profesional.
+  Recomendación: Añadir Google Search y/o LinkedIn.
+  Severidad: MODERADO
+
+
+B2B + ticket bajo (<50K) + LinkedIn
+  Diagnóstico: CPL LinkedIn (el más caro del mercado) destruye unit economics.
+  Recomendación: Migrar a Meta/Google o abandonar pauta pagada.
+  Severidad: CRÍTICO
+
+
+B2C + ticket bajo + solo Google Search
+  Diagnóstico: CPC Google (US$5,26 promedio) encarece adquisición de ticket bajo.
+  Recomendación: Añadir Meta como canal principal.
+  Severidad: MODERADO
+
+
+Ecommerce + cualquier ticket + Meta + Google
+  Diagnóstico: Combinación omnicanal óptima.
+  Severidad: LEVE
+
+
+A.3 — P5 × P6 (Ticket × Quién cierra ventas)
+
+
+Ticket >2M + cierre automático ecommerce
+  Diagnóstico: Ticket alto con cero contacto humano genera desconfianza en el comprador.
+  Recomendación: Añadir contacto humano (llamada/WhatsApp) en checkout de alto valor.
+  Severidad: CRÍTICO
+
+
+Ticket >2M + fundador solo cierra
+  Diagnóstico: Cuello de botella; ticket alto exige seguimiento rápido que el fundador no puede escalar.
+  Recomendación: CRM + speed-to-lead automatizado; contratar 1er vendedor.
+  Severidad: MODERADO
+
+
+Ticket <50K + cierre manual (fundador o equipo)
+  Diagnóstico: Costo de cierre humano puede superar el margen del ticket.
+  Recomendación: Automatizar cierre (ecommerce/checkout/WhatsApp automático).
+  Severidad: MODERADO
+
+
+Ticket <50K + cierre automático ecommerce
+  Diagnóstico: Coherente; ticket bajo se cierra sin intervención humana.
+  Recomendación: Optimizar CVR del sitio.
+  Severidad: LEVE
+
+
+Ticket 150K-500K + 1 vendedor / equipo+fundador
+  Diagnóstico: Coherente; ticket medio soporta venta consultiva.
+  Recomendación: Medir speed-to-lead y tasa de cierre; establecer SLA.
+  Severidad: LEVE
+
+
+A.4 — P5 × P7 (Ticket × Plataforma)
+
+
+Ticket <50K + LinkedIn
+  Diagnóstico: CPL más alto del mercado contra ticket mínimo. Matemáticamente inviable.
+  Severidad: CRÍTICO
+
+
+Ticket <50K + Meta (FB/IG)
+  Diagnóstico: CPC Chile $60–$250 CLP, alineado al ticket.
+  Severidad: LEVE
+
+
+Ticket alto (≥500K) + solo TikTok
+  Diagnóstico: TikTok funciona para descubrimiento/B2C joven, no para cierre B2B de ticket alto.
+  Severidad: MODERADO
+
+
+Ticket medio-alto + Google Search
+  Diagnóstico: Alta intención de compra justifica CPC más alto de Google.
+  Severidad: LEVE
+
+
+A.5 — P5 × P9 (Ticket × Presupuesto mensual) — CRUCE NUCLEAR
+
+
+Fórmula operativa:
+  CPA máximo viable = ticket × margen × tasa de cierre
+  Presupuesto mensual mínimo = 50 conv/semana × 4,3 semanas × CPA objetivo
+  Presupuesto diario recomendado = 7× CPA objetivo
+
+
+Ticket <50K + presupuesto <200K CLP
+  Diagnóstico: Sub-financiado; imposible alcanzar 50 conv/semana; aprendizaje perpetuo.
+  Recomendación: Subir a ≥$300K CLP o consolidar a 1 ad set + evento de mayor frecuencia.
+  Severidad: CRÍTICO
+
+
+Ticket 50K-150K + presupuesto 200K-500K CLP
+  Diagnóstico: Límite inferior viable en Chile.
+  Recomendación: 1 campaña, 1-2 ad sets, audiencia amplia.
+  Severidad: MODERADO
+
+
+Ticket 150K-500K + presupuesto 500K-1M CLP
+  Diagnóstico: Presupuesto sano para ticket medio.
+  Recomendación: Estructura simple; escalar +20%/3 días.
+  Severidad: LEVE
+
+
+Ticket >2M + presupuesto <200K CLP
+  Diagnóstico: Presupuesto irrisorio para ticket alto y ciclo largo.
+  Recomendación: Inviable medir; subir presupuesto o reducir alcance a audiencia muy específica.
+  Severidad: CRÍTICO
+
+
+Ticket >2M + presupuesto >3M CLP
+  Diagnóstico: Coherente para ticket alto.
+  Recomendación: Optimizar por valor, no por volumen de leads.
+  Severidad: LEVE
+
+
+A.6 — P5 × P9 × P7 (Ticket × Presupuesto × Plataforma)
+
+
+Ticket bajo + presupuesto <200K + 3+ plataformas activas
+  Diagnóstico: Fragmentación fatal; ninguna plataforma alcanza 50 conv/semana.
+  Recomendación: Concentrar 100% del presupuesto en 1 plataforma (Meta).
+  Severidad: CRÍTICO
+
+
+Ticket alto + presupuesto >3M + Meta+Google+LinkedIn
+  Diagnóstico: Distribución viable multicanal.
+  Severidad: LEVE
+
+
+Cualquier ticket + presupuesto medio (500K-1M) + solo LinkedIn
+  Diagnóstico: LinkedIn consume el presupuesto rápido por CPM premium; pocas conversiones.
+  Recomendación: Complementar con Meta o Google Search.
+  Severidad: MODERADO
+
+
+A.7 — P5 × P25 (Ticket × Síntoma reportado)
+
+
+Ticket alto + "CPL alto"
+  Diagnóstico: CPL alto puede ser aceptable si el ticket lo absorbe. Posible falsa alarma.
+  Recomendación: Calcular CPL máximo viable antes de optimizar.
+  Severidad: MODERADO
+
+
+Ticket bajo + "CPL alto"
+  Diagnóstico: Problema real de unit economics.
+  Severidad: CRÍTICO
+
+
+Ticket alto + "leads califican pero no cierran"
+  Diagnóstico: El problema es proceso de ventas / speed-to-lead, no la pauta.
+  Recomendación: Revisar respuesta <5 min; no cambiar campañas.
+  Severidad: MODERADO (CRÍTICO si no hay seguimiento sistematizado)
+
+
+Ticket bajo + "muy pocos leads"
+  Diagnóstico: Probable sub-financiamiento o audiencia demasiado estrecha.
+  Recomendación: Subir presupuesto o ampliar audiencia.
+  Severidad: MODERADO
+
+
+A.8 — P5 × P27 (Ticket × CPL actual declarado)
+
+
+Regla: CPL aceptable ≈ ticket × margen × tasa de cierre. Si CPL > 30% del ticket sin recompra: insostenible.
+
+
+CPL declarado > CPL máximo viable del ticket
+  Diagnóstico: Unidad económica negativa; cada lead destruye margen.
+  Recomendación: Detener escalamiento; revisar estructura completa.
+  Severidad: CRÍTICO
+
+
+CPL declarado pero P26 = "no lo tengo medido"
+  Diagnóstico: Contradicción de datos; el número declarado no es confiable.
+  Recomendación: Instrumentar medición antes de usar ese dato.
+  Severidad: MODERADO
+
+
+CPL < benchmark de industria Chile + ticket sano
+  Diagnóstico: Saludable.
+  Severidad: LEVE
+
+
+
+
+GRUPO B — CRUCES DE CONFIGURACIÓN TÉCNICA VS. OBJETIVOS
+
+
+BENCHMARKS DE REFERENCIA (GRUPO B):
+* Sin CAPI 2026: sub-reporte de 15-30% de conversiones; Pixel-only en iOS pierde 60-72% [Rockads / Meta Developers]
+* Hybrid Pixel+CAPI con deduplicación: 90-98% de captura; EMQ sube a 7+ [Ecomparkour 2026]
+* Meta (abril 2026): CAPI de un clic gratis; duales reportan 17,8% menor costo por resultado y 19% más compras atribuidas [CustomerLabs / Meta]
+* Sin UTMs: ~25-30% del tráfico aparece como "Direct" perdiendo atribución [UTM.io]
+* ODAX 2026: 6 objetivos (Awareness, Tráfico, Engagement, Leads, App, Sales); elegir mal = causa #1 de fracaso [get-ryze 2026]
+
+
+B.1 — P10 × P11 (Objetivo de campaña × Destino del tráfico) — ARQUITECTURA DE CONVERSIÓN
+
+
+Objetivo: Conversiones sitio | Destino: Landing propia
+  Diagnóstico: Coherente (requiere Pixel + eventos activos).
+  Severidad: LEVE
+
+
+Objetivo: Conversiones sitio | Destino: WhatsApp directo
+  Diagnóstico: Incoherente. Meta optimiza para un evento que no puede ver en WhatsApp.
+  Recomendación: Cambiar objetivo a Mensajes o añadir tracking de conversación.
+  Severidad: CRÍTICO
+
+
+Objetivo: Mensajes WhatsApp | Destino: WhatsApp directo
+  Diagnóstico: Coherente.
+  Severidad: LEVE
+
+
+Objetivo: Leads/formulario | Destino: Lead Ad nativo Meta
+  Diagnóstico: Coherente (instant form on-platform).
+  Severidad: LEVE
+
+
+Objetivo: Leads/formulario | Destino: Perfil Instagram/Facebook
+  Diagnóstico: Incoherente. El perfil no captura leads; Meta no puede optimizar.
+  Severidad: CRÍTICO
+
+
+Objetivo: Tráfico | Destino: Landing propia
+  Diagnóstico: Coherente pero el objetivo Tráfico optimiza clics, no conversiones.
+  Recomendación: Cambiar a objetivo Conversiones si hay Pixel+eventos.
+  Severidad: MODERADO
+
+
+Objetivo: Ventas catálogo | Destino: Landing/WhatsApp
+  Diagnóstico: Catálogo requiere feed de productos en sitio; WhatsApp rompe el flujo automatizado.
+  Severidad: MODERADO
+
+
+Objetivo: No sé | Destino: No sé
+  Diagnóstico: Sin arquitectura de conversión definida. Todo el presupuesto a ciegas.
+  Severidad: CRÍTICO
+
+
+B.2 — P10 × P16 (Objetivo × Estado del Pixel de Meta)
+
+
+"Conversiones sitio" + Pixel "no tengo" / "no sé qué es"
+  Diagnóstico: Meta no puede optimizar conversiones sin señal. Presupuesto quemado.
+  Severidad: CRÍTICO
+
+
+"Conversiones sitio" + Pixel "instalado y verificado"
+  Diagnóstico: Base técnica correcta.
+  Severidad: LEVE
+
+
+"Mensajes WhatsApp" + sin Pixel
+  Diagnóstico: Aceptable (conversión on-platform). Ideal CAPI para mensajes si se quiere medir.
+  Severidad: LEVE / MODERADO
+
+
+"Leads/formulario" (Lead Ad nativo) + sin Pixel
+  Diagnóstico: Funciona (el evento es on-platform). No crítico.
+  Severidad: LEVE
+
+
+B.3 — P10 × P18 (Objetivo × API de Conversiones)
+
+
+"Conversiones sitio" / "Ventas catálogo" + CAPI "no la tengo" / "no sé"
+  Diagnóstico: Optimización degradada 15-30%; en iOS hasta 60%+. Estándar 2026 exige CAPI.
+  Recomendación: Activar CAPI de un clic (gratis desde abril 2026).
+  Severidad: CRÍTICO
+
+
+"Leads formulario nativo" + sin CAPI
+  Diagnóstico: Menor impacto (evento on-platform), pero CAPI mejora calidad de señal desde CRM.
+  Severidad: MODERADO
+
+
+Cualquier objetivo de conversión + CAPI activa
+  Diagnóstico: Óptimo.
+  Severidad: LEVE
+
+
+B.4 — P10 × P19 (Objetivo × Eventos de conversión configurados)
+
+
+"Conversiones sitio" + eventos "no tengo" / "no sé si funcionan"
+  Diagnóstico: Meta optimiza a ciegas. Sin eventos no puede aprender.
+  Severidad: CRÍTICO
+
+
+"Conversiones sitio" + eventos "funcionando"
+  Diagnóstico: Correcto.
+  Severidad: LEVE
+
+
+Objetivo correcto + evento de baja frecuencia (<50/semana)
+  Diagnóstico: Nunca sale de la fase de aprendizaje; resultados erráticos permanentes.
+  Recomendación: Usar evento upper-funnel más frecuente (Add to Cart, Initiate Checkout).
+  Severidad: MODERADO / CRÍTICO
+
+
+B.5 — P11 × P16 (Destino × Pixel)
+
+
+"Landing propia" + Pixel "no tengo"
+  Diagnóstico: No hay medición ni retargeting del tráfico enviado. Inversión sin aprendizaje.
+  Severidad: CRÍTICO
+
+
+"WhatsApp directo" + sin Pixel
+  Diagnóstico: Aceptable (poco que medir en sitio), pero se pierde retargeting.
+  Severidad: MODERADO
+
+
+"Landing propia" + Pixel verificado
+  Diagnóstico: Correcto.
+  Severidad: LEVE
+
+
+B.6 — P11 × P19 (Destino × Eventos de conversión)
+
+
+"Landing propia" + sin eventos configurados
+  Diagnóstico: El tráfico llega pero no se mide ninguna acción. Sin optimización posible.
+  Severidad: CRÍTICO
+
+
+"Lead Ad nativo" + sin eventos en sitio
+  Diagnóstico: Aceptable (evento on-platform). No crítico.
+  Severidad: LEVE
+
+
+"Llamada telefónica" como destino + sin tracking de llamadas
+  Diagnóstico: Conversión completamente invisible. No se puede atribuir ni optimizar.
+  Severidad: MODERADO
+
+
+B.7 — P16 × P18 (Pixel × CAPI)
+
+
+Pixel "sí" + CAPI "sí"
+  Diagnóstico: Stack moderno (gold standard 2026). EMQ alto, señal completa.
+  Severidad: LEVE
+
+
+Pixel "sí" + CAPI "no"
+  Diagnóstico: Setup 2024, ahora insuficiente en 2026.
+  Recomendación: Activar CAPI de un clic.
+  Severidad: MODERADO
+
+
+Pixel "no" + CAPI "no"
+  Diagnóstico: Sin medición server ni browser. Cuenta ciega.
+  Severidad: CRÍTICO
+
+
+Pixel "no" + CAPI "sí"
+  Diagnóstico: Raro pero válido para casos headless sin sitio web.
+  Severidad: MODERADO
+
+
+B.8 — P16 × P19 (Pixel × Eventos)
+
+
+Pixel "verificado" + eventos "funcionando"
+  Diagnóstico: Base sólida.
+  Severidad: LEVE
+
+
+Pixel "verificado" + eventos "no tengo"
+  Diagnóstico: Pixel sin eventos = solo registra PageView. No puede optimizar conversión.
+  Severidad: MODERADO
+
+
+Pixel "no tengo" + eventos "tengo algunos"
+  Diagnóstico: Inconsistencia de datos. Los eventos no pueden existir sin Pixel.
+  Recomendación: Auditar el gestor de eventos; probablemente el Pixel existe pero no está verificado.
+  Severidad: CRÍTICO
+
+
+B.9 — P16 × P18 × P19 (Stack completo: Pixel + CAPI + Eventos)
+
+
+Los tres "sí y funcionando"
+  Diagnóstico: Stack óptimo. EMQ 7+, deduplicación activa. Base para escalar.
+  Severidad: LEVE
+
+
+Pixel sí + eventos sí + CAPI no
+  Diagnóstico: Funcional pero sub-reporta conversiones. Primera prioridad: activar CAPI.
+  Severidad: MODERADO
+
+
+Pixel sí + eventos no + CAPI no
+  Diagnóstico: Optimización ciega. Meta solo ve clics y vistas de página.
+  Severidad: CRÍTICO
+
+
+Los tres "no" / "no sé"
+  Diagnóstico: Cuenta no apta para objetivos de conversión.
+  Recomendación: Detener escalamiento hasta instalar el stack completo.
+  Severidad: CRÍTICO
+
+
+B.10 — P19 × P20 (Eventos × UTMs)
+
+
+Eventos "funcionando" + UTMs "todos los anuncios"
+  Diagnóstico: Medición de plataforma + analítica coherente. Visibilidad completa.
+  Severidad: LEVE
+
+
+Eventos "funcionando" + UTMs "no uso" / "no sé"
+  Diagnóstico: Meta mide conversiones pero GA4/CRM no puede atribuir por canal. ~25-30% como "Directo".
+  Severidad: MODERADO
+
+
+Eventos "no tengo" + UTMs "no uso"
+  Diagnóstico: Cero visibilidad de conversión y origen. Ceguera total.
+  Severidad: CRÍTICO
+
+
+B.11 — P20 × P21 (UTMs × Herramienta de analítica)
+
+
+UTMs "todos" + GA4
+  Diagnóstico: Atribución limpia. Puede seguir el lead de clic a conversión.
+  Severidad: LEVE
+
+
+UTMs "no uso" + GA4
+  Diagnóstico: GA4 instalado pero ciego al origen de campañas específicas.
+  Severidad: MODERADO
+
+
+UTMs "no uso" + "no tengo analítica"
+  Diagnóstico: Doble ceguera. Sin medición posible.
+  Severidad: CRÍTICO
+
+
+UTMs "todos" + Universal Analytics (deprecated jul-2023)
+  Diagnóstico: Los datos no se están procesando. Universal está muerto.
+  Recomendación: Migrar a GA4 urgente.
+  Severidad: MODERADO
+
+
+B.12 — P16 × P20 × P21 (Visibilidad total: Pixel + UTMs + Analítica)
+
+
+Pixel + UTMs + GA4 todos presentes y activos
+  Diagnóstico: Visibilidad de extremo a extremo (clic → evento → sesión → conversión).
+  Severidad: LEVE
+
+
+Pixel sí + sin UTMs + GA4
+  Diagnóstico: Meta ve conversiones pero el negocio no puede conciliar por canal en GA4.
+  Severidad: MODERADO
+
+
+Nada de los tres presente
+  Diagnóstico: Imposible diagnosticar performance real. Decisiones completamente a ciegas.
+  Severidad: CRÍTICO
+
+
+
+
+GRUPO C — CRUCES DE AUDIENCIA VS. PLATAFORMA
+
+
+BENCHMARKS DE REFERENCIA (GRUPO C):
+* Chile 2025-2026 (fuentes locales): WhatsApp 89,7% / Instagram 86,4% / Facebook 83,3% / TikTok 67,5% [OneDigital / REW / SeoNetDigital 2025-2026]. DataReportal reporta cifras levemente superiores (93,8% / 87,2% / 85,6%) por diferencia metodológica — ambas son referenciales.
+* 14,8M identidades en redes sociales en Chile (74,7% de la población) [Digital 2025 Chile]
+* 67% de compradores B2B prefiere experiencia sin vendedor (subió desde 61% en jun-2025) [Gartner, encuesta mar-2026, 646 compradores B2B]
+* Audiencia mínima Meta para conversión: ≥1M ideal; <500K riesgo de "Aprendizaje limitado" [Cometly]
+
+
+C.1 — P1 × P7 (Tipo de negocio × Plataformas activas)
+
+
+B2B + solo Meta (sin LinkedIn ni Google)
+  Diagnóstico: Alcanza, pero falta captura de intención (Google) y segmentación profesional (LinkedIn).
+  Severidad: MODERADO
+
+
+B2B + LinkedIn + Google Search
+  Diagnóstico: Alineado. Las dos plataformas complementarias para B2B.
+  Severidad: LEVE
+
+
+B2C + Meta + TikTok
+  Diagnóstico: Óptimo para Chile (alta penetración IG/TikTok en segmentos B2C).
+  Severidad: LEVE
+
+
+Ecommerce + Meta + Google Shopping/Display
+  Diagnóstico: Combinación omnicanal óptima para ecommerce.
+  Severidad: LEVE
+
+
+B2C masivo + solo LinkedIn
+  Diagnóstico: Canal equivocado para B2C. CPL premium sin justificación de ticket.
+  Severidad: CRÍTICO
+
+
+C.2 — P1 × P22 (Tipo de negocio × A quién vende)
+
+
+B2B (P1) + "consumidor final" (P22)
+  Diagnóstico: Contradicción en el modelo de negocio; revisar definición de cliente.
+  Severidad: MODERADO
+
+
+B2B + "dueños/gerentes de empresas"
+  Diagnóstico: Coherente.
+  Severidad: LEVE
+
+
+B2C + "dueños/gerentes de empresas"
+  Diagnóstico: Posible mal-segmentación o negocio que sirve a ambos sin separar campañas.
+  Severidad: MODERADO
+
+
+"Ambos" (P1) + "Mixto" (P22)
+  Diagnóstico: Riesgo de mensaje difuso que no resuena con ninguno de los dos segmentos.
+  Recomendación: Segmentar en campañas separadas por tipo de cliente.
+  Severidad: MODERADO
+
+
+C.3 — P7 × P13 (Plataforma × Zona geográfica)
+
+
+Geografía "ciudad específica pequeña" (<50K audiencia) + cualquier plataforma
+  Diagnóstico: Riesgo de audiencia insuficiente para salir del aprendizaje; CPM sube por saturación.
+  Severidad: MODERADO
+
+
+"Todo Chile" + Meta
+  Diagnóstico: Audiencia amplia (>14M usuarios), saludable para el algoritmo.
+  Severidad: LEVE
+
+
+"Chile + LATAM" / "todo el mundo" + ticket que requiere operación local
+  Diagnóstico: Desperdicio de presupuesto en audiencias no convertibles.
+  Severidad: MODERADO
+
+
+"No lo tengo configurado / no sé"
+  Diagnóstico: Riesgo de gasto global no deseado; puede incluir países con CPM más alto.
+  Severidad: CRÍTICO
+
+
+C.4 — P7 × P24 (Plataforma × Edad del cliente ideal)
+
+
+TikTok + ICP edad 55-65+
+  Diagnóstico: Desalineación de canal; TikTok en Chile predomina en 18-34 años.
+  Severidad: MODERADO
+
+
+Meta/Facebook + ICP 45-65+
+  Diagnóstico: Alineado. Facebook tiene fuerte presencia en adultos/Gen X-Boomers en Chile.
+  Severidad: LEVE
+
+
+Instagram + ICP 18-44
+  Diagnóstico: Alineado.
+  Severidad: LEVE
+
+
+LinkedIn + ICP 18-24
+  Diagnóstico: Posible desajuste. LinkedIn es predominantemente profesionales establecidos (25-44).
+  Severidad: LEVE / MODERADO
+
+
+C.5 — P22 × P24 (A quién vende × Edad del ICP)
+
+
+"Dueños/gerentes B2B" + edad "18-24"
+  Diagnóstico: Improbable demográficamente. Revisar ICP; los dueños de empresa suelen ser 35+.
+  Severidad: MODERADO
+
+
+"Consumidor final" + "no lo tengo definido"
+  Diagnóstico: ICP indefinido; imposible optimizar copy, segmentación o creative.
+  Recomendación: Definir ICP antes de escalar inversión.
+  Severidad: MODERADO
+
+
+Coherencia entre público declarado y edad
+  Diagnóstico: Base correcta.
+  Severidad: LEVE
+
+
+C.6 — P22 × P7 (A quién vende × Plataforma)
+
+
+"Dueños/gerentes B2B" + solo Meta sin LinkedIn
+  Diagnóstico: Meta puede alcanzar decisores por interés/comportamiento, no por cargo. Cobertura parcial.
+  Severidad: MODERADO
+
+
+"Profesionales independientes" + Meta + Google
+  Diagnóstico: Alineado; ambos canales los alcanzan.
+  Severidad: LEVE
+
+
+"Consumidor final" + LinkedIn
+  Diagnóstico: Canal equivocado. LinkedIn tiene CPM premium para audiencia B2C masiva.
+  Severidad: CRÍTICO
+
+
+C.7 — P13 × P9 (Geografía × Presupuesto — audiencia mínima viable)
+
+
+Geografía muy estrecha (1 ciudad pequeña) + presupuesto alto
+  Diagnóstico: Saturación de frecuencia; audiencia se quema rápidamente, fatiga de creativos.
+  Severidad: MODERADO
+
+
+Geografía amplia + presupuesto muy bajo (<200K CLP)
+  Diagnóstico: Alcance diluido; sin densidad de conversión para aprender.
+  Severidad: MODERADO
+
+
+Geografía y presupuesto proporcionales al tamaño de audiencia
+  Diagnóstico: Correcto.
+  Severidad: LEVE
+
+
+C.8 — P22 × P24 × P7 (ICP completo × Plataforma)
+
+
+ICP coherente (público + edad) alineado a plataforma correcta
+  Diagnóstico: Base óptima de targeting. El creative hace el resto.
+  Severidad: LEVE
+
+
+ICP B2B senior + TikTok + edad joven declarada
+  Diagnóstico: Triple desalineación. El negocio, su cliente y su plataforma no coinciden.
+  Severidad: CRÍTICO
+
+
+ICP definido correctamente pero plataforma no coincide con la edad
+  Diagnóstico: Corrección puntual necesaria.
+  Severidad: MODERADO
+
+
+
+
+GRUPO D — CRUCES DE SÍNTOMA VS. CAUSA
+
+
+BENCHMARKS DE REFERENCIA (GRUPO D):
+* Speed-to-lead: responder en 5 min = 21× más calificación y 100× más contacto que a los 30 min [MIT/InsideSales; HBR 2011, 1,25M leads, 2.241 empresas]
+* 78% compra al primero que responde [InsideSales]
+* Tiempo de respuesta real B2B promedio: ~29h17m (SaaS) a 47h (estudios previos) [RevenueHero 2024]
+* CVR Meta lead gen ≈ 7,72% [WordStream 2025]
+* Instant forms (Lead Ads) = mayor volumen pero menor intención que landing propia [Distl / WordStream]
+
+Nota — arquetipos ICP de Calibrar y su síntoma más frecuente:
+  → Rodrigo Figueroa ("El Gestionador Solitario", B2C, $150K-$400K/mes): síntoma principal P25 = "no sé qué está fallando" o "muy pocos leads". Causa raíz frecuente: arquitectura de conversión incompleta (sin eventos, sin CAPI).
+  → Carolina Müller ("La Decepcionada de Agencia", B2B ticket alto, $200K-$800K/mes): síntoma principal P25 = "leads califican pero no cierran" o "CPL alto". Causa raíz frecuente: segmentación demasiado amplia o proceso de ventas sin SLA de speed-to-lead.
+
+
+D.1 — P25 × P10 (Síntoma × Objetivo de campaña)
+
+
+"Leads no califican" + objetivo "Tráfico" / "Engagement"
+  Diagnóstico: Objetivo equivocado atrae clics, no compradores. Causa raíz del síntoma.
+  Recomendación: Cambiar a objetivo Leads/Conversiones.
+  Severidad: CRÍTICO
+
+
+"Muy pocos leads" + objetivo "Reconocimiento de marca"
+  Diagnóstico: Awareness no genera leads. Confusión de KPI.
+  Recomendación: Cambiar objetivo o separar campañas de awareness y generación.
+  Severidad: MODERADO
+
+
+"CPL alto" + objetivo correcto (Leads/Conversiones)
+  Diagnóstico: El objetivo no es el problema. Revisar creative, audiencia o landing.
+  Severidad: MODERADO
+
+
+"No sé qué falla" + objetivo "no sé qué objetivo tiene"
+  Diagnóstico: Sin arquitectura ni medición. Inversión sin dirección.
+  Severidad: CRÍTICO
+
+
+D.2 — P25 × P11 (Síntoma × Destino del tráfico)
+
+
+"Leads no califican" + destino "Lead Ad nativo Meta"
+  Diagnóstico: Instant forms de baja fricción producen leads de baja intención (autocompletado).
+  Recomendación: Añadir preguntas calificadoras en el formulario o migrar a landing propia.
+  Severidad: MODERADO
+
+
+"Leads no contestan" + destino "WhatsApp directo"
+  Diagnóstico: Los leads llegan a WhatsApp pero nadie responde rápido. Speed-to-lead.
+  Severidad: MODERADO
+
+
+"Muy pocos leads" + destino "Perfil Instagram/Facebook"
+  Diagnóstico: El perfil no captura leads. El presupuesto genera visitas sin acción.
+  Severidad: CRÍTICO
+
+
+"CPL alto" + destino "Landing propia sin CRO"
+  Diagnóstico: El problema puede estar en la landing (CVR bajo), no en el anuncio.
+  Severidad: MODERADO
+
+
+D.3 — P25 × P16 (Síntoma × Estado del Pixel)
+
+
+"CPL alto" / "muy pocos leads" + Pixel "no tengo"
+  Diagnóstico: Meta no puede optimizar sin señal; el CPL se infla por falta de aprendizaje.
+  Severidad: CRÍTICO
+
+
+"Leads no califican" + Pixel verificado pero sin eventos de calidad de lead
+  Diagnóstico: Meta optimiza para volumen (bajo umbral), no para calidad.
+  Recomendación: Crear evento de "lead calificado" desde CRM vía CAPI.
+  Severidad: MODERADO
+
+
+D.4 — P25 × P6 (Síntoma × Quién cierra ventas)
+
+
+"Leads califican pero no cierran" + "fundador solo cierra"
+  Diagnóstico: Cuello de botella crítico. El fundador no puede responder en <5 min a todo el volumen.
+  Recomendación: Automatizar respuesta inicial; CRM con asignación automática.
+  Severidad: CRÍTICO
+
+
+"Leads no contestan" + equipo de ventas presente
+  Diagnóstico: El equipo existe pero no tiene SLA de respuesta. Proceso roto.
+  Recomendación: Definir SLA <5 min; revisar proceso de asignación de leads.
+  Severidad: MODERADO
+
+
+"Leads califican pero no cierran" + "cierre automático ecommerce"
+  Diagnóstico: Fricción en el checkout o en el proceso de compra online, no en la pauta.
+  Recomendación: Auditar UX del checkout; revisar abandono de carrito.
+  Severidad: MODERADO
+
+
+D.5 — P25 × P4 (Síntoma × Tamaño del equipo)
+
+
+"Leads califican pero no cierran" + "solo yo"
+  Diagnóstico: Capacidad de seguimiento insuficiente para el volumen de leads.
+  Severidad: MODERADO / CRÍTICO
+
+
+"Muy pocos leads" + "más de 20 personas"
+  Diagnóstico: Equipo sobredimensionado vs. generación de demanda. Problema en la pauta, no en ventas.
+  Severidad: MODERADO
+
+
+"Leads no califican" + "6-20 personas"
+  Diagnóstico: El equipo tiene capacidad pero recibe basura; problema de calidad upstream.
+  Severidad: MODERADO
+
+
+D.6 — P25 × P26 (Síntoma × Sabe cuánto cuesta un lead)
+
+
+"CPL alto" + P26 "no lo tengo medido"
+  Diagnóstico: No puede afirmar que el CPL es alto sin medirlo. Percepción subjetiva sin datos.
+  Recomendación: Instrumentar medición antes de optimizar.
+  Severidad: MODERADO
+
+
+"Leads no califican" + "sí, sé el costo exacto"
+  Diagnóstico: Dato confiable. El problema es calidad de fuente, no costo.
+  Severidad: LEVE (el diagnóstico está bien enfocado)
+
+
+D.7 — P25 × P27 (Síntoma × CPL real vs benchmark)
+
+
+"CPL alto" + P27 dentro de benchmark Chile para su industria
+  Diagnóstico: El CPL es normal para el mercado. La percepción de "alto" puede ser falsa alarma.
+  Recomendación: Comparar CPL vs CPL máximo viable del ticket, no vs percepción.
+  Severidad: LEVE / MODERADO
+
+
+"CPL alto" + P27 muy por encima del benchmark de la industria
+  Diagnóstico: Problema real de eficiencia. Revisar creative, segmentación, landing.
+  Severidad: CRÍTICO
+
+
+D.8 — P25 × P8 (Síntoma × Tiempo invirtiendo)
+
+
+"Resultados malos" + tiempo "menos de 1 mes"
+  Diagnóstico: Probablemente en fase de aprendizaje. El CPA es 20-40% más alto en esta etapa.
+  Recomendación: Esperar estabilización; no hacer cambios bruscos.
+  Severidad: MODERADO
+
+
+"CPL alto" + "más de 6 meses invirtiendo"
+  Diagnóstico: Problema estructural persistente. Ya no es el algoritmo aprendiendo.
+  Recomendación: Auditar arquitectura completa; posiblemente resetear estructura de campañas.
+  Severidad: CRÍTICO
+
+
+"No sé qué está fallando" + "más de 6 meses"
+  Diagnóstico: Seis meses de inversión sin diagnóstico. Costo de no saber compuesto.
+  Severidad: CRÍTICO
+
+
+
+
+GRUPO E — CRUCES DE MADUREZ Y PROCESO
+
+
+E.1 — P3 × P16 (Antigüedad de la empresa × Pixel instalado)
+
+
+"Más de 6 años" + Pixel "no tengo" / "no sé qué es"
+  Diagnóstico: Madurez de negocio sin madurez digital. Brecha grave entre operación y marketing.
+  Severidad: CRÍTICO
+
+
+"Menos de 1 año" + sin Pixel
+  Diagnóstico: Esperable en empresa nueva; instalar como prioridad inmediata.
+  Severidad: MODERADO
+
+
+"3-6 años" + Pixel sin verificar / "creo que sí"
+  Diagnóstico: Empresa madura con stack técnico sin validar. Riesgo de datos incorrectos.
+  Severidad: MODERADO
+
+
+E.2 — P3 × P26 (Antigüedad × Mide el CPL)
+
+
+"Más de 6 años" + "no lo tengo medido"
+  Diagnóstico: Negocio establecido sin cultura de medición. Años de inversión sin ROI documentado.
+  Severidad: MODERADO / CRÍTICO
+
+
+"1-3 años" + "tengo una idea aproximada"
+  Diagnóstico: Aceptable para etapa temprana; formalizar medición.
+  Severidad: LEVE
+
+
+"Menos de 1 año" + "no lo tengo medido"
+  Diagnóstico: Esperable; establecer medición desde el inicio.
+  Severidad: MODERADO
+
+
+E.3 — P3 × P25 (Antigüedad × Síntoma reportado)
+
+
+"Más de 6 años" + "no sé qué está fallando"
+  Diagnóstico: Empresa con experiencia pero sin instrumentación de diagnóstico.
+  Recomendación: Instalar stack de medición completo antes de cualquier cambio en campañas.
+  Severidad: MODERADO
+
+
+"Menos de 1 año" + "muy pocos leads"
+  Diagnóstico: Esperable; marca sin reconocimiento + aprendizaje del algoritmo en curso.
+  Severidad: LEVE / MODERADO
+
+
+"3-6 años" + "leads califican pero no cierran"
+  Diagnóstico: Empresa con tracción pero proceso de ventas no sistematizado.
+  Severidad: MODERADO
+
+
+E.4 — P4 × P6 (Tamaño de equipo × Quién cierra)
+
+
+"Solo yo" + "equipo solo cierra" (o viceversa)
+  Diagnóstico: Contradicción de datos. Aclarar antes de diagnosticar.
+  Severidad: MODERADO
+
+
+"Más de 20 personas" + "fundador solo cierra"
+  Diagnóstico: Cuello de botella severo. Empresa grande con proceso de ventas centralizado en una persona.
+  Severidad: CRÍTICO
+
+
+"2-5 personas" + "fundador solo cierra"
+  Diagnóstico: Común en PYME; riesgo de speed-to-lead con volumen creciente.
+  Severidad: MODERADO
+
+
+"6-20 personas" + "equipo 2+ vendedores y fundador no vende"
+  Diagnóstico: Estructura escalable. Foco en proceso y SLA.
+  Severidad: LEVE
+
+
+E.5 — P4 × P25 (Tamaño de equipo × Síntoma)
+
+
+"Solo yo" + "leads no contestan / no califican"
+  Diagnóstico: Capacidad limitada de respuesta; speed-to-lead comprometido por operación unipersonal.
+  Severidad: MODERADO
+
+
+"6-20 personas" + "leads califican pero no cierran"
+  Diagnóstico: El equipo existe pero el proceso de ventas está roto o sin SLA.
+  Severidad: MODERADO
+
+
+"Más de 20" + "muy pocos leads"
+  Diagnóstico: Equipo de ventas desocupado por sub-generación de demanda. Problema upstream en pauta.
+  Severidad: MODERADO
+
+
+E.6 — P6 × P25 (Quién cierra × Síntoma)
+
+
+"Fundador solo" + "leads califican pero no cierran"
+  Diagnóstico: El fundador no escala; leads calificados mueren esperando respuesta.
+  Recomendación: CRM + respuesta automática + SLA <5 min. Prioridad máxima.
+  Severidad: CRÍTICO
+
+
+"Equipo + fundador" + "leads no contestan"
+  Diagnóstico: Falta proceso claro de asignación y SLA de respuesta en el equipo.
+  Severidad: MODERADO
+
+
+"Cierre automático ecommerce" + "leads califican pero no cierran"
+  Diagnóstico: No hay "leads" en ecommerce; hay abandono de carrito o UX rota.
+  Recomendación: Auditar checkout, emails de recuperación, fricción de pago.
+  Severidad: MODERADO
+
+
+E.7 — P8 × P9 (Tiempo invirtiendo × Presupuesto mensual)
+
+
+"Menos de 1 mes" + presupuesto alto (>3M CLP)
+  Diagnóstico: Riesgo de quemar presupuesto en fase de aprendizaje sin datos suficientes.
+  Recomendación: Escalar gradualmente; no lanzar con presupuesto máximo desde el día 1.
+  Severidad: MODERADO
+
+
+"Más de 6 meses" + presupuesto <200K CLP mensual
+  Diagnóstico: Estancamiento crónico. Nunca alcanza la masa crítica de conversiones para aprender.
+  Severidad: CRÍTICO
+
+
+"3-6 meses" + presupuesto 200K-500K CLP
+  Diagnóstico: Tiempo razonable, presupuesto mínimo. Si no hay resultados, revisar arquitectura.
+  Severidad: MODERADO
+
+
+E.8 — P8 × P25 (Tiempo invirtiendo × Síntoma)
+
+
+"Menos de 1 mes" + "CPL alto"
+  Diagnóstico: Normal en fase de aprendizaje; CPA 20-40% más alto en primeras semanas.
+  Severidad: LEVE / MODERADO
+
+
+"Más de 6 meses" + "no sé qué está fallando"
+  Diagnóstico: Problema crónico no diagnosticado. Meses de gasto sin capacidad de atribución.
+  Severidad: CRÍTICO
+
+
+"1-3 meses" + "muy pocos leads"
+  Diagnóstico: Puede ser aprendizaje o problema real. Revisar presupuesto y eventos.
+  Severidad: MODERADO
+
+
+"3-6 meses" + "CPL alto persistente"
+  Diagnóstico: El algoritmo ya debería haber optimizado. Problema estructural.
+  Severidad: MODERADO / CRÍTICO
+
+
+
+
+GRUPO F — CRUCES DE COPY Y PLATAFORMA
+
+
+BENCHMARKS DE REFERENCIA (GRUPO F):
+- Motor Andromeda de Meta (2026): el creative es el principal mecanismo de targeting. "Tu creativo es tu segmentación." [Distl / Birch]
+- Pre-click qualification: el copy debe repeler a no-calificados para ahorrar presupuesto. [Trendtrack]
+- Inconsistencia anuncio-landing (message mismatch) destruye CVR; alto CTR + bajo CVR = problema de landing. [Visible Factors]
+- Regla de hook en paid media: los hooks con NEGACIÓN superan a los hooks con pregunta. Razón: la negación genera disonancia cognitiva inmediata que interrumpe el scroll. Ejemplo aprobado Calibrar: "No es tu presupuesto. Es tu anuncio, tu landing y tu segmentación." — no "¿Tu pauta no genera leads?" [criterio interno Precisión Agencia]
+
+
+F.0 — P15: Estructura del hook (REGLA INTERNA — no cruce de preguntas)
+
+
+Hook con pregunta (ej. "¿Tu pauta no genera leads?")
+  Diagnóstico: Bajo impacto en interrupción de scroll. El usuario puede ignorar una pregunta.
+  Recomendación: Reformular con negación directa. "No es tu presupuesto. Es [X]."
+  Severidad: MODERADO (impacta CTR y relevance score)
+
+
+Hook con negación + especificidad (ej. "No es tu presupuesto. Es tu anuncio, tu landing y tu segmentación.")
+  Diagnóstico: Crea disonancia cognitiva inmediata. El usuario siente que el anuncio le habla directamente.
+  Severidad: LEVE — formato correcto
+
+
+Hook genérico sin ancla emocional ("Mejora tu publicidad digital hoy")
+  Diagnóstico: No interrumpe, no califica, no diferencia. Copy de relleno.
+  Severidad: MODERADO / CRÍTICO según inversión mensual
+
+
+F.1 — P15 × P1 (Copy del anuncio × Tipo de negocio)
+
+
+Copy genérico / no específico + negocio B2B
+  Diagnóstico: No filtra al decisor; atrae leads genéricos o no calificados.
+  Recomendación: Incluir en el copy el cargo, el problema específico y el tamaño de empresa del ICP.
+  Severidad: MODERADO
+
+
+Copy con jerga técnica / profesional + B2B
+  Diagnóstico: Filtra correctamente. El anuncio actúa como segmentador.
+  Severidad: LEVE
+
+
+Copy sin propuesta de valor diferenciada + cualquier tipo
+  Severidad: MODERADO
+  Severidad: MODERADO
+
+
+Copy masivo/emocional/lifestyle + negocio B2B de ticket alto
+  Diagnóstico: Tono incorrecto para el decisor B2B. Baja resonancia con el perfil buscado.
+  Severidad: MODERADO
+
+
+F.2 — P15 × P22 (Copy × Cliente ideal declarado)
+
+
+Copy no menciona ni describe al ICP declarado en P22
+  Diagnóstico: Desalineación mensaje-público. El copy no habla directamente al cliente que se quiere atraer.
+  Recomendación: Incorporar en el copy el perfil exacto del ICP (cargo, problema, industria).
+  Severidad: MODERADO
+
+
+Copy califica explícitamente al ICP (ej. "para dueños de taller con 5+ empleados")
+  Diagnóstico: Pre-cualificación correcta. Reduce CPL basura y mejora tasa de cierre.
+  Severidad: LEVE
+
+
+F.3 — P15 × P10 (Copy × Objetivo de campaña)
+
+
+Copy sin CTA o con CTA desalineado al objetivo
+  Diagnóstico: Confunde al usuario y al algoritmo. Ej.: objetivo Leads + copy "compra ya".
+  Severidad: MODERADO
+
+
+Copy con CTA alineado al objetivo (Leads → "agenda" / "cotiza" / "solicita")
+  Diagnóstico: Coherente y optimizado.
+  Severidad: LEVE
+
+
+Objetivo "Mensajes WhatsApp" + copy sin invitación explícita a escribir
+  Diagnóstico: Fricción innecesaria; el usuario no sabe que debe ir a WhatsApp.
+  Severidad: MODERADO
+
+
+F.4 — P1 × P10 × P11 (Tipo de negocio × Objetivo × Destino — Arquitectura completa)
+
+
+B2B + Leads/formulario + Landing propia (con Pixel + eventos)
+  Diagnóstico: Arquitectura ideal B2B. Captura intención, mide, permite nurturing.
+  Severidad: LEVE
+
+
+B2C ticket bajo + Conversiones sitio + Landing propia con checkout
+  Diagnóstico: Óptimo para ecommerce y servicios B2C de ticket bajo.
+  Severidad: LEVE
+
+
+B2B + Tráfico + Perfil Instagram (sin captura de datos)
+  Diagnóstico: Arquitectura completamente rota. Sin lead ni medición.
+  Severidad: CRÍTICO
+
+
+Ecommerce + Mensajes WhatsApp + WhatsApp directo
+  Diagnóstico: Válido para venta asistida de alto valor, pero pierde catálogo/retargeting automático.
+  Severidad: MODERADO
+
+
+Cualquier tipo + objetivo "No sé" + destino "No sé"
+  Diagnóstico: Sin arquitectura de conversión. Todo el presupuesto en modo "spray and pray".
+  Severidad: CRÍTICO
+
+
+B2B + Lead Ad nativo + ticket alto
+  Diagnóstico: Instant forms de baja fricción + ticket alto = leads de baja calidad que sobrecargan ventas.
+  Recomendación: Migrar a landing propia con formulario calificador.
+  Severidad: CRÍTICO
+
+
+
+
+GRUPO G — CRUCES DE SEÑAL EXTERNA (DIAGNÓSTICO SIN EL CLIENTE)
+
+
+Nuevo en v1.3 (27-jul-2026). Los Grupos A–F asumen que alguien respondió P1–P28. El Grupo G opera cuando NADIE respondió nada: se construye solo con lo observable desde afuera. Es lo que habilita la vía B del PRD (§5.9) y el Uso 1 — calificar los 370+ prospectos de la base sin su cooperación.
+
+
+SEÑALES OBSERVABLES Y CÓMO SE OBTIENEN:
+
+
+  S1  Pauta activa            Biblioteca de Anuncios de Meta — ¿hay anuncios corriendo? ¿desde cuándo? ¿cuántas variantes?
+  S2  Pixel / GTM             Código fuente de la landing — ¿fbq(? ¿gtag(? ¿GTM-?
+  S3  Verificación de dominio Metadatos de Facebook en el <head>
+  S4  Destino del anuncio     A dónde apunta el enlace del anuncio: home vs landing dedicada vs WhatsApp vs perfil
+  S5  Estructura de la landing ¿Formulario? ¿CTA específico o "contáctenos"? ¿un solo CTA o varios?
+  S6  Precio publicado        Página de precios o catálogo — ticket estimado
+  S7  Rubro                   Determina el rango de CPL de industria aplicable
+  S8  Copy del anuncio        Texto visible en la Biblioteca de Anuncios
+  S9  Analítica               ¿GA4 en el código?
+  S10 Velocidad y móvil       Carga de la landing en móvil (>60% del tráfico chileno)
+
+
+REGLA DE TECHO DE CONFIANZA — INVIOLABLE:
+Ninguna afirmación del Grupo G puede declararse [Seguro] sobre INTENCIÓN o sobre CIFRAS INTERNAS.
+Lo observable prueba presencia o ausencia en lo público, nunca configuración de cuenta ni economía del negocio.
+  - "No hay Pixel detectable en esta landing"      → afirmable [Seguro]
+  - "No tiene Pixel"                               → PROHIBIDO (puede estar en otra página o vía GTM)
+  - "Hay 12 anuncios activos desde hace 4 meses"   → afirmable [Seguro]
+  - "El objetivo de campaña es Tráfico"            → PROHIBIDO (no es observable)
+  - "El precio publicado es $29.990"               → afirmable [Seguro]
+  - "Su ticket promedio es $29.990"                → PROHIBIDO (el publicado no es el promedio)
+Toda hipótesis que dependa de un dato no observable se marca confianza BAJA y su verificación ES la pregunta de la reunión.
+
+
+G.1 — S1 × S2 (Pauta activa × Pixel detectable)
+
+
+Anuncios activos + sin Pixel ni GTM detectable en la landing de destino
+  Implica: Se está pagando tráfico hacia una página que no puede medir ni construir audiencias.
+  Diagnóstico: Cuenta probablemente ciega. Es la señal externa de mayor valor diagnóstico.
+  Recomendación: Confirmar en la reunión si el Pixel está en otra página o vía GTM.
+  Severidad: CRÍTICO   Confianza: PROBABLE   Atribución: gestión
+
+
+Anuncios activos + Pixel presente + sin verificación de dominio (S3)
+  Implica: Pixel instalado pero configuración incompleta; limita atribución y agregación de eventos.
+  Diagnóstico: Medición parcial — el caso más común en PYME con agencia previa.
+  Recomendación: Preguntar por CAPI y eventos; el Pixel solo ya no basta en 2026.
+  Severidad: MODERADO   Confianza: PROBABLE   Atribución: gestión
+
+
+Sin anuncios activos en la Biblioteca
+  Implica: No hay inversión en Meta hoy, o pauta solo en Google.
+  Diagnóstico: FUERA DE PERFIL para diagnóstico de pauta Meta (PRD §2.4). No se genera dashboard.
+  Recomendación: No visitar con discurso de pauta. Verificar si capta por licitación, contrato o cartera.
+  Severidad: N/D   Confianza: SEGURO   Atribución: N/D
+
+
+G.2 — S1 × S4 (Pauta activa × Destino del anuncio)
+
+
+Anuncios activos + destino = home del sitio
+  Implica: El visitante aterriza en una página que no fue diseñada para convertir ese anuncio.
+  Diagnóstico: Arquitectura de conversión rota. Message match imposible de sostener.
+  Recomendación: Verificar si existe landing dedicada no usada.
+  Severidad: CRÍTICO   Confianza: SEGURO   Atribución: gestión
+
+
+Anuncios activos + destino = perfil de Instagram o Facebook
+  Implica: El perfil no captura datos de contacto.
+  Diagnóstico: Si el objetivo es generar leads, la arquitectura no puede funcionar. Bandera roja.
+  Recomendación: Confirmar el objetivo declarado antes de afirmar la incoherencia.
+  Severidad: CRÍTICO   Confianza: PROBABLE   Atribución: gestión
+
+
+Anuncios activos + destino = WhatsApp directo
+  Implica: Conversión fuera del sitio; medible solo con configuración específica.
+  Diagnóstico: Válido para ticket bajo y decisión rápida; incoherente si además declara optimizar conversiones en sitio.
+  Recomendación: Preguntar el objetivo configurado. Sin ese dato no se puede afirmar incoherencia.
+  Severidad: MODERADO   Confianza: REQUIERE VALIDACIÓN   Atribución: compartida
+
+
+G.3 — S1 × S5 (Pauta activa × Estructura de la landing)
+
+
+Anuncios activos + landing sin formulario ni CTA de contacto
+  Implica: Se paga tráfico que no tiene dónde convertir.
+  Diagnóstico: Fuga estructural. El presupuesto compra visitas que no dejan rastro.
+  Recomendación: Es de las pocas hipótesis de vía B con evidencia visual directa: mostrarla en pantalla en la reunión.
+  Severidad: CRÍTICO   Confianza: SEGURO   Atribución: gestión
+
+
+Anuncios activos + CTA genérico ("contáctenos", "más información")
+  Implica: CTA sin fricción calificadora ni promesa específica.
+  Diagnóstico: Atrae volumen no calificado; consistente con el síntoma "los leads no califican".
+  Recomendación: Hipótesis de Capa 3, subordinada a medición y objetivo.
+  Severidad: MODERADO   Confianza: SEGURO   Atribución: gestión
+
+
+G.4 — S6 × S7 (Precio publicado × Rubro)
+
+
+Precio publicado < $50.000 + rubro con CPL de industria > 30% de ese precio
+  Implica: El CPL referencial del rubro se come una fracción insostenible del ticket.
+  Diagnóstico: Posible inviabilidad de Capa 1 — pero el precio publicado NO es el ticket promedio ni el LTV.
+  Recomendación: Confianza BAJA obligatoria. Verificar ticket real, recompra y LTV en la reunión.
+  Severidad: CRÍTICO (si se confirma)   Confianza: REQUIERE VALIDACIÓN   Atribución: estructura
+
+
+Precio publicado alto + rubro de captación local (salud, eventos, inmobiliaria)
+  Implica: Ticket que soporta el CPL de industria con holgura.
+  Diagnóstico: Viabilidad económica probable. Perfil de fit alto (PRD §4, decisión #9).
+  Recomendación: Prospecto prioritario. Score alto en §5.6.
+  Severidad: LEVE   Confianza: PROBABLE   Atribución: N/D
+
+
+Sin precios públicos + rubro B2B de servicio
+  Implica: Ticket no estimable desde afuera.
+  Diagnóstico: Capa 1 queda sin datos. No se infiere.
+  Recomendación: El ticket es la primera pregunta de la reunión (PRD §5.7.3).
+  Severidad: N/D   Confianza: N/D   Atribución: N/D
+
+
+G.5 — S1 × S8 (Antigüedad y variantes de anuncios × Copy)
+
+
+Anuncios activos > 3 meses + una sola variante sin cambios
+  Implica: No hay testing de creatividades.
+  Diagnóstico: Fatiga de creativo probable; con el motor Andromeda de Meta, el creativo ES la segmentación.
+  Recomendación: Verificar frecuencia y CTR en la reunión.
+  Severidad: MODERADO   Confianza: SEGURO (sobre la ausencia de variantes)   Atribución: gestión
+
+
+Copy visible sin mención del ICP ni negación
+  Implica: El anuncio no repele a no calificados.
+  Diagnóstico: Capa 3. Atrae volumen; subordinado a medición y objetivo.
+  Recomendación: No es la conversación de apertura. Guardarlo para después del hallazgo dominante.
+  Severidad: MODERADO   Confianza: SEGURO   Atribución: gestión
+
+
+Muchas variantes activas + destino único genérico
+  Implica: Se invierte en creatividad sobre una arquitectura que no convierte.
+  Diagnóstico: Esfuerzo mal asignado — trabajan la capa equivocada.
+  Recomendación: Hipótesis de alto valor conversacional: reconoce el esfuerzo antes de señalar el error.
+  Severidad: MODERADO   Confianza: PROBABLE   Atribución: gestión
+
+
+G.6 — Combinación de fuga (S2 × S4 × S5) — la hipótesis dominante de vía B
+
+
+Sin Pixel detectable + destino home + sin formulario
+  Implica: Los tres eslabones de la conversión rotos simultáneamente.
+  Diagnóstico: Fuga total. Se paga tráfico que no convierte, no se mide y no se puede reintentar.
+  Recomendación: Prospecto de máxima severidad y máximo valor de conversación. Los tres hallazgos son
+                  demostrables en pantalla sin pedirle nada al prospecto.
+  Severidad: CRÍTICO   Confianza: SEGURO (sobre las tres ausencias)   Atribución: gestión
+
+
+GRUPO H — RUTEO DE ÁREA (CADENA DE CRECIMIENTO COMERCIAL)
+
+
+Nuevo en v1.4. Los Grupos A–G diagnostican DENTRO de la pauta. El Grupo H decide, antes que todo, SI el problema
+es de pauta. Opera sobre las 12 preguntas de triage T1–T12 (PRD §5.1.1) y devuelve el eslabón dominante.
+
+
+LOS SEIS ESLABONES:
+  E2 Reputación y posicionamiento  → Contenido y RRPP
+  E3 Generación de demanda         → Paid Media y SEO   (análisis profundo = Grupos A–G)
+  E4 Activo de conversión          → Desarrollo web            (análisis profundo = Grupo J)
+  E5 Captura y respuesta           → Automatización y agentes (análisis profundo = Grupo I)
+  E6 Escala de la conversación     → RPA y procesos (análisis profundo = Grupo I)
+  E7 Capacidad del equipo          → Capacitación y adopción               (análisis profundo = Grupo K)
+
+
+REGLA DE PRECEDENCIA — INVIOLABLE:
+El eslabón dominante es EL PRIMERO QUE SE ROMPE CONTANDO DESDE DONDE HOY HAY FLUJO.
+Si hay una fuga río abajo, invertir río arriba la amplifica. No se recomienda generar más demanda
+sobre una captura rota. "Se tapa el balde antes de abrir la llave."
+
+
+ANCLA CUANTITATIVA PARA E5/E6 (nueva):
+  Costo hora administrativa RM ≈ $6.000 CLP  [derivado: ingreso medio RM $1.058.905/mes ÷ 176 h — INE/Banco
+  Central vía Buyer Persona Precisión; referencial]
+  Uso: T11 (horas semanales repetitivas) × $6.000 × 4,3 = costo mensual del trabajo repetitivo.
+  Es la ÚNICA cifra del diagnóstico que el dueño puede comparar directo contra el precio de una automatización.
+  SIEMPRE marcarla [estimación] y declarar el supuesto de costo hora.
+
+
+H.1 — T7 × T8 × T3 (Tiempo de respuesta × Registro × Volumen) — EL DETECTOR DE AUTOMATIZACIÓN
+
+
+T3 > 0 oportunidades + T7 "más de un día" o "no sé" + T8 "no queda en ninguna parte"
+  Implica: Llegan oportunidades y se pierden antes de que alguien las trabaje.
+  Diagnóstico: E5 DOMINANTE. Fuga de captura. Speed-to-lead 5 min = 21× más calificación que a los 30 min.
+  Recomendación: Automatización de captura y asignación ANTES que cualquier inversión en demanda.
+  Severidad: CRÍTICO   Atribución: gestión   Área: Automatización y agentes
+
+
+T3 > 0 + T7 "más de un día" + T8 "planilla" o "correo/WhatsApp"
+  Implica: Hay registro pero no hay proceso; el seguimiento depende de que alguien se acuerde.
+  Diagnóstico: E5 dominante, severidad menor. Existe materia prima para automatizar.
+  Recomendación: CRM + asignación automática + recordatorios. Quick win de alto impacto percibido.
+  Severidad: CRÍTICO   Atribución: gestión   Área: Automatización y agentes
+
+
+T3 > 0 + T7 "menos de 5 min" + T8 "CRM"
+  Implica: La captura funciona.
+  Diagnóstico: E5 SANO. El problema está río arriba (E2/E3/E4) o río abajo (E6).
+  Recomendación: No proponer automatización de captura. Sería vender lo que ya tienen.
+  Severidad: LEVE   Área: N/D
+
+
+H.2 — T4 × T3 × T1 (Pauta × Volumen × Origen del cliente)
+
+
+T4 "no invierte" + T3 bajo + T1 "recomendación" o "licitación"
+  Implica: Nunca ha generado demanda activa; depende de canales que no controla.
+  Diagnóstico: E3 dominante SOLO SI E4 y E5 están sanos. Si no, primero se tapa la fuga.
+  Recomendación: Verificar E4/E5 antes de proponer pauta. Es el error clásico.
+  Severidad: MODERADO   Atribución: estructura   Área: Paid Media y SEO
+
+
+T4 "no invierte" + T1 "licitación" + T11 alto (>10 h/semana)
+  Implica: Capta por proceso formal y gasta el tiempo del equipo en preparar propuestas a mano.
+  Diagnóstico: E5 DOMINANTE. NO es prospecto de pauta. ES prospecto de automatización.
+  Recomendación: Éste es exactamente el perfil que la v3.x descartaba como "fuera de perfil" (PRD §5.0.3).
+                  Entrar por eficiencia de cotización y seguimiento, jamás por pauta.
+  Severidad: CRÍTICO   Atribución: gestión   Área: Automatización y agentes
+
+
+T4 invierte + T3 alto + T7 rápido + T8 CRM
+  Implica: Toda la cadena de adquisición funciona.
+  Diagnóstico: Buscar el eslabón en E6 (escala) o E2 (posicionamiento). Puede no haber nada que vender.
+  Recomendación: Si no hay eslabón roto, DECIRLO. No fabricar un problema (regla inviolable 2).
+  Severidad: LEVE   Área: posiblemente ninguna
+
+
+H.3 — T5 × T6 × T4 (Destino × Captura de datos × Pauta)
+
+
+T4 invierte + T5 "home" o "perfil de redes"
+  Implica: Se paga tráfico hacia un activo no diseñado para convertir ese anuncio.
+  Diagnóstico: E4 DOMINANTE sobre E3. Optimizar la campaña antes de arreglar el destino es desperdicio.
+  Recomendación: Landing dedicada antes que cualquier ajuste de segmentación o creatividad.
+  Severidad: CRÍTICO   Atribución: gestión   Área: Desarrollo web
+
+
+T4 invierte + T6 "no" (nadie puede dejar datos sin hablar contigo)
+  Implica: El único camino de conversión exige interacción humana sincrónica.
+  Diagnóstico: E4 crítico. Techo estructural de conversión: se pierde todo el que llega fuera de horario.
+  Recomendación: Formulario o carro antes de subir presupuesto.
+  Severidad: CRÍTICO   Atribución: gestión   Área: Desarrollo web
+
+
+T5 "WhatsApp" + T8 "no queda en ninguna parte"
+  Implica: Vende por WhatsApp sin registro. El canal no es el problema; la ausencia de proceso sí.
+  Diagnóstico: E5 dominante. Candidato de agente/CRM sobre WhatsApp.
+  Recomendación: No proponer migrar de canal. Proponer ordenar el canal que ya usa y funciona.
+  Severidad: CRÍTICO   Atribución: gestión   Área: Automatización y agentes
+
+
+H.4 — T9 × T10 × T11 (Seguimiento perdido × Uso de IA × Horas repetitivas)
+
+
+T9 "muchas" + T3 alto + T7 razonable
+  Implica: Se contesta al primer contacto pero no se sostiene la conversación.
+  Diagnóstico: E6 dominante. Problema de escala de atención, no de captura.
+  Recomendación: Agente de seguimiento / secuencias. Es el caso natural de Marketing con IA.
+  Severidad: CRÍTICO   Atribución: gestión   Área: RPA y procesos
+
+
+T11 > 10 h/semana + T10 "no" o "no sé qué sería"
+  Implica: Alto costo de trabajo repetitivo y cero exposición a herramientas que lo reduzcan.
+  Diagnóstico: E5/E6 dominante con brecha de conocimiento. Cuantificar: T11 × $6.000 × 4,3 [estimación].
+  Recomendación: Presentar el costo mensual del trabajo repetitivo ANTES de nombrar ninguna herramienta.
+  Severidad: CRÍTICO   Atribución: estructura   Área: Automatización + Capacitación y adopción
+
+
+T10 "alguien la usa por su cuenta" + T12 "no"
+  Implica: Uso informal de IA, sin política ni respaldo institucional, concentrado en una persona.
+  Diagnóstico: Riesgo operacional y de datos. Ver Ley 21.719.
+  Recomendación: Capacitación y adopción + gobernanza antes de escalar cualquier automatización.
+  Severidad: MODERADO   Atribución: compartida   Área: Capacitación y adopción
+
+
+H.5 — T1 × T2 (Origen del cliente × Huella pública)
+
+
+T2 "casi nada" + ticket alto + B2B + ciclo largo
+  Implica: No existe para su mercado en el momento en que lo evalúan.
+  Diagnóstico: E2 dominante — uno de los dos únicos casos en que la reputación antecede.
+  Recomendación: Posicionamiento y prueba pública antes de generar demanda pagada.
+  Severidad: CRÍTICO   Atribución: estructura   Área: Contenido y RRPP
+
+
+T2 "solo redes" + T1 "recomendación"
+  Implica: Depende del boca a boca y no tiene activos que sostengan la confianza de un desconocido.
+  Diagnóstico: E2 secundario. Se trabaja en paralelo, no antes.
+  Recomendación: No hacerlo dominante salvo que E3/E4/E5 estén sanos.
+  Severidad: MODERADO   Atribución: estructura   Área: RRPP (secundaria)
+
+
+Evento reputacional activo (crisis, reseñas negativas recientes, cobertura adversa)
+  Implica: Cualquier inversión en demanda amplifica una percepción negativa.
+  Diagnóstico: E2 DOMINANTE absoluto. Segundo de los dos casos.
+  Recomendación: Detener escalamiento de pauta hasta contener.
+  Severidad: CRÍTICO   Atribución: estructura   Área: Contenido y RRPP
+
+
+H.6 — T12 (Dependencia) — MODIFICADOR, NUNCA DOMINANTE SOLO
+
+
+T12 "no" + cualquier eslabón dominante
+  Implica: Lo que se recomiende no va a sostenerse solo.
+  Diagnóstico: E7 como MODIFICADOR del área dominante, no como reemplazo.
+  Recomendación: La solución se propone en dos partes: la intervención + cómo el equipo la sostiene.
+                  NUNCA "capacitación en vez de".
+  Severidad: hereda la del eslabón dominante   Área: <área dominante> + Capacitación y adopción
+
+
+T12 "no" + todos los eslabones sanos + depende críticamente de un externo
+  Implica: Único caso en que E7 es dominante por sí solo.
+  Diagnóstico: E7 dominante. Riesgo de continuidad, no de crecimiento.
+  Severidad: MODERADO   Atribución: estructura   Área: Capacitación y adopción
+
+
+
+
+GRUPO I — PROCESOS Y AUTOMATIZACIÓN (análisis profundo de E5/E6)
+
+
+Se aplica solo cuando H rutea a E5 o E6. Requiere las preguntas profundas de área (PRD Anexo A2, pendiente).
+
+
+Cotización manual + más de 5 cotizaciones/semana
+  Diagnóstico: Proceso de mayor retorno de automatización en PYME B2B. Alto volumen, alta repetición, formato estable.
+  Recomendación: Plantilla + generación asistida. Cuantificar horas ahorradas.
+  Severidad: CRÍTICO   Atribución: gestión
+
+
+Sin CRM + más de 2 personas vendiendo
+  Diagnóstico: Los leads se pierden en el traspaso entre personas. Nadie sabe qué prometió el otro.
+  Severidad: CRÍTICO   Atribución: gestión
+
+
+Sin CRM + una sola persona vendiendo
+  Diagnóstico: Tolerable hoy, techo de crecimiento mañana. NO es urgente: no inflar la severidad.
+  Severidad: MODERADO   Atribución: estructura
+
+
+Seguimiento manual + ciclo de venta > 30 días
+  Diagnóstico: En ciclos largos el olvido es la causa principal de pérdida, no el precio.
+  Severidad: CRÍTICO   Atribución: gestión
+
+
+Datos del negocio en planillas separadas sin fuente única
+  Diagnóstico: Cada reporte exige reconciliación manual. Costo oculto recurrente.
+  Severidad: MODERADO   Atribución: compartida
+
+
+Facturación o cobranza manual + más de 20 documentos/mes
+  Diagnóstico: Riesgo de error y de mora por olvido, además del costo horario.
+  Severidad: MODERADO   Atribución: gestión
+
+
+Atención concentrada en horario hábil + demanda fuera de horario observable
+  Diagnóstico: Candidato de agente conversacional. Se pierde el contacto de quien busca de noche.
+  Severidad: MODERADO   Atribución: estructura
+
+
+REGLA DE HONESTIDAD DEL GRUPO I:
+El ahorro se expresa SIEMPRE como rango y marcado [estimación], con el supuesto de costo hora declarado.
+Prohibido prometer un porcentaje de ahorro. Prohibido nombrar una herramienta específica en el diagnóstico:
+la herramienta es decisión de implementación, no hallazgo.
+
+
+
+
+GRUPO J — ACTIVOS DIGITALES Y WEB (análisis profundo de E4)
+
+
+Sin landing dedicada + pauta activa
+  Diagnóstico: Message match imposible. Ya cubierto en G.2; aquí se profundiza en qué construir.
+  Severidad: CRÍTICO   Atribución: gestión
+
+
+Sitio no optimizado para móvil + >60% del tráfico chileno es móvil
+  Diagnóstico: Se pierde la mayoría del tráfico pagado en la primera pantalla.
+  Severidad: CRÍTICO   Atribución: gestión
+
+
+Carga lenta en móvil + pauta activa
+  Diagnóstico: Costo por lead inflado por abandono previo a la carga. Se paga el clic y no llega la visita.
+  Severidad: CRÍTICO   Atribución: gestión
+
+
+Sin evidencia de conversión visible (casos, reseñas, clientes, certificaciones)
+  Diagnóstico: El visitante no tiene razón para confiar. Cruza con E2.
+  Severidad: MODERADO   Atribución: compartida
+
+
+Ecommerce sin integración con inventario o ERP
+  Diagnóstico: Frontera E4/E5. La venta funciona y la operación no la sostiene.
+  Severidad: MODERADO   Atribución: compartida
+
+
+
+
+GRUPO K — CAPACIDAD DEL EQUIPO (análisis profundo de E7)
+
+
+Nadie internamente puede editar el sitio
+  Diagnóstico: Toda modificación depende de un tercero. Freno estructural de velocidad.
+  Severidad: MODERADO   Atribución: estructura
+
+
+Nadie internamente entiende el Administrador de Anuncios
+  Diagnóstico: No pueden auditar a quien gestiona. Es la condición que produjo a "La Decepcionada de Agencia".
+  Recomendación: Capacitación y adopción como CONTRAPESO, no como reemplazo del servicio. Argumento honesto de venta.
+  Severidad: MODERADO   Atribución: estructura
+
+
+Uso de IA concentrado en una sola persona sin documentación
+  Diagnóstico: Riesgo de continuidad; se va la persona, se va la capacidad.
+  Severidad: MODERADO   Atribución: estructura
+
+
+Equipo con herramientas contratadas y sin usar
+  Diagnóstico: Brecha de adopción, no de tecnología. Comprar otra herramienta empeora el problema.
+  Severidad: MODERADO   Atribución: compartida
+
+
+
+
+GRUPO L — REPUTACIÓN Y POSICIONAMIENTO (análisis profundo de E2)
+
+
+Sin reseñas o con reseñas negativas sin responder
+  Diagnóstico: La prueba social juega en contra en el momento exacto de la evaluación.
+  Severidad: MODERADO (CRÍTICO si negativas recientes y sin respuesta)   Atribución: gestión
+
+
+Sin presencia en búsqueda por nombre de marca
+  Diagnóstico: No existe para quien lo evalúa después de una recomendación. Rompe el canal que sí funciona.
+  Severidad: CRÍTICO si T1 = "recomendación"   Atribución: estructura
+
+
+Ticket alto + ciclo largo + sin contenido de autoridad
+  Diagnóstico: En B2B de alto ticket la confianza precede a la conversación. Sin ella el CPL sube por desconfianza.
+  Severidad: MODERADO   Atribución: estructura
+
+
+Comunicación centrada en la empresa y no en el problema del cliente
+  Diagnóstico: Mensaje que no interpela. Cruza con Grupo F.
+  Severidad: MODERADO   Atribución: gestión
+
+
+
+
+GRUPO M — CRITERIO Y FOCO COMERCIAL (análisis profundo de E1)
+
+
+Nuevo en v1.5. Se agregó tras contrastar la matriz contra la cuenta Bunzl/Vicsa, que expuso un fallo que
+ningún grupo anterior podía diagnosticar: llegan oportunidades en volumen y la conversión es cero.
+E1 antecede a TODOS los demás eslabones cuando hay flujo llegando y no convirtiendo.
+
+
+LA SEÑAL DEFINITORIA:
+  Volumen de oportunidades ALTO + conversión a negocio CERCANA A CERO = E1, no E3.
+  El dueño pedirá más leads. Darle más leads reproduce el fracaso con otro proveedor.
+  Caso de referencia: Vicsa/Bunzl — 90 leads → 2 citas → 0 negocios en ~12 meses.
+
+
+M.1 — T13 × T14 (Criterio escrito × Criterio demostrable)
+
+
+T13 "no" + T14 "no sabría" + T3 alto
+  Implica: Reciben oportunidades y no tienen con qué separarlas.
+  Diagnóstico: E1 DOMINANTE. Ninguna inversión río abajo va a convertir.
+  Recomendación: Definición operativa de cliente calificado, por escrito y acordada con el equipo comercial,
+                  ANTES de prospectar un solo contacto más. Es lo más barato de corregir y lo que habilita
+                  todo lo demás: una sesión de trabajo, no un desarrollo.
+  Severidad: CRÍTICO   Atribución: gestión   Área: Estrategia y diagnóstico
+
+
+T13 "lo sabemos pero no está escrito" + más de una persona vendiendo
+  Implica: El criterio vive en la cabeza de alguien y no sobrevive al traspaso.
+  Diagnóstico: E1 dominante en su forma más común. Cada vendedor califica distinto.
+  Recomendación: Formalizar y firmar. Sin criterio compartido, el proveedor optimiza volumen —porque es lo
+                  que puede demostrar— y el cliente evalúa cierres. Esa desalineación es la causa raíz.
+  Severidad: CRÍTICO   Atribución: gestión   Área: Estrategia y diagnóstico
+
+
+T13 "sí, por escrito" + T14 criterio explicable + conversión baja igual
+  Implica: El criterio existe pero no discrimina.
+  Diagnóstico: E1 parcial — hay criterio, está mal calibrado. Distinto de no tenerlo.
+  Recomendación: Revisar el criterio contra la base de clientes que SÍ compraron. El perfil real está ahí.
+  Severidad: MODERADO   Atribución: gestión   Área: Estrategia y diagnóstico
+
+
+M.2 — Volumen entregado vs capacidad de atención
+
+
+Volumen de leads recibidos >> personas disponibles para trabajarlos
+  Implica: Se dimensionó el servicio por lo que el proveedor podía producir, no por lo que el cliente
+           podía atender.
+  Diagnóstico: E1 con manifestación de capacidad. El compromiso honesto es MENOS leads mejor calificados.
+  Recomendación: Dimensionar el volumen objetivo a la capacidad real de contacto semanal. Sin ese dato,
+                  cualquier cifra de volumen prometida es inventada.
+  Severidad: CRÍTICO   Atribución: compartida   Área: Estrategia y diagnóstico
+
+
+Herramienta o proveedor de prospección contratado + sin criterio previo acordado
+  Implica: Se compró el motor antes de definir qué tenía que producir.
+  Diagnóstico: Es el error de secuencia más caro y más común. El motor es lo visible y parece el producto.
+  Recomendación: El orden correcto es: acordar criterio → dimensionar capacidad → segmentar territorio →
+                  recién entonces construir el motor.
+  Severidad: CRÍTICO   Atribución: gestión   Área: Estrategia y diagnóstico
+
+
+M.3 — Base instalada sin explotar
+
+
+Cartera de clientes actuales existente + sin usarse para perfilar similares
+  Implica: El perfil real del comprador ya está en la casa y nadie lo ha leído.
+  Diagnóstico: La fuente de criterio más barata y más predictiva disponible, sin usar.
+  Recomendación: Antes de cualquier prospección en frío, perfilar la base actual. Rubro, tamaño, zona,
+                  ticket, antigüedad. De ahí sale el criterio de M.1 sin gastar un peso.
+  Severidad: MODERADO (alto retorno)   Atribución: gestión   Área: Estrategia y diagnóstico
+
+
+Historial de leads fallidos disponible y sin analizar
+  Implica: Existe evidencia directa de por qué no convirtieron y nadie la miró.
+  Diagnóstico: Muy alto valor diagnóstico. Permite pasar de hipótesis a causa comprobada.
+  Recomendación: Pedirlo siempre. Junto con la base instalada, son los dos insumos de mayor retorno.
+  Severidad: N/D   Atribución: N/D   Área: Estrategia y diagnóstico
+
+
+M.4 — Territorio y vertical sin segmentar
+
+
+Opera en todo el país tratado como mercado único + equipo comercial pequeño
+  Implica: Dispersión garantizada. Un alcance amplio con capacidad mínima produce cobertura nula.
+  Diagnóstico: E1 en su dimensión de foco. No es falta de criterio de cliente, es falta de criterio de dónde.
+  Recomendación: Acotar a UNA zona y UN vertical para el piloto. Es preferible algo pequeño que funcione
+                  y se pueda demostrar, a un despliegue amplio que se diluya.
+  Severidad: CRÍTICO   Atribución: compartida   Área: Estrategia y diagnóstico
+
+
+Sin criterio de corte ni compuertas de decisión declaradas
+  Implica: Un proyecto sin criterio de salida se extiende indefinidamente porque nadie definió cuándo parar.
+  Diagnóstico: Es lo que convierte doce meses sin resultado en doce meses sin decisión.
+  Recomendación: Fijar métricas y punto de corte ANTES de empezar, con compuertas formales y la opción
+                  "detener" escrita desde el día uno.
+  Severidad: CRÍTICO   Atribución: compartida   Área: Estrategia y diagnóstico
+
+
+M.5 — Gatillos normativos y de inversión (oportunidad, no problema)
+
+
+Rubro del prospecto afectado por normativa reciente que crea obligación de compra
+  Implica: Existe un universo objetivo definido por ley, no por estimación de mercado.
+  Diagnóstico: La prospección deja de ser un ejercicio de estimación y pasa a ser uno de identificación.
+  Recomendación: Es el hallazgo de mayor valor que puede producir un diagnóstico E1. Buscarlo siempre:
+                  ¿qué norma reciente crea un comprador obligatorio en el rubro del prospecto?
+  Severidad: N/D (oportunidad)   Área: Estrategia y diagnóstico
+
+
+Rubro del prospecto expuesto a ciclo de inversión sectorial documentado
+  Implica: Demanda con horizonte y concentración geográfica conocidas.
+  Recomendación: Permite decidir zona y vertical del piloto con dato público, antes de gastar en prospección.
+  Severidad: N/D (oportunidad)   Área: Estrategia y diagnóstico
+
+
+REGLA DE HONESTIDAD DEL GRUPO M — EL DIAGNÓSTICO NUNCA TERMINA EN UN "NO", TERMINA EN UN ORDEN:
+
+Un diagnóstico E1 concluye muchas veces que el cliente no necesita MÁS marketing. Eso no es una mala
+noticia y no se comunica como tal. Lo que necesita es arreglar el que ya tiene —lo opere gente interna
+o un proveedor externo—, o resolver una capa de proceso, o una necesidad directa de IA.
+
+PROHIBIDO cerrar con "no necesitas marketing" a secas. La formulación correcta tiene tres partes:
+  1. Lo primero que hay que arreglar es lo que YA TIENE, no algo nuevo que comprar.
+  2. El orden, con la razón de por qué ese orden y no otro.
+  3. Qué de eso resuelve Precisión (por pilar) y qué queda fuera de su alcance.
+
+Los cuatro destinos posibles y cómo se dicen:
+  - Arreglar lo que tiene   → "Tu inversión está bien; está mal apuntada."
+  - Automatizar una capa    → "Tu problema no es vender más, es lo que pasa después del sí."
+  - Necesidad directa de IA → "Tienes volumen y proceso; te falta atenderlo sin contratar más gente."
+  - Fuera de alcance        → "Esta parte no la resolvemos nosotros. Te digo qué buscarías y en qué orden."
+
+LA ETAPA 1 NUNCA ES ALGO QUE PRECISIÓN VENDA. Siempre es lo más barato y lo más verificable, aunque no
+facture. Eso es lo que hace creíble todo lo que viene después, y es la única forma de desactivar la
+creencia "si pago, igual me van a vender algo": no refutándola, sino comportándose de forma incompatible
+con ella.
+
+
+
+
+GRUPO N — CAPTACIÓN ORGÁNICA / SEO (parte del eslabón E3 Demanda)
+
+
+Nuevo en v1.6. El sitio publica SEO como disciplina del eslabón de demanda y la Matriz solo contemplaba
+pauta pagada. Estos cruces cubren el lado orgánico: es la diferencia entre depender del presupuesto de
+medios y construir captación que no se apaga cuando se corta la tarjeta.
+
+
+N.1 — Dependencia total de pauta pagada
+
+
+Pauta activa + sin tráfico orgánico relevante + más de 6 meses invirtiendo
+  Implica: Toda la demanda se apaga el día que se corta el presupuesto. Sin activo propio de captación.
+  Diagnóstico: Fragilidad estructural del canal. El CAC no baja con el tiempo porque nada se acumula.
+  Recomendación: SEO como complemento, NUNCA como reemplazo de la pauta. Los plazos son distintos:
+                  la pauta responde en días, el orgánico en meses.
+  Severidad: MODERADO   Atribución: compartida   Área: Paid Media y SEO
+
+
+Pauta pausada por impago o corte + caída de demanda a cero
+  Implica: Confirmación empírica de la dependencia. Ya ocurrió.
+  Diagnóstico: La cuenta no tiene piso orgánico. Es el caso Eco Star: dos pausas en un semestre y el
+               alcance cayó a niveles cercanos a cero en ambas.
+  Recomendación: Es el argumento más concreto para SEO, porque no es hipotético — el cliente ya lo vivió.
+  Severidad: CRÍTICO   Atribución: compartida   Área: Paid Media y SEO
+
+
+N.2 — Intención de búsqueda vs contenido publicado
+
+
+Rubro con búsqueda industrial activa + sitio sin páginas por servicio o producto
+  Implica: Hay gente buscando lo que vende y el sitio no tiene dónde recibirla.
+  Diagnóstico: Demanda existente sin capturar. Cruza con E4 (activo).
+  Recomendación: Arquitectura de contenido por intención comercial antes que volumen de artículos.
+  Severidad: MODERADO   Atribución: gestión   Área: Paid Media y SEO
+
+
+Contenido publicado sin intención comercial (blog genérico)
+  Implica: Tráfico que no compra. Métricas que suben sin que suba el negocio.
+  Diagnóstico: Es el equivalente orgánico del objetivo "Tráfico" en pauta: volumen sin calificación.
+  Recomendación: Palabras clave de alta intención, no de alto volumen.
+  Severidad: MODERADO   Atribución: gestión   Área: Paid Media y SEO
+
+
+Sitio lento o sin versión móvil + rubro con búsqueda activa
+  Implica: Penalización de posicionamiento sobre un activo que además ya no convierte.
+  Diagnóstico: Frontera E3/E4. El mismo arreglo sirve a los dos eslabones.
+  Recomendación: Corregir velocidad y móvil antes de invertir en contenido.
+  Severidad: CRÍTICO   Atribución: gestión   Área: Desarrollo web + SEO
+
+
+REGLA DE HONESTIDAD DEL GRUPO N:
+JAMÁS prometer una posición ni un plazo de posicionamiento. El SEO se recomienda por lo que construye
+—captación que no se apaga— no por dónde va a aparecer. Y NUNCA se propone como reemplazo de la pauta
+cuando el cliente necesita demanda este mes: los plazos no son comparables y ofrecerlo así es venderle
+un problema de caja.
+
+
+
+
+EJE DE ATRIBUCIÓN — APLICA A TODOS LOS GRUPOS (A–N)
+
+
+Nuevo en v1.3. Responde el job funcional #1 de Carolina, "La Decepcionada de Agencia":
+determinar si el problema era atribuible a las agencias o a su propio setup (Buyer Persona §5.4).
+Sin este eje, la matriz no puede responder la pregunta que trae al arquetipo más valioso.
+
+
+  GESTIÓN     Decisión de quien operaba la cuenta — agencia, freelancer o el propio dueño.
+              Corregible sin tocar el negocio.
+              Grupos B, F y G casi completos. Ejemplos: objetivo mal elegido, sin CAPI, sin UTMs,
+              destino incoherente, copy sin calificar, segmentación desalineada.
+
+  ESTRUCTURA  Condición del negocio, no de la pauta. No se arregla optimizando campañas.
+              Grupo A y parte del E. Ejemplos: ticket que no soporta el CPA, ciclo de venta largo,
+              nadie responde los leads, fundador cuello de botella.
+
+  COMPARTIDA  Requiere decisión del dueño Y ejecución técnica.
+              Ejemplos: presupuesto bajo el mínimo de aprendizaje, ausencia de landing dedicada,
+              elección de plataforma frente al ICP.
+
+
+LECTURA COMERCIAL DEL REPARTO:
+  Mayoría GESTIÓN     → "No eras tú, era cómo estaba operada la cuenta." Reabre al cliente al canal,
+                         que es el trabajo emocional declarado de Carolina. Precisión sí puede ayudar.
+  Mayoría ESTRUCTURA  → La pauta pagada no es su problema ni su solución. NO se propone gestión mensual
+                         (PRD §3.2, Uso 3). Se propone otra cosa o se retira.
+  Mixto               → Se ordena: primero lo de gestión (rápido y barato), después lo estructural.
+
+
+REGLA: el reparto se declara siempre, incluso cuando es incómodo. Decirle a un prospecto que el problema
+es estructural y no de gestión cuesta una venta de gestión mensual, y es exactamente la razón por la que
+el diagnóstico es creíble. Ninguna agencia le va a decir eso.
+
+
+
+
+RECOMENDACIONES — FLUJO DE DIAGNÓSTICO EN CAPAS
+
+
+Las recomendaciones se aplican en este orden. Un problema en capas 1 o 2 invalida cualquier optimización en capas superiores.
+
+
+CALIFICACIÓN POR ALCANCE (v1.3): antes de ordenar, clasificar cada hallazgo como de alcance CUENTA
+(afecta el 100% del presupuesto) o CANAL (afecta solo una plataforma). Un hallazgo de capa inferior
+con alcance de canal NO antecede a uno de capa superior con alcance de cuenta. Ejemplo: "LinkedIn no
+soporta un ticket de $29.990" es Capa 1 pero solo invalida LinkedIn; no desplaza a "la cuenta está
+ciega" (Capa 2, alcance de cuenta), que afecta todo el gasto.
+
+
+CAPA 1 — VIABILIDAD ECONÓMICA (Grupo A)
+1. Calcular: CPA máximo = ticket × margen × tasa de cierre
+2. Si CPL actual > CPA máximo → detener escalamiento
+3. Si LTV:CAC < 3:1 → revisar modelo antes de invertir más en pauta
+4. Si presupuesto < 50 conv/semana al CPA → consolidar o subir presupuesto
+
+
+CAPA 2 — MEDICIÓN (Grupo B)
+1. Instalar: Pixel + CAPI + eventos en este orden de prioridad
+2. Implementar UTMs en todos los links
+3. Instalar GA4 si no existe; migrar de Universal si aplica
+4. Sin medición no se puede saber qué funciona → sin escalamiento
+
+
+CAPA 3 — ARQUITECTURA DE CONVERSIÓN (Grupos B + F)
+1. Verificar coherencia: objetivo (P10) ↔ destino (P11) ↔ copy (P15)
+2. Corregir incoherencias CRÍTICAS primero (ej. Conversiones sitio → WhatsApp)
+3. Asegurar que el objetivo elegido tenga ≥50 conversiones/semana
+
+
+CAPA 4 — AUDIENCIA Y CANAL (Grupo C)
+1. Mapear ICP (P22/P24) a plataforma correcta (P7)
+2. Verificar que la geografía (P13) genera audiencia suficiente (≥500K idealmente)
+3. Separar campañas si hay audiencias mixtas (B2B + B2C)
+
+
+CAPA 5 — PROCESO DE VENTAS (Grupos D + E)
+1. Si síntoma = "califican pero no cierran" → speed-to-lead < 5 minutos
+2. Eliminar cuellos de botella (fundador solo con volumen alto)
+3. Implementar CRM con asignación automática de leads
+
+
+UMBRALES CRÍTICOS:
+  - CPL > 30% del ticket sin recompra → DETENER escalamiento
+  - ROAS prospecting < 3:1 sostenido → revisar oferta/creative
+  - LTV:CAC < 3:1 → no escalar; < 2:1 → pausar adquisición pagada
+  - Tiempo en pauta < 1 mes → no juzgar resultados
+  - Presupuesto < 50 conv/semana → no escalar hasta corregir
+
+
+
+
+BANDERAS ROJAS — CUALQUIERA DETIENE EL ESCALAMIENTO
+
+
+* Objetivo "Tráfico" o "No sé qué objetivo tiene"
+* Sin Pixel instalado y verificado
+* Sin eventos de conversión configurados
+* Sin CAPI activa en 2026
+* Sin UTMs en los links
+* Destino "Perfil Instagram/Facebook" para generación de leads
+* Destino "No tengo claro a dónde va"
+* Geografía "No lo tengo configurado / no sé"
+* ICP "No lo tengo definido"
+* CPL no medido + más de 3 meses invirtiendo
+* Más de 6 meses + síntoma "no sé qué está fallando"
+* Ticket >2M + presupuesto <200K CLP/mes
+
+
+
+
+════════════════════════════════════════════════════════════════════════════════
+CAVEATS Y FUENTES
+════════════════════════════════════════════════════════════════════════════════
+
+
+ADVERTENCIAS IMPORTANTES:
+- Las severidades son heurísticas, no reglas absolutas. Dependen del margen real, recompra y LTV específicos del negocio. Validar contra datos reales de cada cliente.
+- Los benchmarks de CPL/CPA son direccionales. WordStream (US$27,66 CPL Meta) es data mayoritariamente US. Los rangos en CLP provienen de agencias chilenas (Muller y Pérez, Impulsados) con datos auto-reportados. Tratar como [referencial].
+- No se encontró CPM Meta Chile en CLP de fuente independiente auditada. IAB Chile publica share de inversión pero no CPL/CPM unitarios. [referencial]
+- La definición de "lead" altera el CPL. Instant form ≠ lead de sitio ≠ lead calificado. Comparar siempre equivalentes.
+- Cambios de plataforma 2026 (Andromeda, CAPI de un clic, iOS 26) pueden alterar benchmarks. Revalidar trimestralmente.
+- Campos abiertos (P2, P12, P14, P15, P23, P28) requieren interpretación cualitativa. Los cruces de copy (Grupo F) asumen revisión manual del texto.
+- La cifra "21× más calificación" proviene del estudio MIT/InsideSales de Oldroyd (2007); el estudio HBR 2011 analizó 1,25M leads de 2.241 empresas. Algunos proveedores mezclan ambas cifras. Citar fuente primaria según contexto.
+
+
+FUENTES VERIFICADAS UTILIZADAS:
+- WordStream/LocaliQ, "Facebook Ads Benchmarks 2025", 726 campañas US, actualizado 15-sep-2025
+- Lebesgue, "Facebook CPM by Country 2026"
+- Triple Whale, "Ecommerce Benchmarks 2025", 33.000+ marcas
+- Gartner, encuesta compradores B2B, mar-2026, 646 compradores
+- Oldroyd/InsideSales, Lead Response Management Study, 2007; HBR 2011
+- DataReportal, "Digital 2025: Chile"
+- We Are Social / Meltwater, "Digital 2025 Chile"
+- Cometly, "Meta Learning Phase Guide 2026"
+- Rockads, "CAPI vs Pixel 2026"
+- CustomerLabs, "Pixel vs CAPI 2026"
+- Muller y Pérez, "Costos publicidad digital Chile 2025-2026" [referencial de agencia]
+- Impulsados, "Costo publicidad Instagram/Facebook Chile 2026" [referencial de agencia]
+- IAB Chile, "Inversión publicitaria digital Chile 2024"
+- Flyweel, "CPL Benchmarks 2025"
+- Benchmarkit, "SaaS Benchmarks 2025"
+- RevenueHero, "Lead Response Time Study 2024"
+- Distl, "Facebook Ads Cost Benchmarks 2025"
+- Visible Factors, "Facebook Ads Benchmarks 2026"
+- Trendtrack, "Meta Ad Spend by Industry 2025"
+- Birch, "Facebook Ad Objectives ODAX 2026"
+- get-ryze, "ODAX Meta 2026"
+- PCMI / PaymentsCMI, "Ecommerce Chile 2024"
+- CCS (Cámara de Comercio de Santiago), "Ecommerce Chile 2024"
+
+
+================================================================================
+Documento generado: Calibrar by Precisión Agencia · Chile · Junio 2026
+Versión 1.1 — actualizada 25-jun-2026: CPL/CPM corregidos, fuentes locales redes sociales, hook de negación, arquetipos ICP.
+Versión 1.2 — actualizada 17-jul-2026: unificada la regla de presupuesto diario en ≈7× CPA objetivo (Hallazgos Clave decía 10×; 7× es la derivación aritmética de 50 conv/semana ÷ 7 días y coincide con la tabla del Grupo A, la fórmula A.5 y fuentes 2026: fórmula estándar = CPA objetivo × 50 ÷ 7).
+Para uso interno del equipo. No distribuir sin autorización.
+================================================================================

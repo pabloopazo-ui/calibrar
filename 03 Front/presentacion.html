@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Dónde se rompe tu crecimiento — Precisión Agencia</title>
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+/* Build de presentación: documento claro, una sola columna, para proyectar.
+   Reusa styles.css entero; acá solo va el ritmo de secciones y lo que no
+   existe en el front interno.
+
+   El selector va calificado como `section.sec` a propósito: `sec` es TAMBIÉN
+   el modificador de "eslabón secundario" del galón de la Cadena en styles.css.
+   Sin calificar, `padding:70px 0` le borraba el padding-left al galón del
+   secundario y la muesca de 11px se comía el primer carácter — se leía
+   "4 · CTIVO DE CONVERSIÓN" en toda pantalla proyectada con secundario.      */
+section.sec{padding:70px 0;border-top:1px solid var(--line)}
+section.sec:first-of-type{border-top:0;padding-top:48px}
+section.sec > .wrap > .kicker{margin-bottom:14px}
+section.sec h2.t{font-size:clamp(24px,3.4vw,38px);max-width:22ch;line-height:1.08}
+section.sec p.lead{font-size:clamp(15.5px,1.5vw,18px);color:var(--ink-2);max-width:62ch;margin-top:18px;line-height:1.5}
+section.sec p.n{font-size:15px;color:var(--ink-dim);max-width:70ch;margin-top:14px}
+
+.top .name{margin-right:auto}
+.hero-p{padding:26px 0 8px}
+.hero-p h1{font-size:clamp(34px,6.6vw,74px);line-height:.98;letter-spacing:-.03em}
+.hero-p h1 .amb{color:var(--amber)}
+.hero-p .claim{font-size:clamp(17px,2.1vw,24px);font-weight:600;max-width:44ch;margin-top:24px;line-height:1.32;color:var(--ink)}
+.hero-p .meta-b{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px}
+.hero-p .meta-b span{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--ink-dim);
+  text-transform:uppercase;border:1px solid var(--line);padding:6px 10px;font-weight:700}
+
+/* Tabla de la Cadena: la columna de la cita del dueño es la que engancha */
+#tabla-cadena-p td.cita{color:var(--brand);font-weight:600;font-style:italic}
+
+/* La Cadena en frío: es un diagrama, no un diagnóstico. No se colorea con los
+   estados sano/roto — eso solo aparece cuando hay datos detrás.             */
+#cadena-neutra .esl{background:var(--surface-2);box-shadow:inset 0 -3px 0 var(--line-hi)}
+#cadena-neutra .esl .num,#cadena-neutra .esl .nom{color:var(--brand)}
+
+/* Tarjetas de los tres momentos */
+.pasos{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}
+@media(max-width:900px){.pasos{grid-template-columns:1fr}}
+.paso{border:1px solid var(--line);background:var(--surface);padding:22px}
+.paso .pn{font-family:var(--mono);font-size:12px;font-weight:800;color:#fff;background:var(--brand);
+  width:26px;height:26px;display:grid;place-items:center;margin-bottom:14px}
+.paso h3{font-size:17px;margin-bottom:8px}
+.paso p{font-size:13.5px;color:var(--ink-dim)}
+
+/* Lista de reglas de la casa */
+.reglas{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:28px;border-top:1px solid var(--line)}
+@media(max-width:800px){.reglas{grid-template-columns:1fr}}
+.regla{padding:22px 26px 22px 0;border-bottom:1px solid var(--line)}
+.regla:nth-child(odd){border-right:1px solid var(--line);padding-right:34px}
+.regla b{display:block;font-size:15.5px;color:var(--brand);margin-bottom:6px;font-weight:800}
+.regla span{font-size:13.5px;color:var(--ink-dim)}
+
+/* Cabecera del documento de ejemplo */
+.marco-ej{border:1px solid var(--line-hi);background:var(--surface-2);padding:16px 20px;margin-bottom:34px}
+.marco-ej b{color:var(--brand)}
+.marco-ej p{font-size:13px;color:var(--ink-dim);margin-top:4px;max-width:92ch}
+.cabecera-doc{padding-bottom:26px;border-bottom:2px solid var(--brand);margin-bottom:34px}
+.tit-doc{font-size:clamp(24px,4vw,40px);margin-top:8px}
+.sub-doc{color:var(--ink-dim);font-size:14.5px;margin-top:8px}
+
+.cierre-p{background:var(--brand);color:#fff;padding:44px 0;margin-top:70px}
+.cierre-p h2{color:#fff;font-size:clamp(22px,3vw,34px);max-width:26ch}
+.cierre-p p{color:#CFE3EC;max-width:64ch;margin-top:16px;font-size:15.5px}
+.cierre-p .amb{color:var(--amber)}
+.cierre-p .fin{display:flex;gap:26px;flex-wrap:wrap;margin-top:28px;font-size:13px;color:#CFE3EC}
+.cierre-p .fin b{color:#fff}
+
+@media print{
+  .sec{padding:26px 0;page-break-inside:auto}
+  .cierre-p{background:#0D4F6A!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+
+<header class="top no-print">
+  <div class="top-in">
+    <img src="assets/logo-precision-blanco.png" alt="Precisión Agencia">
+    <span class="sep"></span>
+    <span class="name">Cali<span>brar</span></span>
+    <nav>
+      <a href="#cadena">La Cadena</a>
+      <a href="#conversacion">La conversación</a>
+      <a href="#diagnostico">El diagnóstico</a>
+      <a href="#" onclick="window.print();return false">Imprimir / PDF</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ═══ PORTADA ══════════════════════════════════════════════════════════ -->
+<section class="sec">
+  <div class="wrap">
+    <div class="hero-p">
+      <span class="kicker">Diagnóstico de crecimiento comercial · Precisión Agencia</span>
+      <h1>Dónde se <span class="amb">rompe</span><br>tu crecimiento</h1>
+      <p class="claim">Y qué disciplina lo arregla. No es un diagnóstico de publicidad: es el mapa de los siete eslabones de tu crecimiento comercial y del primero que se corta.</p>
+      <div class="meta-b">
+        <span>Una conversación de 30 minutos</span>
+        <span>Sin acceso a tus cuentas</span>
+        <span>Te llevas el documento</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ EL PROBLEMA ══════════════════════════════════════════════════════ -->
+<section class="sec">
+  <div class="wrap">
+    <span class="kicker">Por qué existe esto</span>
+    <h2 class="t">Casi nadie tiene un problema de marketing. Tienen un problema, y el marketing es donde se nota.</h2>
+    <p class="lead">Cuando las ventas no crecen, la conversación parte casi siempre en el mismo lugar: <i>necesitamos más gente que nos conozca</i>. A veces es cierto. Muchas veces no, y ahí invertir en traer más gente empeora el resultado en vez de mejorarlo.</p>
+    <p class="n"><b>La regla es simple:</b> si hay una fuga río abajo, abrir más la llave la amplifica. Se tapa el balde antes de abrir la llave. Por eso lo primero no es decidir qué hacer — es decidir <b>dónde</b> se está rompiendo.</p>
+  </div>
+</section>
+
+<!-- ═══ LA CADENA ════════════════════════════════════════════════════════ -->
+<section class="sec" id="cadena">
+  <div class="wrap">
+    <span class="kicker">La Cadena de Crecimiento Comercial</span>
+    <h2 class="t">Siete eslabones. Uno se rompe primero, y ese manda.</h2>
+    <p class="lead">Cada eslabón, cuando falla, produce un síntoma distinto y exige una disciplina distinta. El diagnóstico no busca todos los problemas: busca <b>cuál es el primero que se rompe contando desde donde hoy sí llega gente</b>. Arreglar ese es lo que mueve el resultado; los demás se ordenan detrás.</p>
+
+    <div id="cadena-neutra" style="margin-top:34px"></div>
+
+    <div class="tabla-scroll" style="margin-top:34px">
+      <table>
+        <thead><tr>
+          <th style="width:44px">#</th>
+          <th style="width:24%">Eslabón</th>
+          <th>Cómo suena cuando es este</th>
+          <th style="width:22%">Qué lo arregla</th>
+        </tr></thead>
+        <tbody id="tabla-cadena-p"></tbody>
+      </table>
+    </div>
+    <p class="n">Si alguna de esas frases se parece a algo que dijiste este mes, ese es el punto por donde empieza la conversación.</p>
+  </div>
+</section>
+
+<!-- ═══ LA CONVERSACIÓN ══════════════════════════════════════════════════ -->
+<section class="sec" id="conversacion">
+  <div class="wrap">
+    <span class="kicker">Cómo se hace</span>
+    <h2 class="t">Media hora de conversación, y sales con el orden escrito.</h2>
+    <p class="lead">No es un formulario ni una auditoría de tus cuentas. Es una conversación guiada, con preguntas en un orden que no es casual: cada una decide cuál es la siguiente.</p>
+
+    <div class="pasos">
+      <div class="paso">
+        <div class="pn">1</div>
+        <h3>Dónde estás parado</h3>
+        <p>Catorce preguntas cortas que ubican por dónde entra hoy tu flujo y dónde se corta. Antes de esto no se pregunta nada técnico: preguntar por la publicidad antes de saber si el problema es la publicidad es el error que este método existe para evitar.</p>
+      </div>
+      <div class="paso">
+        <div class="pn">2</div>
+        <h3>Tu negocio, no tu canal</h3>
+        <p>Quién es un buen cliente para ti, cómo eliges, de quién dependes. Va siempre, rutee donde rutee: sin eso, el diagnóstico sería de tu canal y no de tu negocio. Se suma una lectura de tu competencia, que se levanta antes de la reunión.</p>
+      </div>
+      <div class="paso">
+        <div class="pn">3</div>
+        <h3>A fondo en el eslabón roto</h3>
+        <p>Se abre <b>uno solo</b>: el que quedó dominante. Y se pregunta hasta que la explicación quede firme, no hasta agotar la lista — preguntar de más no mejora el diagnóstico, solo alarga la reunión.</p>
+      </div>
+    </div>
+
+    <div class="reloj" style="margin-top:34px">
+      <span class="kicker">Cómo se reparten los 30 minutos</span>
+      <div class="rl">
+        <span class="seg s1" style="flex:9">Dónde estás<i>9'</i></span>
+        <span class="seg s2" style="flex:5">Tu negocio<i>5'</i></span>
+        <span class="seg s3" style="flex:8">El eslabón roto<i>8'</i></span>
+        <span class="seg s4" style="flex:4">Competencia<i>4'</i></span>
+        <span class="seg s5" style="flex:3">Cierre<i>3'</i></span>
+      </div>
+      <p>Es el presupuesto real de la reunión, no una promesa redonda. El análisis de tu competencia observable no ocupa tiempo de conversación: se levanta antes, mirando lo mismo que puede mirar cualquiera.</p>
+    </div>
+
+    <div class="reglas">
+      <div class="regla">
+        <b>No pedimos acceso a tus cuentas</b>
+        <span>El diagnóstico se hace con lo que tú ves y con lo que se observa desde afuera. Si algún dato no existe, se dice que no existe.</span>
+      </div>
+      <div class="regla">
+        <b>No inventamos cifras</b>
+        <span>Donde no hay dato, dice N/D — y N/D no se rellena. Cualquier número de retorno que no tenga de dónde salir, no se muestra.</span>
+      </div>
+      <div class="regla">
+        <b>Hipótesis, no veredictos</b>
+        <span>Cada explicación viene con cómo comprobarla o descartarla. Una hipótesis sin método de verificación es una opinión.</span>
+      </div>
+      <div class="regla">
+        <b>La etapa uno nunca es algo que nos compres</b>
+        <span>Lo primero del plan es siempre lo más barato y lo más verificable, y varias veces lo puedes hacer solo. Es lo que hace creíble el resto.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ EL DIAGNÓSTICO ═══════════════════════════════════════════════════ -->
+<section class="sec" id="diagnostico">
+  <div class="wrap">
+    <span class="kicker">Qué te llevas</span>
+    <h2 class="t">El diagnóstico, en cinco bloques.</h2>
+    <p class="lead">Dónde se rompe · qué es verdad sobre tu negocio · tres hipótesis · tres soluciones · el plan en el orden en que conviene hacerlo. Esto es un caso real, completo, tal como se entrega.</p>
+
+    <div class="marco-ej" style="margin-top:30px">
+      <b>Sobre este ejemplo.</b>
+      <p>Es un diagnóstico real ya entregado. Las cifras son las de esa cuenta, sin retocar; el nombre del cliente no se muestra, porque los datos de un cliente no circulan — el tuyo tampoco circularía. Lo mostramos completo a propósito: es más fácil decidir si esto sirve viéndolo entero que escuchando cómo se describe.</p>
+    </div>
+
+    <div id="entregable-cliente"></div>
+  </div>
+</section>
+
+<!-- ═══ CIERRE ═══════════════════════════════════════════════════════════ -->
+<section class="cierre-p">
+  <div class="wrap">
+    <span class="kicker" style="color:var(--amber)">Lo que sigue</span>
+    <h2>El diagnóstico nunca termina en un “no”. Termina en <span class="amb">un orden</span>.</h2>
+    <p>A veces la conclusión es que no necesitas más marketing, sino decidir a quién le vendes. Cuando es así, lo decimos — y esa etapa no es un servicio que nos compres. Lo que ganas en cualquier caso es dejar de invertir a ciegas en el eslabón equivocado.</p>
+    <div class="fin">
+      <span><b>Precisión Agencia</b> · Consultoría de crecimiento comercial</span>
+      <span><b>ppagencia.cl</b></span>
+      <span><b>@precisionconsultorab2b</b></span>
+    </div>
+  </div>
+</section>
+
+<script src="assets/data.js"></script>
+<script src="assets/presentacion.js"></script>
+</body>
+</html>

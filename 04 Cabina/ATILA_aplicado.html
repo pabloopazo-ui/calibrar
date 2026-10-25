@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ATILA Centro Médico · Diagnóstico de crecimiento comercial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --petroleo:#0D4F6A; --petroleo-osc:#093a4e; --amber:#F5A623;
+    --tinta:#1F2D34; --gris:#5A6B73; --linea:#E2E8EB; --papel:#FFFFFF; --fondo:#F4F7F8;
+    --rojo:#B3261E; --verde:#2E7D52; --neutro:#8B9AA2;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Montserrat',Arial,Helvetica,sans-serif;color:var(--tinta);
+       background:var(--fondo);line-height:1.62;font-size:15.5px;-webkit-font-smoothing:antialiased}
+  .hoja{max-width:900px;margin:0 auto;background:var(--papel)}
+  .pad{padding:0 56px}
+  @media(max-width:640px){.pad{padding:0 22px}body{font-size:15px}}
+
+  /* Portada */
+  .portada{background:var(--petroleo);color:#fff;padding:52px 56px 44px}
+  @media(max-width:640px){.portada{padding:36px 22px 32px}}
+  .marca{font-size:11px;letter-spacing:2.6px;font-weight:700;color:var(--amber);margin-bottom:26px}
+  .portada h1{font-size:33px;line-height:1.2;font-weight:700;letter-spacing:-.4px}
+  @media(max-width:640px){.portada h1{font-size:26px}}
+  .portada .sub{font-size:17px;font-weight:300;color:#BFD6E1;margin-top:10px}
+  .meta{display:flex;flex-wrap:wrap;gap:26px;margin-top:30px;padding-top:22px;
+        border-top:1px solid rgba(255,255,255,.22)}
+  .meta div{font-size:13px}
+  .meta .k{color:#8FB4C6;font-size:10.5px;letter-spacing:1.4px;font-weight:600;margin-bottom:3px}
+  .meta .v{color:#fff;font-weight:500}
+
+  /* Secciones */
+  .bloque{padding:44px 0 8px}
+  .rot{font-size:10.5px;letter-spacing:2.4px;font-weight:700;color:var(--amber);margin-bottom:9px}
+  h2{font-size:24px;font-weight:700;color:var(--petroleo);line-height:1.25;letter-spacing:-.3px}
+  @media(max-width:640px){h2{font-size:20px}}
+  h3{font-size:16.5px;font-weight:700;color:var(--petroleo);margin:26px 0 8px}
+  p{margin:13px 0}
+  .lead{font-size:17px;color:var(--gris);font-weight:400;margin-top:11px}
+  .sep{height:1px;background:var(--linea);margin:34px 0}
+  strong{font-weight:600;color:var(--tinta)}
+
+  /* Cadena */
+  .cadena{margin:26px 0;border:1px solid var(--linea);border-radius:8px;overflow:hidden}
+  .esl{display:flex;align-items:flex-start;gap:15px;padding:13px 17px;border-bottom:1px solid var(--linea)}
+  .esl:last-child{border-bottom:none}
+  .esl.dom{background:#FFF8EC;border-left:4px solid var(--amber);padding-left:13px}
+  .num{font-weight:800;font-size:14px;color:var(--petroleo);min-width:24px;padding-top:1px}
+  .esl.dom .num{color:#B87600}
+  .esl-cuerpo{flex:1;min-width:0}
+  .esl-nom{font-weight:600;font-size:14.5px}
+  .esl-lec{font-size:13.5px;color:var(--gris);margin-top:2px}
+  .tag{font-size:10px;font-weight:700;letter-spacing:1.1px;padding:3px 9px;border-radius:20px;
+       white-space:nowrap;margin-top:1px}
+  .t-sano{background:#E6F4EC;color:var(--verde)}
+  .t-roto{background:#FBEAE9;color:var(--rojo)}
+  .t-sd{background:#EEF1F3;color:var(--neutro)}
+
+  /* Cajas */
+  .caja{border:1px solid var(--linea);border-left:4px solid var(--petroleo);
+        background:#F8FBFC;padding:17px 20px;border-radius:0 7px 7px 0;margin:22px 0}
+  .caja.amb{border-left-color:var(--amber);background:#FFFAF1}
+  .caja .et{font-size:10.5px;letter-spacing:1.5px;font-weight:700;color:var(--petroleo);margin-bottom:6px}
+  .caja.amb .et{color:#B87600}
+  .caja p{margin:6px 0}
+
+  /* Tablas */
+  table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px}
+  th{background:var(--petroleo);color:#fff;text-align:left;padding:10px 13px;
+     font-size:11px;letter-spacing:1.1px;font-weight:600;text-transform:uppercase}
+  td{padding:11px 13px;border-bottom:1px solid var(--linea);vertical-align:top}
+  tr:last-child td{border-bottom:none}
+  tbody tr:nth-child(even){background:#FAFCFD}
+  .nd{color:var(--neutro);font-weight:600}
+  .proc{font-size:10px;letter-spacing:.8px;font-weight:700;text-transform:uppercase;color:var(--neutro)}
+
+  /* Hipótesis */
+  .hip{border:1px solid var(--linea);border-radius:8px;padding:20px 22px;margin:20px 0;background:var(--papel)}
+  .hip-cab{display:flex;align-items:baseline;gap:11px;margin-bottom:10px}
+  .hip-n{font-size:11px;font-weight:800;color:#fff;background:var(--petroleo);
+         width:23px;height:23px;border-radius:50%;display:flex;align-items:center;
+         justify-content:center;flex-shrink:0;align-self:flex-start}
+  .hip-en{font-size:16.5px;font-weight:600;color:var(--petroleo);line-height:1.38}
+  .campo{margin-top:13px;padding-top:12px;border-top:1px dashed var(--linea)}
+  .campo .k{font-size:10.5px;letter-spacing:1.3px;font-weight:700;color:var(--amber);margin-bottom:3px}
+  .campo p{margin:0;font-size:14.5px}
+  .pill{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.8px;
+        padding:3px 10px;border-radius:20px;background:#EEF1F3;color:var(--gris);margin-right:6px}
+
+  /* Etapas */
+  .etapa{display:flex;gap:17px;margin:24px 0}
+  .etapa-n{font-size:27px;font-weight:800;color:var(--amber);line-height:1;min-width:40px}
+  .etapa-c{flex:1;min-width:0}
+  .etapa h3{margin:0 0 4px}
+  .quien{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.9px;
+         padding:3px 10px;border-radius:4px;background:var(--petroleo);color:#fff;margin-bottom:9px}
+  .quien.cli{background:var(--amber);color:#3D2600}
+
+  ul{margin:11px 0 11px 19px}
+  li{margin:6px 0}
+
+  .cierre{background:var(--petroleo);color:#fff;padding:38px 56px;margin-top:46px}
+  @media(max-width:640px){.cierre{padding:30px 22px}}
+  .cierre h2{color:#fff;font-size:21px}
+  .cierre p{color:#CFE2EB;font-size:15.5px}
+  .firma{margin-top:26px;padding-top:20px;border-top:1px solid rgba(255,255,255,.22);font-size:13px;color:#8FB4C6}
+  .firma b{color:#fff;font-weight:600;display:block;font-size:14.5px}
+
+  @media print{
+    body{background:#fff;font-size:11.5pt}
+    .hoja{max-width:none}
+    .bloque{page-break-inside:avoid}
+    .hip,.etapa,.cadena{page-break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+<div class="hoja">
+
+  <div class="portada">
+    <div class="marca">PRECISIÓN · DIAGNÓSTICO DE CRECIMIENTO COMERCIAL</div>
+    <h1>Dónde se rompe el crecimiento<br>de ATILA Centro Médico</h1>
+    <p class="sub">Tienen la sala llena de horas disponibles y la demanda no llega a ocuparlas. Este documento explica en qué punto exacto se pierde.</p>
+    <div class="meta">
+      <div><div class="k">PARA</div><div class="v">ATILA Centro Médico · Concepción</div></div>
+      <div><div class="k">FECHA</div><div class="v">29 de agosto de 2026</div></div>
+      <div><div class="k">BASE</div><div class="v">Reunión del 28 de agosto + revisión pública</div></div>
+      <div><div class="k">ELABORÓ</div><div class="v">Pablo Opazo · Precisión Agencia</div></div>
+    </div>
+  </div>
+
+  <div class="pad">
+
+    <div class="bloque">
+      <div class="caja">
+        <div class="et">DE DÓNDE SALE CADA COSA QUE DICE ESTE DOCUMENTO</div>
+        <p>Está escrito a mano, revisando la conversación del jueves y lo que se ve desde fuera del centro: buscadores, redes, ficha de Google y los sitios de los cinco competidores de Concepción. Cada dato viene marcado con su origen — <span class="proc">declarado</span> si lo dijeron ustedes, <span class="proc">observado</span> si se verificó desde fuera, <span class="proc">inferido</span> si es un cálculo sobre los dos anteriores.</p>
+        <p>Lo que todavía no se sabe aparece como <span class="nd">N/D</span> y no se rellenó con supuestos. Son cinco cifras y las tienen ustedes: sin ellas, cualquier recomendación de inversión sería una opinión.</p>
+      </div>
+    </div>
+
+    <div class="sep"></div>
+
+    <!-- BLOQUE 0 -->
+    <div class="bloque">
+      <div class="rot">BLOQUE 0 · RUTEO</div>
+      <h2>Dónde se rompe el crecimiento</h2>
+      <p class="lead">El crecimiento comercial funciona como una cadena de siete eslabones. El que hay que arreglar primero es el primero que se corta contando desde donde ya hay movimiento. Se tapa el balde antes de abrir la llave.</p>
+
+      <div class="cadena">
+        <div class="esl">
+          <div class="num">01</div>
+          <div class="esl-cuerpo">
+            <div class="esl-nom">Criterio y foco comercial</div>
+            <div class="esl-lec">Qué tratamiento se quiere llenar y qué paciente vale la pena perseguir. Quedó como tarea de ustedes dejarlo escrito.</div>
+          </div>
+          <div class="tag t-sd">SIN DATOS</div>
+        </div>
+        <div class="esl">
+          <div class="num">02</div>
+          <div class="esl-cuerpo">
+            <div class="esl-nom">Reputación y posicionamiento</div>
+            <div class="esl-lec">La reputación está sana: 4,9 de 5 en Google. El posicionamiento está cortado — quien busca tratarse y todavía no los conoce no llega.</div>
+          </div>
+          <div class="tag t-roto">ROTO</div>
+        </div>
+        <div class="esl">
+          <div class="num">03</div>
+          <div class="esl-cuerpo">
+            <div class="esl-nom">Generación de demanda</div>
+            <div class="esl-lec">Hay audiencia y hay inversión corriendo. Acá sí hay movimiento, y por eso la cuenta empieza desde este punto.</div>
+          </div>
+          <div class="tag t-sano">CON FLUJO</div>
+        </div>
+        <div class="esl dom">
+          <div class="num">04</div>
+          <div class="esl-cuerpo">
+            <div class="esl-nom">Activo de conversión &nbsp;·&nbsp; <span style="color:#B87600;font-weight:800">ACÁ SE ROMPE</span></div>
+            <div class="esl-lec">No existe un sitio propio. Todo el que quiere comprar queda a merced de una conversación a mano, y no hay dónde medir nada de lo que se invierte.</div>
+          </div>
+          <div class="tag t-roto">ROTO</div>
+        </div>
+        <div class="esl">
+          <div class="num">05</div>
+          <div class="esl-cuerpo">
+            <div class="esl-nom">Captura y respuesta</div>
+            <div class="esl-lec">La consulta llega por WhatsApp o mensaje directo y espera a que alguien la lea dentro del horario de atención.</div>
+          </div>
+          <div class="tag t-roto">ROTO</div>
+        </div>
+        <div class="esl">
+          <div class="num">06</div>
+          <div class="esl-cuerpo">
+            <div class="esl-nom">Escala de la conversación</div>
+            <div class="esl-lec">Cuántas conversaciones simultáneas aguanta el equipo antes de que se caiga alguna. Falta medirlo.</div>
+          </div>
+          <div class="tag t-sd">SIN DATOS</div>
+        </div>
+        <div class="esl">
+          <div class="num">07</div>
+          <div class="esl-cuerpo">
+            <div class="esl-nom">Capacidad del equipo</div>
+            <div class="esl-lec">300 lugares por semana instalados y 75 ocupados. Hay sala, hay horas y hay profesionales esperando.</div>
+          </div>
+          <div class="tag t-sano">SANO</div>
+        </div>
+      </div>
+
+      <div class="caja amb">
+        <div class="et">POR QUÉ ESTE ESLABÓN Y NO OTRO</div>
+        <p>Los eslabones 01 y 02 también tienen trabajo pendiente, y aun así no van primero. La regla es empezar donde ya hay movimiento y avanzar hasta el primer corte: hoy entra gente —75 pacientes por semana, 12.803 seguidores, inversión corriendo en Meta— y lo primero que falla después de eso es el <strong>04</strong>.</p>
+        <p>Arreglar el 04 destraba a los otros tres de una vez. Con un sitio propio, la inversión del 03 pasa a ser medible, el 02 aparece en el buscador donde hoy no aparece, y el 05 deja de depender de que alguien esté mirando el teléfono. Al revés no funciona: mejorar los avisos sin un lugar donde caer solo hace llegar más gente al mismo punto ciego.</p>
+      </div>
+
+      <div class="caja">
+        <div class="et">QUÉ NO ES EL PROBLEMA</div>
+        <p>La capacidad. Un centro con 75 pacientes semanales y 300 lugares suele llegar a la conclusión de que necesita más equipo o más publicidad. Tienen <strong>225 lugares libres cada semana</strong>: la sala aguanta el triple de lo que está recibiendo hoy sin contratar a nadie más. El cuello está antes de la puerta, no adentro.</p>
+      </div>
+    </div>
+
+    <div class="sep"></div>
+
+    <!-- BLOQUE 1 -->
+    <div class="bloque">
+      <div class="rot">BLOQUE 1 · DATA</div>
+      <h2>Qué es verdad sobre el negocio, leído</h2>
+      <p class="lead">Las cifras que hoy se pueden afirmar, cada una con lo que significa y de dónde viene.</p>
+
+      <table>
+        <thead><tr><th style="width:31%">Cifra</th><th style="width:15%">Valor</th><th>Qué significa</th><th style="width:13%">Origen</th></tr></thead>
+        <tbody>
+          <tr><td>Pacientes por semana</td><td><strong>75</strong></td><td>Ocupación aproximada del 25% sobre la capacidad instalada.</td><td><span class="proc">Declarado</span></td></tr>
+          <tr><td>Capacidad instalada</td><td><strong>300</strong></td><td>Techo semanal con la estructura que ya está pagada y funcionando.</td><td><span class="proc">Declarado</span></td></tr>
+          <tr><td>Holgura sin usar</td><td><strong>225 / semana</strong></td><td>Costo fijo que se paga completo y se usa a un cuarto. La holgura de una semana no se recupera la semana siguiente.</td><td><span class="proc">Inferido</span></td></tr>
+          <tr><td>Seguidores en Instagram</td><td><strong>12.803</strong></td><td>Audiencia construida y real. Seguir a una cuenta y pedir una hora son dos decisiones distintas: la cifra sirve para contenido, no para proyectar agenda.</td><td><span class="proc">Observado</span></td></tr>
+          <tr><td>Reputación en Google</td><td><strong>4,9 / 5</strong><br>28 reseñas</td><td>La calificación es alta y habla del trato. El volumen es bajo para un centro que atiende 75 personas por semana, lo que sugiere que casi nunca se pide la reseña.</td><td><span class="proc">Observado</span></td></tr>
+          <tr><td>Sitio web propio</td><td><strong>No existe</strong></td><td>Lo primero que aparece al buscarlos es una ficha de directorio hecha por un tercero, sin formulario, sin botón de agendar y sin correo. Esa página no la controlan ustedes.</td><td><span class="proc">Observado</span></td></tr>
+          <tr><td>Medición (Analytics)</td><td><strong>No existe</strong></td><td>Sin sitio propio no hay dónde instalarla. Toda la inversión en avisos corre sin registro de qué devuelve.</td><td><span class="proc">Declarado</span></td></tr>
+          <tr><td>Presencia en directorios médicos</td><td><strong>Ausente</strong></td><td>No aparecen en Doctoralia ni en Clinicasesteticas.cl. Los cinco competidores de Concepción sí están, y todos tienen dominio propio.</td><td><span class="proc">Observado</span></td></tr>
+          <tr><td>Horario publicado</td><td><strong>L–V 10:30–18:00</strong><br>Sáb 10:30–14:00</td><td>Las consultas que entran de noche, el domingo o en hora de almuerzo esperan a la mañana siguiente.</td><td><span class="proc">Observado</span></td></tr>
+          <tr><td>Inversión mensual en Meta</td><td class="nd">N/D</td><td>Se declaró como elevada, sin monto. Es la mitad de la cuenta que decide si la pauta puede sostenerse.</td><td><span class="proc">Declarado</span></td></tr>
+          <tr><td>Valor de los tratamientos ancla</td><td class="nd">N/D</td><td>La otra mitad. Con el ticket y la inversión se sabe cuánto puede costar traer un paciente antes de que el negocio pierda plata.</td><td><span class="proc">Pendiente</span></td></tr>
+          <tr><td>Pacientes registrados en la base</td><td class="nd">N/D</td><td>Quedó comprometido contarlo. Una base de pacientes ya atendidos es el activo más barato de reactivar.</td><td><span class="proc">Pendiente</span></td></tr>
+        </tbody>
+      </table>
+
+      <h3>Las cinco capas, y en cuál está el daño</h3>
+      <table>
+        <thead><tr><th style="width:34%">Capa</th><th style="width:17%">Estado</th><th>Lectura</th></tr></thead>
+        <tbody>
+          <tr><td><strong>1 · Viabilidad económica</strong></td><td><span class="tag t-sd">SIN DATOS</span></td><td>Faltan el ticket y el presupuesto. Es la primera que hay que cerrar, porque si acá la cuenta no da, todo lo demás cambia de orden.</td></tr>
+          <tr><td><strong>2 · Medición</strong></td><td><span class="tag t-roto">ROJO</span></td><td>La cuenta está ciega. Se puede saber cuánto se gastó y no cuánto volvió.</td></tr>
+          <tr><td><strong>3 · Arquitectura de conversión</strong></td><td><span class="tag t-roto">ROJO</span></td><td>No hay un destino propio donde alguien pueda pedir una hora sin hablar con una persona.</td></tr>
+          <tr><td><strong>4 · Audiencia y canal</strong></td><td><span class="tag t-sd">SIN DATOS</span></td><td>Hay 12.803 seguidores. Cuántas consultas nuevas al mes producen, todavía no se sabe.</td></tr>
+          <tr><td><strong>5 · Proceso de ventas</strong></td><td><span class="tag t-sd">SIN DATOS</span></td><td>Quién contesta, en cuánto tiempo y qué pasa con el paciente que dice «lo voy a pensar».</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="sep"></div>
+
+    <!-- BLOQUE 2 -->
+    <div class="bloque">
+      <div class="rot">BLOQUE 2 · TRES HIPÓTESIS</div>
+      <h2>Qué explicaría lo que está pasando</h2>
+      <p class="lead">Sin entrar a la cuenta de anuncios, lo honesto es plantear explicaciones probables con la forma de comprobarlas. Cada una trae qué mirar exactamente para confirmarla o descartarla. Una hipótesis que no se puede verificar es una opinión, y las opiniones no se cobran.</p>
+
+      <div class="hip">
+        <div class="hip-cab"><div class="hip-n">1</div>
+          <div class="hip-en">La inversión en Meta está comprando alcance, y el panel lo muestra como si estuviera funcionando.</div></div>
+        <div><span class="pill">CAPA 2 · MEDICIÓN</span><span class="pill">CONFIANZA MEDIA</span><span class="pill">ATRIBUCIÓN COMPARTIDA</span></div>
+        <div class="campo"><div class="k">EN QUÉ SE APOYA</div>
+          <p>Hay inversión declarada como elevada y retorno percibido como bajo, sin medición que respalde ninguna de las dos percepciones.</p></div>
+        <div class="campo"><div class="k">CÓMO SE VERIFICA</div>
+          <p>Abrir el Administrador de Anuncios y anotar el <strong>objetivo</strong> de cada campaña activa. Si dice alcance, interacción, reproducciones o visitas al perfil, la hipótesis queda confirmada sin discusión. Si dice mensajes o clientes potenciales, queda descartada y hay que mirar otra cosa.</p></div>
+        <div class="campo"><div class="k">POR QUÉ NO SE VEÍA</div>
+          <p>El panel informa el costo por resultado, y el «resultado» es el que se eligió al crear la campaña. Con el objetivo puesto en interacciones, el panel entrega números buenos mientras el teléfono no suena. El tablero no está mintiendo: está midiendo otra cosa.</p></div>
+        <div class="campo"><div class="k">SI ES CIERTA</div>
+          <p>Una parte del presupuesto mensual está pagando por audiencia que ya los sigue. El monto exacto sale recién cuando exista la cifra de inversión.</p></div>
+      </div>
+
+      <div class="hip">
+        <div class="hip-cab"><div class="hip-n">2</div>
+          <div class="hip-en">La demanda que ya existe se pierde fuera del horario de atención, y no queda registro de esa pérdida.</div></div>
+        <div><span class="pill">CAPA 5 · PROCESO</span><span class="pill">CONFIANZA MEDIA</span><span class="pill">ATRIBUCIÓN ESTRUCTURA</span></div>
+        <div class="campo"><div class="k">EN QUÉ SE APOYA</div>
+          <p>El horario publicado cierra a las 18:00 y no abre domingo. El único canal de contacto publicado es un teléfono móvil, y en Instagram el contenido circula sobre todo de noche.</p></div>
+        <div class="campo"><div class="k">CÓMO SE VERIFICA</div>
+          <p>Sobre los últimos 30 días en el WhatsApp del centro, contar dos cosas: cuántas conversaciones nuevas entraron fuera del horario de atención, y en cuántas de esas la primera respuesta salió al día siguiente o después.</p></div>
+        <div class="campo"><div class="k">POR QUÉ NO SE VEÍA</div>
+          <p>El paciente que escribe un domingo y no recibe respuesta no aparece en ninguna planilla. No figura como paciente perdido, porque nunca llegó a ser paciente. La pérdida no deja huella y por eso no entra en ninguna conversación sobre resultados.</p></div>
+        <div class="campo"><div class="k">SI ES CIERTA</div>
+          <p>Parte de lo que hoy se atribuye a que «la publicidad no funciona» es demanda que sí llegó y no encontró a nadie del otro lado.</p></div>
+      </div>
+
+      <div class="hip">
+        <div class="hip-cab"><div class="hip-n">3</div>
+          <div class="hip-en">El paciente que ya decidió tratarse busca en Google y no los encuentra.</div></div>
+        <div><span class="pill">CAPA 3 · CONVERSIÓN</span><span class="pill">CONFIANZA ALTA</span><span class="pill">ATRIBUCIÓN ESTRUCTURA</span></div>
+        <div class="campo"><div class="k">EN QUÉ SE APOYA</div>
+          <p>Verificado el 28 de agosto: sin dominio propio en ninguna dirección. Lo que aparece primero es una ficha de directorio de un tercero. Están ausentes de Doctoralia y de Clinicasesteticas.cl, donde sí figuran KDENT, Clínica Murano, Fident, Consonrisa y Centro Médico Alicura — los cinco con sitio propio.</p></div>
+        <div class="campo"><div class="k">CÓMO SE VERIFICA</div>
+          <p>Desde un teléfono con la sesión de Google cerrada, buscar «dentista Concepción» y «medicina estética facial Concepción». Anotar en qué lugar aparecen y quién aparece en los primeros cinco resultados. Toma tres minutos y se hace hoy.</p></div>
+        <div class="campo"><div class="k">POR QUÉ NO SE VEÍA</div>
+          <p>Con 12.803 seguidores y 4,9 estrellas, la presencia digital se siente resuelta. Esos dos números miden a quien ya los conoce. El buscador atiende al que todavía no, y ahí el centro aparece a través de una página que no administran.</p></div>
+        <div class="campo"><div class="k">SI ES CIERTA</div>
+          <p>Hay demanda de Concepción que llega a la competencia por estar listada donde el paciente decidido va a mirar, sin que medie ninguna decisión sobre calidad ni sobre precio.</p></div>
+      </div>
+
+      <div class="caja">
+        <div class="et">DE QUIÉN ES CADA COSA</div>
+        <p>De las tres, <strong>dos son de estructura</strong> —cosas que faltan y que ninguna gestión de avisos podría haber compensado— y <strong>una es compartida</strong> entre cómo están configuradas las campañas y qué destino tenían disponible. Ninguna apunta a que el trabajo se haya hecho mal: apuntan a que se hizo sobre una base incompleta.</p>
+      </div>
+    </div>
+
+    <div class="sep"></div>
+
+    <!-- BLOQUE 3 -->
+    <div class="bloque">
+      <div class="rot">BLOQUE 3 · TRES COSAS PARA ESTA SEMANA</div>
+      <h2>Qué hacer, y cómo sabrán si acertamos</h2>
+      <p class="lead">Las tres se pueden hacer sin contratar a nadie. Cada una viene con lo que debería pasar si la hipótesis era correcta, y eso es lo que la vuelve comprobable en vez de creíble.</p>
+
+      <table>
+        <thead><tr><th style="width:5%">#</th><th style="width:37%">Qué hacer</th><th>Qué debería pasar si la hipótesis era correcta</th><th style="width:13%">Tiempo</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>1</strong></td>
+            <td>Entrar al Administrador de Anuncios y anotar, para cada campaña activa, el objetivo elegido y el costo por resultado. <em>Verifica la hipótesis 1.</em></td>
+            <td>Aparecen objetivos de alcance o interacción con costos por resultado que se ven baratos, junto a una agenda que no se movió. Los dos datos conviviendo confirman que se está midiendo algo que no es una consulta.</td>
+            <td>Minutos</td>
+          </tr>
+          <tr>
+            <td><strong>2</strong></td>
+            <td>Activar el mensaje de ausencia de WhatsApp Business y dejar las tres preguntas más repetidas —valores, horarios y cómo agendar— respondidas de forma automática. Registrar dos semanas. <em>Verifica la hipótesis 2.</em></td>
+            <td>Aparecen conversaciones fuera de horario que hoy no están en ninguna agenda. Si en dos semanas el volumen es marginal, la hipótesis se descarta y se deja de invertir tiempo ahí.</td>
+            <td>Horas</td>
+          </tr>
+          <tr>
+            <td><strong>3</strong></td>
+            <td>Revisar quién administra hoy la ficha de Google del centro y completarla: servicios, horario, fotos y enlace de contacto. Pedir además el alta en Doctoralia. <em>Verifica la hipótesis 3.</em></td>
+            <td>La ficha empieza a registrar llamadas y solicitudes de indicaciones desde búsquedas que no son el nombre del centro. Ese es el paciente que hoy no los está encontrando.</td>
+            <td>Días</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="caja amb">
+        <div class="et">POR QUÉ VAN ESTAS TRES Y NO OTRAS</div>
+        <p>Las tres cuestan tiempo y no dinero, y las tres devuelven un dato que hoy no existe. Cualquier decisión de inversión tomada antes de tener esos tres datos se apoyaría en supuestos, incluidos los de este documento.</p>
+      </div>
+    </div>
+
+    <div class="sep"></div>
+
+    <!-- BLOQUE 4 -->
+    <div class="bloque">
+      <div class="rot">BLOQUE 4 · PLAN POR ETAPAS</div>
+      <h2>En qué orden, quién lo hace y qué es nuestro</h2>
+      <p class="lead">Tres etapas. Cada una habilita la siguiente, y cada una tiene una señal observable para saber si resultó.</p>
+
+      <div class="etapa">
+        <div class="etapa-n">1</div>
+        <div class="etapa-c">
+          <span class="quien cli">LA HACEN USTEDES</span>
+          <h3>Las cinco cifras que faltan</h3>
+          <p>El valor de los tratamientos ancla y cuál de ellos deja mejor margen; cuántas horas o sillones quedan realmente libres; el gasto mensual exacto en Meta; y cuántos pacientes hay registrados en la plataforma.</p>
+          <p><strong>Por qué va primero:</strong> sin el ticket y sin el gasto no se puede afirmar si la pauta pagada se sostiene en este negocio. Cualquier propuesta de inversión hecha antes de esas cifras sería una recomendación a ciegas, y proponer así es exactamente lo que ya les pasó.</p>
+          <p><strong>Cómo se sabe que resultó:</strong> existe una planilla de una página con las cinco cifras y una fecha. Nada más.</p>
+          <p><strong>Esta etapa no se vende.</strong> La hacen ustedes solos, o la resolvemos juntos en una sesión de trabajo.</p>
+        </div>
+      </div>
+
+      <div class="etapa">
+        <div class="etapa-n">2</div>
+        <div class="etapa-c">
+          <span class="quien">DESARROLLO WEB · PRECISIÓN</span>
+          <h3>El activo propio: sitio con agendamiento y medición</h3>
+          <p>Un dominio del centro, con las prestaciones explicadas, los profesionales, la ubicación y un lugar donde pedir hora sin escribirle a nadie. Con medición instalada desde el primer día.</p>
+          <p><strong>Por qué va segundo:</strong> es lo que destraba los otros tres eslabones a la vez. Le da a la inversión del 03 un destino medible, pone al centro en el buscador donde hoy lo reemplaza una ficha de terceros, y le da a la captura un lugar que funciona a las tres de la mañana.</p>
+          <p><strong>Cómo se sabe que resultó:</strong> cada semana se puede decir cuántas personas entraron, por dónde llegaron y cuántas pidieron hora. Hoy ninguna de esas tres preguntas tiene respuesta.</p>
+        </div>
+      </div>
+
+      <div class="etapa">
+        <div class="etapa-n">3</div>
+        <div class="etapa-c">
+          <span class="quien">AUTOMATIZACIÓN · PRECISIÓN</span>
+          <h3>Que la consulta de las 23:00 no se pierda</h3>
+          <p>Respuesta inmediata a lo que más se repite, derivación al equipo cuando la conversación necesita a una persona, y registro de cada consulta en un solo lugar en vez de repartida entre hilos de WhatsApp y mensajes directos.</p>
+          <p><strong>Por qué va tercero:</strong> primero tiene que existir el destino y la medición. Automatizar la respuesta antes del sitio deja la conversación resuelta y el registro igual de disperso que hoy.</p>
+          <p><strong>Cómo se sabe que resultó:</strong> el tiempo hasta la primera respuesta baja a minutos, incluido el domingo, y se puede medir en el mismo WhatsApp.</p>
+        </div>
+      </div>
+
+      <div class="caja">
+        <div class="et">QUÉ NO RESOLVEMOS NOSOTROS</div>
+        <p><strong>El volumen de reseñas.</strong> 28 reseñas para 75 pacientes semanales se corrige pidiéndolas en el mostrador al terminar la atención. Eso lo hace el equipo del centro y ninguna herramienta lo reemplaza.</p>
+        <p><strong>El alta en Doctoralia.</strong> Es un trámite del propio centro con el registro de sus profesionales. Los acompañamos, la gestión es de ustedes.</p>
+        <p><strong>Las decisiones clínicas y de precios.</strong> Qué tratamientos ofrecer y a qué valor queda fuera de este diagnóstico por completo.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="cierre">
+    <h2>El próximo paso</h2>
+    <p>La etapa 1 son cinco cifras y las tienen ustedes. Cuando estén, nos sentamos una hora a leerlas juntos y ahí queda claro si la pauta que están pagando se sostiene o si el dinero rinde más en otra parte. Esa conversación no tiene costo y no depende de contratar nada.</p>
+    <p>Mientras tanto, las tres acciones del bloque 3 se pueden empezar hoy sin nosotros. Si alguna de las tres hipótesis se cae al comprobarla, este documento se corrige y seguimos con el resto.</p>
+    <div class="firma">
+      <b>Pablo Opazo</b>
+      Precisión Agencia · Consultora de crecimiento comercial<br>
+      ppagencia.cl · @precisionconsultorab2b<br>
+      Diagnóstico elaborado el 29 de agosto de 2026 sobre la reunión del 28 de agosto.
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

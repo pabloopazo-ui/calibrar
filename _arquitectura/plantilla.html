@@ -1,0 +1,427 @@
+<title>Arquitectura de Calibrar</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Public+Sans:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* Layout: documento técnico de una columna (68rem), bandas por capa del sistema,
+   índice pegajoso arriba, diagramas y tablas con scroll propio. Identidad v1.0 vigente. */
+:root{
+  --bg:#f5f8f9; --surface:#ffffff; --surface-2:#eaf1f4; --ink:#10232c; --ink-2:#3a4f59; --dim:#64767f;
+  --line:#d3dee3; --brand:#0D4F6A; --brand-ink:#0D4F6A; --amber:#F5A623; --amber-ink:#9a6206;
+  --ok:#2e7d5b; --warn:#b26b00; --bad:#b3322b;
+  --f-display:"Montserrat","Avenir Next","Segoe UI",sans-serif;
+  --f-body:"Public Sans","Avenir Next","Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono","SF Mono",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0b1a21; --surface:#112630; --surface-2:#163240; --ink:#e4eef2; --ink-2:#b5c8d0; --dim:#8aa1ab;
+  --line:#24414e; --brand:#2d8cb3; --brand-ink:#7cc7e6; --amber:#F5A623; --amber-ink:#f7bb52;
+  --ok:#5fc495; --warn:#f0a93a; --bad:#ef7d74; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0b1a21; --surface:#112630; --surface-2:#163240; --ink:#e4eef2; --ink-2:#b5c8d0; --dim:#8aa1ab;
+  --line:#24414e; --brand:#2d8cb3; --brand-ink:#7cc7e6; --amber:#F5A623; --amber-ink:#f7bb52;
+  --ok:#5fc495; --warn:#f0a93a; --bad:#ef7d74; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.wrap{max-width:68rem;margin:0 auto;padding-block:28px 72px;display:flex;flex-direction:column;gap:56px}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.2;margin:0}
+h1{font-size:clamp(28px,4.4vw,44px);font-weight:800;letter-spacing:-.01em}
+h1 em{font-style:normal;color:var(--amber-ink)}
+h2{font-size:clamp(21px,2.6vw,28px);font-weight:700}
+h3{font-size:17px;font-weight:700}
+p{margin:0;max-width:68ch;color:var(--ink-2)}
+code,.mono{font-family:var(--f-mono);font-size:.88em}
+code{background:var(--surface-2);padding:1px 5px;border-radius:4px;color:var(--ink)}
+a{color:var(--brand-ink)}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+section{display:flex;flex-direction:column;gap:16px;scroll-margin-top:64px}
+.lead{font-size:18px;color:var(--ink);max-width:62ch}
+
+/* índice */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line);
+  margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding:10px max(16px,env(safe-area-inset-left,0px));
+  overflow-x:auto;white-space:nowrap}
+nav.toc ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:18px;max-width:68rem}
+nav.toc a{font-family:var(--f-mono);font-size:12.5px;color:var(--ink-2);text-decoration:none}
+nav.toc a:hover,nav.toc a:focus-visible{color:var(--brand-ink);text-decoration:underline}
+a:focus-visible,button:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+
+/* cabecera */
+header.hero{display:flex;flex-direction:column;gap:18px;padding-top:12px}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:14px 16px;display:flex;flex-direction:column;gap:4px}
+.stat b{font-family:var(--f-mono);font-size:28px;font-weight:600;color:var(--brand-ink);font-variant-numeric:tabular-nums}
+.stat span{font-size:13px;color:var(--dim);line-height:1.4}
+@media (max-width:720px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* tablas */
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:14.5px}
+th,td{text-align:left;vertical-align:top;padding:9px 12px;border-bottom:1px solid var(--line)}
+th{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--dim);font-weight:500;background:var(--surface-2)}
+tr:last-child td{border-bottom:0}
+td.num{font-family:var(--f-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.read{border-left:3px solid var(--amber);padding:2px 0 2px 14px;max-width:68ch;color:var(--ink)}
+
+/* diagramas */
+.diagram{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:16px}
+pre.mermaid{margin:0;background:transparent;font-family:var(--f-body)}
+
+/* capas */
+.cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:720px){.cols{grid-template-columns:1fr}}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.box p{font-size:15px}
+.tag{display:inline-block;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:999px;border:1px solid currentColor;width:max-content}
+.t-ok{color:var(--ok)} .t-warn{color:var(--warn)} .t-bad{color:var(--bad)} .t-info{color:var(--brand-ink)}
+ul.clean{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px;color:var(--ink-2);max-width:70ch}
+
+/* cadena */
+.chain{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}
+.link{background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--brand);border-radius:6px;padding:10px 8px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.link b{font-family:var(--f-mono);font-size:13px;color:var(--brand-ink)}
+.link span{font-size:13px;font-weight:600;line-height:1.3;overflow-wrap:anywhere}
+.link.mod{border-top-color:var(--amber)}
+@media (max-width:720px){.chain{grid-template-columns:repeat(4,minmax(0,1fr))}}
+
+footer{font-size:13px;color:var(--dim);border-top:1px solid var(--line);padding-top:16px}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+/*@CSS_VISOR@*/
+</style>
+
+<nav class="toc" aria-label="Índice">
+  <ol>
+    <li><a href="#mapa">Mapa</a></li>
+    <li><a href="#flujo">Flujo</a></li>
+    <li><a href="#motores">Dos motores</a></li>
+    <li><a href="#ruteo">Ruteo</a></li>
+    <li><a href="#contrato">Contrato</a></li>
+    <li><a href="#estado">Datos</a></li>
+    <li><a href="#acceso">Acceso</a></li>
+    <li><a href="#capas">Capas</a></li>
+    <li><a href="#prospeccion">Prospección</a></li>
+    <li><a href="#qa">QA</a></li>
+    <li><a href="#riesgos">Riesgos</a></li>
+    <li><a href="#arbol">Árbol</a></li>
+    <li><a href="#codigo">Código</a></li>
+  </ol>
+</nav>
+
+<main class="wrap">
+
+<header class="hero">
+  <div class="eyebrow">Calibrar · documentación interna · 25-oct-2026</div>
+  <h1>Calibrar no tiene servidor de aplicación: <em>todo corre en el navegador</em>, y solo el motor de cierre sale a la API.</h1>
+  <p class="lead">El instrumento, el ruteo y las reuniones viven en el Mac de Pablo. Un servidor Python local sirve los archivos y lee las Notas de Voz. La única salida a internet es la llamada a Claude, que va directo desde el navegador con la clave guardada en ese equipo.</p>
+  <div class="stats">
+    <div class="stat"><b>7</b><span>eslabones de la Cadena de Crecimiento, numerados 01–07</span></div>
+    <div class="stat"><b>14</b><span>preguntas de triage que alimentan el ruteo</span></div>
+    <div class="stat"><b>2</b><span>motores: uno determinista local y uno conectado a Claude</span></div>
+    <div class="stat"><b>268</b><span>verificaciones de QA en verde hoy (117 + 151)</span></div>
+  </div>
+</header>
+
+<section id="mapa">
+  <div class="eyebrow">Mapa del proyecto</div>
+  <h2>Cinco carpetas, y cada una tiene un rol que no se cruza con el de las otras</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>Carpeta</th><th>Qué es</th><th>Archivos que mandan</th><th>Estado</th></tr></thead>
+    <tbody>
+      <tr><td><code>01 Producto/</code></td><td>Fuente de verdad: PRD, Matriz de Cruces, casos dorados y los scripts que verifican el método</td><td><code>Calibrar_PRD_v3_jul2026.md</code> (v5.9, 3.543 líneas) · <code>Calibrar_Matriz_Exhaustiva_de_Cruces_v1.txt</code> (v1.6) · <code>Calibrar_AnexoG_Extendido_v3.1.md</code></td><td><span class="tag t-ok">vigente</span></td></tr>
+      <tr><td><code>02 Prospeccion/</code></td><td>La base de prospectos que el método perfila, escrita por tres rutinas programadas</td><td><code>Base_Prospectos_Calibrar_RM.xlsx</code> (maestro, 25 columnas) · <code>Base_Prospectos_Segmentada.xlsx</code> (derivada) · nóminas del SII</td><td><span class="tag t-ok">vigente</span></td></tr>
+      <tr><td><code>03 Front/</code></td><td>Prototipo sin servidor ni API. Aloja el modelo de datos y el motor local que la cabina reutiliza</td><td><code>assets/data.js</code> (805 líneas) · <code>assets/motor.js</code> (253) · <code>presentacion.html</code> (se proyecta) · <code>index.html</code> (interno)</td><td><span class="tag t-ok">vigente</span></td></tr>
+      <tr><td><code>04 Cabina/</code></td><td>La herramienta de reunión: conduce, guarda, llama al motor y emite resultados</td><td><code>reunion.html</code> · <code>guiada.html</code> · <code>resultados.html</code> · <code>servidor_cabina.py</code> · 12 archivos en <code>assets/</code></td><td><span class="tag t-ok">vigente</span></td></tr>
+      <tr><td><code>04 Pitch Modulo V/</code></td><td>Demo y pitch del curso, entregado el 13-ago</td><td><code>Calibrar_Demo.html</code></td><td><span class="tag t-warn">superado por la cabina</span></td></tr>
+    </tbody>
+  </table></div>
+  <p class="read">Lectura: una pregunta del instrumento se cambia en un solo lugar, <code>03 Front/assets/data.js</code>, y la cabina la recibe sola. El prompt del motor se cambia en el Anexo E del PRD y se propaga con un script. Editar cualquiera de los dos en otra parte crea una segunda versión que el QA pone en rojo.</p>
+</section>
+
+<section id="flujo">
+  <div class="eyebrow">Arquitectura</div>
+  <h2>Tres fuentes de verdad alimentan una cabina que guarda todo en el navegador</h2>
+  <div class="diagram"><pre class="mermaid">
+flowchart LR
+  subgraph FUENTES["01 Producto · fuente de verdad"]
+    PRD["PRD v5.9<br/>Anexo E · prompt maestro<br/>Anexo F.2 · contrato"]
+    MTZ["Matriz de Cruces v1.6"]
+  end
+  subgraph FRONT["03 Front/assets · compartido"]
+    DATA["data.js<br/>CADENA · TRIAGE · bloques"]
+    MOTOR["motor.js<br/>ruteo determinista<br/>+ 15 invariantes"]
+  end
+  subgraph CABINA["04 Cabina · navegador"]
+    LOGIN["login.html"]
+    REU["reunion.html<br/>guiada.html"]
+    RES["resultados.html<br/>única vista compartible"]
+    API_JS["motor_api.js"]
+    PM["prompt_maestro.js<br/>GENERADO"]
+    AP["apendices_motor.js"]
+    LS[("localStorage<br/>cabina_estado<br/>cabina_archivo")]
+  end
+  SRV["servidor_cabina.py<br/>:8642"]
+  NV[("Notas de Voz<br/>transcritas por macOS")]
+  JSON[("Reuniones/*.json")]
+  CLAUDE["API Anthropic<br/>sonnet-5 · opus-5"]
+
+  PRD -- "regenerar_prompt_maestro.py" --> PM
+  MTZ -.-> DATA
+  DATA --> REU
+  MOTOR --> REU
+  MOTOR --> RES
+  LOGIN --> REU
+  REU <--> LS
+  LS --> RES
+  JSON -- "?reunion=" --> RES
+  REU --> API_JS
+  PM --> API_JS
+  AP --> API_JS
+  API_JS -- "HTTPS directo" --> CLAUDE
+  SRV -- "/api/notas · /api/nota" --> REU
+  NV --> SRV
+  </pre></div>
+  <p class="read">Lectura: el único componente que sale del equipo es <code>motor_api.js</code> hacia la API de Anthropic. Las transcripciones de reunión no viajan como audio: macOS ya las transcribió y el servidor solo lee ese texto. Si la API no tiene clave, la cabina funciona igual con el motor local.</p>
+</section>
+
+<section id="motores">
+  <div class="eyebrow">Los dos motores</div>
+  <h2>El motor local decide el eslabón en el momento; Claude escribe el diagnóstico que lo sostiene</h2>
+  <div class="cols">
+    <div class="box">
+      <span class="tag t-info">motor.js · local</span>
+      <h3>Ruteo determinista, sin red</h3>
+      <p>Traduce a JavaScript las reglas de precedencia del PRD §5.0.1–5.0.3. Calcula el estado de cada eslabón, el punto de flujo, el dominante, la secundaria y la confianza. También verifica las 15 invariantes de cualquier salida del motor conectado.</p>
+      <p>Su propio encabezado lo declara: «esto no es el motor». Sirve para rutear en sala y para el gate de resultados.</p>
+    </div>
+    <div class="box">
+      <span class="tag t-info">motor_api.js · conectado</span>
+      <h3>Claude con el System Prompt Maestro</h3>
+      <p>Arma el mensaje de usuario según el contrato del Anexo F.2, incluidos los bloques <code>&lt;arquetipo&gt;</code> y <code>&lt;modulo&gt;</code>, y lo concatena con el prompt maestro y el apéndice del modo.</p>
+      <p>La salida del cierre solo llega a Resultados si pasa las 15 invariantes. Nunca envía <code>temperature</code>, <code>top_p</code> ni <code>top_k</code>: en estos modelos devuelven error 400.</p>
+    </div>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Modo</th><th>Botón en la cabina</th><th>Modelo</th><th>Effort</th><th>Tope de salida</th><th>Búsqueda web</th></tr></thead>
+    <tbody>
+      <tr><td>En vivo</td><td>Consulta en vivo</td><td class="num">claude-sonnet-5</td><td class="num">low</td><td class="num">6.000</td><td class="num">hasta 3</td></tr>
+      <tr><td>Cierre</td><td>Generar diagnóstico de cierre</td><td class="num">claude-opus-5</td><td class="num">high</td><td class="num">16.000</td><td class="num">no</td></tr>
+      <tr><td>Preparación</td><td>Preparar la siguiente reunión</td><td class="num">claude-opus-5</td><td class="num">medium</td><td class="num">6.000</td><td class="num">no</td></tr>
+      <tr><td>Análisis digital</td><td>Análisis digital (web y canales)</td><td class="num">claude-sonnet-5</td><td class="num">medium</td><td class="num">8.000</td><td class="num">hasta 8</td></tr>
+    </tbody>
+  </table></div>
+  <p class="read">Lectura: el cierre es la llamada cara y lenta (1 a 3 minutos) y por eso pide confirmación. Los otros tres modos usan los apéndices de <code>apendices_motor.js</code> encima del Anexo E. Ese archivo existe aparte porque el generador del prompt reescribe entero <code>prompt_maestro.js</code> y antes borraba los apéndices sin aviso.</p>
+</section>
+
+<section id="ruteo">
+  <div class="eyebrow">Cómo rutea</div>
+  <h2>El eslabón dominante es el primero roto contando desde donde hoy sí hay flujo</h2>
+  <div class="chain" aria-label="Cadena de Crecimiento Comercial">
+    <div class="link"><b>01</b><span>Criterio</span></div>
+    <div class="link"><b>02</b><span>Reputación</span></div>
+    <div class="link"><b>03</b><span>Demanda</span></div>
+    <div class="link"><b>04</b><span>Activo</span></div>
+    <div class="link"><b>05</b><span>Captura</span></div>
+    <div class="link"><b>06</b><span>Escala</span></div>
+    <div class="link mod"><b>07</b><span>Capacidad · modificador</span></div>
+  </div>
+  <div class="diagram"><pre class="mermaid">
+flowchart TD
+  A["Respuestas de triage"] --> B{"¿3 o más respuestas<br/>y punto de flujo conocido?"}
+  B -- no --> X["insuficiente · confianza baja<br/>Resultados muestra «en preparación»"]
+  B -- sí --> C["Estado por eslabón<br/>sano · roto · sin datos"]
+  C --> D{"Punto de flujo"}
+  D -- "T3 &gt; 0 → 5" --> O5["Orden: 05 06 04 02 03 07"]
+  D -- "pauta o canal nombrado → 4" --> O4["Orden: 04 05 06 02 03 07"]
+  D -- "T3 = 0 → 3" --> O3["Orden: 03 02 04 05 06 07"]
+  O5 --> E
+  O4 --> E
+  O3 --> E
+  E{"¿Flujo ≥ 4 y 01 roto?"} -- sí --> F["Dominante 01"]
+  E -- no --> G["Primer roto en el orden"]
+  G --> H{"¿Dominante 07 con<br/>otro eslabón roto?"}
+  H -- sí --> I["Pasa al primer roto de 01–06<br/>regla DB-12"]
+  H -- no --> J["Dominante confirmado"]
+  F --> K["Secundaria: el roto más cercano<br/>07 si el equipo no puede sostenerlo"]
+  I --> K
+  J --> K
+  K --> L["Confianza<br/>alta: ≥10 respuestas y ≤1 sin datos<br/>media: ≥6 · baja: el resto"]
+  </pre></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Pregunta</th><th>Eslabón</th><th>Qué pregunta</th></tr></thead>
+    <tbody>
+      <tr><td class="num">T13 · T14</td><td class="num">01</td><td>Si tienen escrito a quién venderle, y cómo elegirían entre cien contactos</td></tr>
+      <tr><td class="num">T1 · T2</td><td class="num">02</td><td>Cómo llegó el último cliente y qué encuentra quien los busca por nombre</td></tr>
+      <tr><td class="num">T3 · T4</td><td class="num">03</td><td>Cuántas oportunidades llegan al mes y si invierten en pauta</td></tr>
+      <tr><td class="num">T5 · T6</td><td class="num">04</td><td>A dónde mandan al interesado y si puede dejar datos sin hablar con nadie</td></tr>
+      <tr><td class="num">T7 · T8</td><td class="num">05</td><td>En cuánto se responde y dónde queda registrado el contacto</td></tr>
+      <tr><td class="num">T9 · T10 · T11</td><td class="num">06</td><td>Conversaciones sin seguimiento, uso de IA y horas de tareas repetitivas</td></tr>
+      <tr><td class="num">T12</td><td class="num">07</td><td>Qué pasa si se va la persona que maneja el marketing o la venta</td></tr>
+    </tbody>
+  </table></div>
+  <p class="read">Lectura: la página de resultados abre solo si hay dominante y la confianza no es baja. Por eso la reunión de Partículas del 24-ago no muestra informe: se guardó con notas de texto y con el triage vacío, así que no hay punto de flujo. Para que una reunión produzca resultados hay que marcar las respuestas del triage en la cabina, no solo escribir notas.</p>
+</section>
+
+<section id="contrato">
+  <div class="eyebrow">Contrato de salida</div>
+  <h2>El diagnóstico de cierre son cinco bloques, y quince invariantes deciden si se muestra</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>Bloque</th><th>Contenido</th></tr></thead>
+    <tbody>
+      <tr><td class="num">bloque_0_ruteo</td><td>Eslabón dominante (entero 1–7), estado de la cadena, área recomendada, por qué este y no otro, qué no es su problema</td></tr>
+      <tr><td class="num">bloque_1_data</td><td>Cifras clave declaradas, cada una con su lectura</td></tr>
+      <tr><td class="num">bloque_2_hipotesis</td><td>Tres hipótesis con procedencia, confianza, alcance, atribución y cómo se verifica</td></tr>
+      <tr><td class="num">bloque_3_soluciones</td><td>Tres soluciones, una por hipótesis, con predicción y si el cliente puede hacerla solo</td></tr>
+      <tr><td class="num">bloque_4_etapas</td><td>De 2 a 4 etapas con quién lo hace y cómo se sabe que resultó, más lo que queda fuera de alcance</td></tr>
+    </tbody>
+  </table></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Código</th><th>Invariante que verifica <code>verificarInvariantes()</code></th></tr></thead>
+    <tbody>
+      <tr><td class="num">DB-1</td><td>Ninguna cifra sin lectura</td></tr>
+      <tr><td class="num">DB-2</td><td>Biyección hipótesis ↔ soluciones, 3 y 3</td></tr>
+      <tr><td class="num">DB-3</td><td>Toda hipótesis es falsable</td></tr>
+      <tr><td class="num">DB-4</td><td>Toda solución es predictiva</td></tr>
+      <tr><td class="num">DB-5</td><td>Al menos una solución no depende de contratarnos</td></tr>
+      <tr><td class="num">DB-6</td><td>Nada inferido con confianza alta</td></tr>
+      <tr><td class="num">DB-7</td><td>Reparto de atribución consistente y suma 3</td></tr>
+      <tr><td class="num">DB-8</td><td>Alcance declarado en cada hipótesis: cuenta o canal</td></tr>
+      <tr><td class="num">DB-10</td><td>Un solo eslabón dominante, entero de 1 a 7</td></tr>
+      <tr><td class="num">DB-12</td><td>07 nunca es dominante solo</td></tr>
+      <tr><td class="num">DB-13</td><td>Se declara qué NO es su problema</td></tr>
+      <tr><td class="num">DB-14</td><td>Entre 2 y 4 etapas, ninguna huérfana</td></tr>
+      <tr><td class="num">DB-15</td><td>La etapa 1 no es un servicio facturable</td></tr>
+      <tr><td class="num">DB-16</td><td>Se declara lo que está fuera de alcance</td></tr>
+      <tr><td class="num">DB-17</td><td>El veredicto no cierra con una negación seca</td></tr>
+    </tbody>
+  </table></div>
+  <p class="read">Lectura: una salida de Claude que falle una sola invariante no llega a la vista del cliente. Es la defensa contra un diagnóstico que suene bien y no se pueda sostener. DB-5 y DB-15 obligan a que el informe deje algo útil aunque el prospecto no nos contrate.</p>
+</section>
+
+<section id="estado">
+  <div class="eyebrow">Datos y estado</div>
+  <h2>Las reuniones viven en el navegador de este Mac, y el respaldo es un JSON exportado</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>Dónde</th><th>Clave o ruta</th><th>Qué guarda</th></tr></thead>
+    <tbody>
+      <tr><td>localStorage</td><td class="num">cabina_estado</td><td>La reunión activa; es la que lee <code>resultados.html</code></td></tr>
+      <tr><td>localStorage</td><td class="num">cabina_archivo</td><td>Todas las reuniones, indexadas por id, para cambiar entre ellas</td></tr>
+      <tr><td>localStorage</td><td class="num">cabina_api_key</td><td>La clave de Anthropic de este equipo</td></tr>
+      <tr><td>localStorage</td><td class="num">cabina_clave_hash</td><td>El hash SHA-256 de la clave local de acceso</td></tr>
+      <tr><td>sessionStorage</td><td class="num">cabina_auth</td><td>La sesión iniciada; se borra al cerrar la pestaña</td></tr>
+      <tr><td>Disco</td><td class="num">04 Cabina/Reuniones/*.json</td><td>Reuniones exportadas: AFORO, AMBROT, ATILA, PARTICULAS y un demo de resultados</td></tr>
+    </tbody>
+  </table></div>
+  <p class="read">Lectura: una reunión que no se exporta existe solo en el navegador donde se hizo. Borrar los datos del sitio o cambiar de navegador la pierde. El modo ejemplo (<code>?reunion=Reuniones/&lt;archivo&gt;.json</code>) lee un JSON de disco en solo lectura y sirve para mostrar un resultado en otro equipo.</p>
+</section>
+
+<section id="acceso">
+  <div class="eyebrow">Acceso y seguridad</div>
+  <h2>El acceso detiene a un curioso, no a un atacante, y el propio código lo dice</h2>
+  <div class="cols">
+    <div class="box">
+      <span class="tag t-ok">funciona</span>
+      <h3>Clave local</h3>
+      <p>Hash SHA-256 guardado en el navegador. Funciona sin conexión. Tras el acceso, <code>destinoPostLogin()</code> solo acepta páginas <code>.html</code> locales de la cabina, así que el parámetro <code>next</code> no puede redirigir afuera.</p>
+    </div>
+    <div class="box">
+      <span class="tag t-warn">sin configurar</span>
+      <h3>Google Sign-In</h3>
+      <p>Requiere el Client ID en <code>assets/config.js</code> y abrir por <code>localhost:8642</code>. Hoy la pantalla de acceso avisa que está pendiente, así que la única vía es la clave local.</p>
+    </div>
+    <div class="box">
+      <span class="tag t-warn">riesgo aceptado</span>
+      <h3>Clave de API en el navegador</h3>
+      <p>La llamada sale directo del navegador con el encabezado <code>anthropic-dangerous-direct-browser-access</code>. Cualquiera con acceso a este navegador puede leer la clave. Es aceptable mientras la cabina corra solo en el Mac de Pablo.</p>
+    </div>
+    <div class="box">
+      <span class="tag t-ok">funciona</span>
+      <h3>Ley 21.719 en el código</h3>
+      <p><code>qa_cabina.py</code> barre todos los <code>.html</code> de la cabina y todos los JSON de <code>Reuniones/</code> buscando nombres de personas. La ficha guarda cargo o rol. El módulo profesional pide el tipo de paciente, nunca el nombre.</p>
+    </div>
+  </div>
+</section>
+
+<section id="capas">
+  <div class="eyebrow">Capas sobre el instrumento</div>
+  <h2>Cuatro capas cambian cómo se pregunta sin tocar ids, valores ni ruteo</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>Archivo</th><th>Desde</th><th>Qué agrega</th><th>Qué no puede tocar</th></tr></thead>
+    <tbody>
+      <tr><td><code>preguntas_v2.js</code></td><td class="num">19-ago-2026</td><td>Redacción de conducción: «decirlo así», qué escuchar, la escalera del «no sé» y las preguntas X1–X5</td><td>Ids, valores de opción, ruteo</td></tr>
+      <tr><td><code>modulo_profesional.js</code></td><td class="num">24-sep-2026</td><td>Quinto perfil para profesionales independientes, vocabulario de paciente o cliente, capa de salud con cuatro límites</td><td>El contrato del Anexo F.2 y la Cadena 01–07</td></tr>
+      <tr><td><code>apendices_motor.js</code></td><td class="num">7-sep-2026</td><td>Los tres modos del motor: en vivo, preparación y análisis digital</td><td><code>prompt_maestro.js</code>, que es generado</td></tr>
+      <tr><td><code>dictado.js</code></td><td class="num">sep-2026</td><td>Dictado en vivo con el navegador y traída de Notas de Voz vía <code>servidor_cabina.py</code></td><td>Nada sale como audio</td></tr>
+    </tbody>
+  </table></div>
+  <p class="read">Lectura: la regla de arquitectura es que lo que cambia el diagnóstico vive en <code>data.js</code>, <code>motor.js</code> y el Anexo E, y lo que cambia la conversación vive en estas capas. Una capa que toque un valor de opción rompe el ruteo sin error visible.</p>
+</section>
+
+<section id="prospeccion">
+  <div class="eyebrow">El backend de prospección</div>
+  <h2>La base de prospectos tiene una sola puerta de escritura, y todo pasa por ella</h2>
+  <div class="diagram"><pre class="mermaid">
+flowchart LR
+  T1["prospeccion-cada3dias<br/>lun y jue 20:30 · 40 filas foco norte"] --> IO
+  T2["prospeccion-semanal<br/>dom 20:30 · hasta 50 filas RM"] --> IO
+  T3["enriquecimiento-diario<br/>19:00 · completa 40 filas"] --> IO
+  T4["hallazgos-sitio<br/>hallazgos.py · fuera del sandbox"] --> IO
+  SII[("Nóminas SII 2024")] --> FAC["facturacion.py<br/>umbral $30 MM/mes"]
+  FAC --> T1
+  IO["maestro_io.py<br/>lock · respaldo · Bitácora<br/>columnas por nombre"] --> M[("Maestro<br/>Base_Prospectos_Calibrar_RM.xlsx")]
+  M --> SEG["regen_segmentada.py"] --> S[("Segmentada<br/>Lista A · Lista B · Por verificar")]
+  M --> HS["hubspot_piloto.py"]
+  QA["qa_prospeccion.py<br/>+ mutación + correo nominativo"] -.-> M
+  </pre></div>
+  <ul class="clean">
+    <li><code>maestro_io.py</code> garantiza lock entre tareas, respaldo con rotación, correlativo derivado del archivo, que el conteo nunca baje y que ningún correo nominativo entre.</li>
+    <li>El interruptor <code>PERMITIR_DATOS_PERSONALES</code> está en <code>False</code>: RUT y decisor quedan cerrados a las rutinas. Abrirlo es decisión de Álvaro.</li>
+    <li>La segmentada es derivada: se regenera cada vez que el maestro crece, recalculando densidad y score de visita (máximo 10).</li>
+    <li>Punto ciego conocido: una escritura que se salta <code>maestro_io</code> tampoco queda en la Bitácora. Un conteo que no cuadra se audita contra el respaldo previo.</li>
+  </ul>
+</section>
+
+<section id="qa">
+  <div class="eyebrow">Guardarraíles</div>
+  <h2>Los dos QA del producto están en verde hoy: 117 de 117 y 151 de 151</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>Script</th><th>Qué verifica</th><th>Resultado</th></tr></thead>
+    <tbody>
+      <tr><td><code>01 Producto/qa_calibrar.py</code></td><td>Invariantes del PRD, la Matriz y el Anexo G; ejecuta <code>presentacion.html</code> en un micro-DOM y revisa lo que emite. Necesita <code>node</code></td><td class="num"><span class="tag t-ok">117/117 · 25-oct</span></td></tr>
+      <tr><td><code>04 Cabina/qa_cabina.py</code></td><td>Casos dorados de ruteo, hash del prompt maestro contra el Anexo E, login, rompe-caché, Ley 21.719 por barrido y anti-fuga de la vista cliente</td><td class="num"><span class="tag t-ok">151/151 · 25-oct</span></td></tr>
+      <tr><td><code>01 Producto/qa_mutacion.py</code></td><td>Auditoría del auditor: mete defectos y exige que el QA se ponga rojo</td><td class="num">no corrido hoy</td></tr>
+      <tr><td><code>01 Producto/evaluar_salida.py</code></td><td>Evalúa una salida real del motor contra el contrato</td><td class="num">a demanda</td></tr>
+      <tr><td><code>blackbox_calibrar.py</code> · <code>casos_reales.py</code> · <code>correr_motor.py</code></td><td>Pruebas de caja negra y corridas del motor sobre casos reales</td><td class="num">a demanda</td></tr>
+      <tr><td><code>01 Producto/regenerar_prompt_maestro.py</code></td><td>Única vía para llevar el Anexo E a la cabina; se niega a escribir si encuentra constantes ajenas</td><td class="num">a demanda</td></tr>
+      <tr><td><code>_tools/qa_prospeccion.py</code></td><td>40 verificaciones del maestro, la Bitácora, la cadencia de las rutinas y los ganchos</td><td class="num">no corrido hoy</td></tr>
+    </tbody>
+  </table></div>
+  <p class="read">Lectura: el orden obligatorio al tocar el motor es corregir el Anexo E, regenerar el prompt y recién después correr <code>qa_cabina.py</code>. Al revés, el hash se pone rojo. Los QA miden coherencia interna: estaban en verde mientras la cabina seguía con el reloj de 32 minutos.</p>
+</section>
+
+<section id="riesgos">
+  <div class="eyebrow">Lo que está abierto</div>
+  <h2>Cinco puntos débiles, y el primero afecta cada reunión que se haga</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>Punto</th><th>Efecto</th><th>Qué lo cierra</th></tr></thead>
+    <tbody>
+      <tr><td><span class="tag t-bad">alto</span> Reuniones guardadas sin triage</td><td>No producen resultados; le pasó a Partículas el 24-ago</td><td>Marcar las 14 respuestas en la cabina durante la reunión, no solo notas</td></tr>
+      <tr><td><span class="tag t-bad">alto</span> La cabina sigue en 32 minutos</td><td>La auditoría técnica comercial B2B dura una hora desde el 15-sep; la cabina, <code>presentacion.html</code> y el PRD §5.7.10 no lo recogen</td><td>Ajustar el reloj y el corte en la cabina y en el PRD</td></tr>
+      <tr><td><span class="tag t-warn">medio</span> Reuniones solo en el navegador</td><td>Sin exportar, una reunión se pierde con los datos del sitio</td><td>Exportar el JSON a <code>Reuniones/</code> al cerrar cada reunión</td></tr>
+      <tr><td><span class="tag t-warn">medio</span> Clave de API en localStorage</td><td>Legible por cualquiera con acceso a este navegador</td><td>Mover la llamada a <code>servidor_cabina.py</code> si la cabina sale de este equipo</td></tr>
+      <tr><td><span class="tag t-warn">medio</span> Entregable de Partículas perdido</td><td><code>resultados_particulas.html</code> no está en disco desde el 6-sep</td><td>Usar <code>PARTICULAS/Calibrar_Particulas_24ago2026.html</code>, que nombra personas y no se proyecta sin anonimizar</td></tr>
+    </tbody>
+  </table></div>
+  <p class="read">Decisión pendiente, de Pablo: llevar la hora de la auditoría al producto antes de la próxima reunión con la cabina. Sin eso, el corte de los 30 minutos le dice al operador que cierre a la mitad.</p>
+</section>
+
+<!--@ARBOL_Y_VISOR@-->
+
+<footer>
+  Levantado del código el 25-oct-2026 leyendo <code>motor.js</code>, <code>motor_api.js</code>, <code>cabina.js</code>, <code>auth.js</code>, <code>servidor_cabina.py</code>, <code>data.js</code> y el PRD v5.9. Los QA se corrieron el mismo día. Documento interno: no se comparte con clientes.
+</footer>
+
+</main>
+<!--@SCRIPT_VISOR@-->

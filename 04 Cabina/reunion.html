@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Calibrar · Reunión — Precisión Agencia</title>
+<script src="assets/config.js?v=12"></script>
+<script src="assets/auth.js?v=12"></script>
+<script>exigirLogin();</script>
+<link rel="stylesheet" href="assets/cabina.css?v=12">
+</head>
+<body>
+<header class="top">
+  <img src="../03 Front/assets/logo-precision-blanco.png" alt="Precisión">
+  <span class="app">CALI<b>BRAR</b> · CABINA</span>
+  <span class="emp" id="top-emp">—</span>
+  <nav>
+    <a href="guiada.html">Modo guiado</a>
+    <a class="act" href="reunion.html">Reunión</a>
+    <a href="guia.html">Guía</a>
+    <a href="resultados.html" onclick="irAResultados(event)">Resultados</a>
+    <select id="sel-reu" onchange="cambiarReunion(this.value)" title="Cambiar de reunión guardada"></select>
+    <button onclick="importar()" title="Cargar una reunión preparada (.json)">Importar</button>
+    <button onclick="exportar()" title="Descargar respaldo de la reunión">Exportar</button>
+    <button onclick="nuevaReunion()">Nueva reunión</button>
+    <button onclick="cerrarSesion()" title="Cerrar sesión">Salir</button>
+  </nav>
+</header>
+
+<main>
+  <!-- Orden maestro v2 (HBR: de lo menos a lo más sensible):
+       gatillo → mejor cliente → proceso → plata → decisión y avance -->
+  <section class="sec" id="ficha"></section>
+  <section class="sec" id="carpeta" style="display:none"></section>
+  <section class="sec" id="gatillo"></section>
+  <section class="sec" id="nucleo"></section>
+  <section class="sec" id="triage"></section>
+  <section class="sec" id="puente"></section>
+  <section class="sec" id="bloque"></section>
+  <section class="sec interno" id="motor"></section>
+  <section class="sec" id="extra"></section>
+  <section class="sec" id="comp"></section>
+  <section class="sec" id="p0"></section>
+  <section class="sec" id="cierre"></section>
+  <section class="sec interno" id="panel"></section>
+</main>
+
+<footer class="estado" id="estado"></footer>
+
+<script src="../03 Front/assets/data.js?v=12"></script>
+<script src="../03 Front/assets/motor.js?v=12"></script>
+<script src="assets/preguntas_v2.js?v=12"></script>
+<script src="assets/modulo_profesional.js?v=12"></script>
+<script src="assets/prompt_maestro.js?v=12"></script>
+<!-- Los apéndices van SIEMPRE después del prompt maestro y antes de motor_api.js:
+     motor_api los concatena al system al llamar a la API. Viven aparte porque
+     prompt_maestro.js es generado y su regeneración los borraba. -->
+<script src="assets/apendices_motor.js?v=12"></script>
+<script src="assets/cabina.js?v=12"></script>
+<script src="assets/motor_api.js?v=12"></script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Calibrar · Front de demostración — Precisión Agencia</title>
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<div class="aviso">Uso interno · Prototipo de interfaz — <b>Calibrar está en pausa de desarrollo</b> y no se vende ni se usa en captación</div>
+
+<header class="top">
+  <div class="top-in">
+    <img src="assets/logo-precision-blanco.png" alt="Precisión Agencia">
+    <span class="sep"></span>
+    <span class="name">Cali<span>brar</span></span>
+    <span class="build">PRD v5.5 · proto</span>
+    <nav>
+      <a href="#inicio"     data-v="inicio">Inicio</a>
+      <a href="#panel"      data-v="panel">1 · Triage</a>
+      <a href="#bloque"     data-v="bloque">2 · Bloque profundo</a>
+      <a href="#entregable" data-v="entregable">3 · Entregable</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ═══ VISTA 1 · PORTADA ═══════════════════════════════════════════════ -->
+<section class="vista" id="v-inicio">
+  <div class="wrap">
+    <div class="hero">
+      <span class="kicker">Diagnóstico de crecimiento comercial · Precisión Agencia</span>
+      <h1>Dónde se <span class="amb">rompe</span><br>tu crecimiento</h1>
+      <p class="claim">Y qué disciplina lo arregla. No es un diagnóstico de pauta: es el mapa de los siete eslabones y del primero que se corta.</p>
+      <div class="meta-b"><span>PRD v5.5 · 3-ago-2026</span><span>29 min de reunión</span><span>115 preguntas de inventario · 36 en la reunión</span><span>Corre sin API</span></div>
+      <p class="sub">Prototipo de interfaz construido sobre el PRD v5.5 (3-ago-2026). Reproduce la reunión completa: las tres preguntas de calificación, el triage que rutea el área, el núcleo de negocio y la competencia que van siempre, el bloque profundo del eslabón dominante, las tres del cierre, y el entregable que el prospecto se lleva antes de que termine la reunión.</p>
+    </div>
+
+    <div class="cards">
+      <a class="card" href="#panel">
+        <span class="kicker">Paso 1 · Modo en vivo</span>
+        <h3>Triage — las 14</h3>
+        <p>Entrada por selección, para responder con una mano mientras se conversa. El ruteo se recalcula en cada respuesta: eslabón dominante, área que lo resuelve, siguiente mejor pregunta, y la división entre lo que ya se puede afirmar en voz alta y lo que todavía no.</p>
+        <span class="go">Abrir el copiloto</span>
+      </a>
+      <a class="card" href="#bloque">
+        <span class="kicker">Paso 2 · Modo en vivo</span>
+        <h3>El bloque del área</h3>
+        <p>Se abre uno solo, el del eslabón dominante: <b>Q</b>1–17 criterio · <b>R</b>1–8 reputación · <b>P</b>1–28 pauta · <b>W</b>1–10 web · <b>A</b>1–12 captura · <b>I</b>1–8 escala · <b>C</b>1–6 capacidad. Con la regla de corte: se pregunta hasta que el diagnóstico converja, no hasta agotar la lista.</p>
+        <span class="go">Ver el bloque</span>
+      </a>
+      <a class="card" href="#entregable">
+        <span class="kicker">Paso 3 · Vista compartida</span>
+        <h3>El entregable, en 5 bloques</h3>
+        <p>Ruteo · Data · 3 hipótesis · 3 soluciones · Plan por etapas. Cargado con el caso dorado Eco Star: un cliente que paga pauta y cuyo problema no es la pauta. Incluye los invariantes del dashboard verificándose sobre el mismo JSON.</p>
+        <span class="go">Ver el entregable</span>
+      </a>
+    </div>
+
+    <div class="flujo">
+      <div class="fp"><span class="fn">1</span><b>&lt;triage&gt;</b> t1–t14<i>Emite el bloque 0 (ruteo) y la siguiente pregunta. <b>No emite hipótesis todavía.</b></i></div>
+      <div class="fp"><span class="fn">2</span><b>+ núcleo, competencia y &lt;bloque_area&gt;</b><i>N1–N7 y M1–M5 van siempre; del área se abre uno solo. En la reunión: 36 preguntas, 29 minutos.</i></div>
+      <div class="fp"><span class="fn">3</span><b>Diagnóstico completo</b> bloques 0 a 4<i>Recién acá salen las 3 hipótesis y las 3 soluciones. Antes, cualquier hipótesis sería una opinión.</i></div>
+    </div>
+
+    <div style="margin-top:46px;border-top:1px solid var(--line);padding-top:26px">
+      <span class="kicker">La Cadena de Crecimiento Comercial</span>
+      <div class="grid2" style="margin-top:16px">
+        <div>
+          <p style="font-size:15px;max-width:60ch">Siete eslabones. Cada uno, cuando se rompe, produce un síntoma distinto y exige una disciplina distinta — y cada disciplina es una línea de servicio de la agencia.</p>
+          <p style="font-size:15px;max-width:60ch;margin-top:14px"><b>El eslabón dominante es el primero que se rompe contando desde donde hoy sí hay flujo.</b> Si hay una fuga río abajo, invertir río arriba la amplifica: se tapa el balde antes de abrir la llave.</p>
+        </div>
+        <div class="tabla-scroll">
+          <table>
+            <thead><tr><th style="width:38px">#</th><th>Eslabón</th><th>Cómo lo dice el dueño</th><th>Área</th></tr></thead>
+            <tbody id="tabla-cadena"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="pie">
+      Fuente de verdad: <b>Calibrar/01 Producto/Calibrar_PRD_v3_jul2026.md</b> (PRD v5.5). Identidad: #0D4F6A · #F5A623 · Montserrat.
+      Este prototipo no llama a ninguna API ni envía datos a ninguna parte: todo corre en el navegador.
+    </div>
+  </div>
+</section>
+
+<!-- ═══ VISTA 2 · PANEL DEL OPERADOR ════════════════════════════════════ -->
+<section class="vista console" id="v-panel">
+  <div class="wrap">
+    <div class="hero" style="padding:22px 0 20px">
+      <span class="kicker">Modo en vivo · solo lo ve Pablo</span>
+      <h1 style="font-size:clamp(26px,4vw,40px)">Panel del operador</h1>
+      <p class="sub">La reunión completa, no solo el triage: tres minutos de calificación, las 14, el bloque del eslabón roto y las tres del cierre. Preguntar por el Pixel antes de saber si el eslabón roto es la captura es exactamente el error que este modelo existe para evitar.</p>
+    </div>
+    <div id="reunion"></div>
+    <div id="transcripcion"></div>
+    <div class="barra tick" id="barra"></div>
+    <div class="op">
+      <div>
+        <div id="preguntas0"></div>
+        <div id="preguntas"></div>
+        <div id="cierre"></div>
+      </div>
+      <aside class="side" id="side"></aside>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ VISTA 3 · BLOQUE PROFUNDO ═══════════════════════════════════════ -->
+<section class="vista console" id="v-bloque">
+  <div class="wrap">
+    <div class="hero" style="padding:22px 0 20px">
+      <span class="kicker">Paso 2 · Modo en vivo · solo lo ve Pablo</span>
+      <h1 style="font-size:clamp(26px,4vw,40px)">Bloque profundo del área</h1>
+      <p class="sub">Se abre <b>uno solo</b>: el del eslabón dominante. El contrato del motor no admite más de un bloque, y dentro del bloque se pregunta hasta que el diagnóstico converja, no hasta agotar la lista.</p>
+    </div>
+    <div id="bloque-cuerpo"></div>
+  </div>
+</section>
+
+<!-- ═══ VISTA 4 · ENTREGABLE ════════════════════════════════════════════ -->
+<section class="vista" id="v-entregable">
+  <div class="wrap">
+    <div class="barra no-print">
+      <span class="kicker">Vista compartida · lo que ve el prospecto</span>
+      <span style="font-size:12.5px;color:var(--ink-dim);flex:1;min-width:220px">Sin veredicto de calificación y sin contradicciones detectadas: eso vive solo en el panel del operador.</span>
+      <button class="btn" id="btn-interno" onclick="toggleInterno()">Ver capa interna</button>
+      <button class="btn pri" onclick="window.print()">Imprimir / PDF</button>
+    </div>
+    <div id="entregable"></div>
+  </div>
+</section>
+
+<script src="assets/data.js"></script>
+<script src="assets/motor.js"></script>
+<script src="assets/app.js"></script>
+<script>
+  document.getElementById('tabla-cadena').innerHTML = CADENA.map(e =>
+    `<tr><td><b>${String(e.n).padStart(2,'0')}</b></td><td><b>${e.nombre}</b></td>
+     <td style="color:var(--ink-dim)">“${e.dueno}”</td><td>${e.area}</td></tr>`).join('');
+</script>
+</body>
+</html>

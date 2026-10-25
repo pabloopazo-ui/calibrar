@@ -1,0 +1,10 @@
+# Nunca se versionan: datos de prospectos y de clientes, y respaldos
+02 Prospeccion/
+04 Cabina/Reuniones/
+04 Cabina/Entregables/
+*.backup*
+*_backup*
+_rescate_cache_navegador_*/
+.DS_Store
+__pycache__/
+.claude/

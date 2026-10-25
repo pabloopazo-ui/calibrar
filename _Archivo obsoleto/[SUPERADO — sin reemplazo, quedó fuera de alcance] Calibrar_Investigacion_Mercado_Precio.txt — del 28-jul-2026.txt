@@ -1,0 +1,149 @@
+Investigación de mercado: precio de "Calibrar" (auditoría de pauta con IA) — Precisión Agencia, Chile 2026
+TL;DR
+* $59.990 CLP (~USD 65) es un precio COMPETITIVO y, frente a alternativas humanas de pago, incluso ligeramente BAJO. Equivale a menos de dos horas de un consultor freelance chileno y a una fracción de auditorías one-off comparables (Fiverr USD 50–550; auditoría e-commerce de pvirtual.cl USD 250–500). El problema real de Calibrar no es que el número sea alto, sino que su competidor-ancla en Chile es gratis.
+* Ningún competidor combina lo que ofrece Calibrar: las herramientas SaaS (Opteo, Madgicx, Adalysis, etc.) son suscripciones mensuales en inglés que requieren conectar la cuenta y autointerpretar dashboards; las auditorías "gratuitas" de agencias chilenas son llamadas de venta disfrazadas; y no existe un producto de IA chileno que genere automáticamente un informe en español explicando "por qué tu pauta no genera leads y qué cambiar primero".
+* Recomendación: lanzar el piloto a $29.990–$39.990 CLP para generar prueba social y casos, y fijar el precio regular en $59.990, con una ruta clara hacia $79.990–$99.990 una vez validado el valor entregado. El riesgo de un precio piloto demasiado bajo es anclar la percepción de valor por debajo de lo que el producto merece.
+Key Findings
+1. El número $59.990 es defendible; el desafío es la categoría. Contra entregables humanos de pago, Calibrar está bien o subvalorado. Pero la mayoría de las PYMES chilenas que buscan "auditar su pauta" están condicionadas por agencias que regalan la auditoría como gancho comercial. Calibrar compite contra un ancla de $0.
+
+2. Las herramientas SaaS NO son competidores directos de precio. Son suscripciones recurrentes (USD 44–499/mes), en inglés, orientadas a agencias/media buyers, y entregan dashboards y alertas — no un diagnóstico narrativo en español. Para una PYME B2B chilena, su costo anual (USD 530–6.000) y su curva de aprendizaje las hacen irrelevantes como sustituto.
+
+3. Las auditorías "gratuitas" tienen un costo implícito real: tiempo, acceso a la cuenta y exposición a un pitch de venta de retainer mensual ($390.000–$750.000+/mes). Calibrar puede posicionarse explícitamente como "diagnóstico independiente, sin que nadie te quiera vender un retainer".
+
+4. Las auditorías one-off de pago validan el rango de Calibrar: Fiverr USD 50–550; consultor chileno por hora $25.000–$150.000; Jorge Lovretic (Chile) cobra una consultoría/auditoría puntual; pvirtual.cl cobra USD 250–500 por una auditoría e-commerce. $59.990 está en el extremo accesible de este espectro.
+
+5. No hay un competidor de IA chileno equivalente. Reportei (Brasil, multilingüe) genera análisis con IA de Google/Meta Ads en español, pero es una suscripción mensual (USD 24–79/mes según G2) orientada a reporting de agencias, no un diagnóstico one-off para el dueño de PYME. Calibrar tiene una ventana de diferenciación.
+
+Details
+1. Productos SaaS de auditoría de pauta (suscripción, en inglés)
+Herramienta
+	Precio (USD/mes)
+	CLP/mes aprox. (×920)
+	Auditoría
+	LATAM/español
+	WordStream Google Ads Grader
+	Gratis
+	$0
+	Automatizada, instantánea, ~40 criterios, score 0–100
+	Sí, pero es herramienta de captación; recomendaciones genéricas, 73% de precisión en errores obvios
+	WordStream Advisor (hoy LocaliQ)
+	quote-based, típ. $264–400+ (SoftwareFinder cita $294)
+	$243.000–$368.000+
+	Gestión + recomendaciones
+	Global; en inglés
+	Madgicx
+	"Pro Complete with AI" desde $99, +$9 por cuenta extra
+	desde ~$91.000
+	"AI Marketer" audita la cuenta Meta y dice qué hacer; "360° Meta Audit"
+	Global; en inglés; escala con ad spend
+	Opteo
+	Basic $129 (hasta 10 cuentas, $25K spend), Professional $249, Agency $499
+	$119.000–$459.000
+	Recomendaciones automáticas Google Ads, scorecard
+	Global; en inglés
+	Adalysis
+	desde $149 (hasta $50K spend, cuentas ilimitadas)
+	~$137.000
+	100+ checks diarios, audit report gratis de prueba
+	Global; en inglés
+	Revealbot
+	desde $99
+	~$91.000
+	Reglas de automatización, no diagnóstico narrativo
+	Global; en inglés
+	AdEspresso (Hootsuite)
+	$49–259
+	$45.000–$238.000
+	A/B testing; en proceso de sunset
+	Global; en inglés
+	Optmyzr
+	Essentials desde $209 (facturación anual; mensual ~$249–299)
+	desde ~$192.000
+	Auditorías profundas para agencias
+	Global; en inglés
+	Lectura: ninguno entrega lo que Calibrar promete — un informe de diagnóstico en español, generado automáticamente, que explica por qué no llegan leads y qué cambiar primero, sin requerir que el cliente interprete un dashboard. WordStream Grader es el único "gratis y automático", pero es un gancho de WordStream/LocaliQ para vender su servicio Advisor (quote-based, típicamente USD 264–400+/mes) y sus recomendaciones son genéricas ("mejora tu Quality Score") sin diagnóstico de raíz.
+2. Auditorías "gratuitas" de agencias chilenas como gancho comercial
+Es una práctica extendida y explícita en Chile. Ejemplos verificados: Focus Ads ("auditoría 100% gratuita, sin compromiso"), Muller y Pérez ("Solicitar Auditoría Gratis", gestionan +$50M mensuales), Agencia GL, Escala SEO, Best Solution, Adity, Agencia Spark ("primera sesión de diagnóstico gratis").
+¿Son reales o llamadas de venta? En la mayoría de los casos, son el primer paso de un embudo para vender un retainer mensual. El consenso de los propios consultores de pago lo confirma: clickomi (LATAM) advierte que "la mayoría de estas auditorías son básicas y tienen como objetivo venderte un servicio de manejo mensual de campañas". El costo implícito para el cliente: tiempo, dar acceso a su cuenta, y exposición a un pitch de venta.
+Implicancia para Calibrar: su propuesta de valor diferencial es independencia y especificidad: un diagnóstico que no termina en "contrátanos por $500.000/mes". Esto justifica cobrar donde otros regalan.
+3. Consultores independientes que cobran por auditorías
+   * Tarifa horaria en Chile: $25.000–$150.000/h (Cronoshare: "La consultoría por hora… puede ir de CLP 25.000 a 150.000/h"). Punto de referencia individual verificado: Pedro Retamal cobra $35.000 CLP (USD 40) por una hora de asesoría ("Costo de 1 hora de asesoría online o presencial: $35.000 pesos chilenos (ó 40 USD)").
+   * Consultoría/auditoría puntual: Jorge Lovretic (Chile) ofrece una consultoría estratégica de marketing/auditoría como servicio pagado puntual; otros consultores entregan informe PDF + video.
+   * Fiverr (informe PDF, pago único): USD 50–550 (gigs en inglés y español). Un gig de USD 50 ≈ $46.000 CLP; uno de USD 150 ≈ $138.000 CLP.
+   * México/LATAM: clickomi y Tecinova venden auditorías one-off con informe PDF + video, posicionándolas explícitamente como superiores a las gratuitas.
+   * Auditoría e-commerce one-off (pvirtual.cl / Negocio Virtual, Chile): USD 250–500 (pago 50/50), informe de 25–30 páginas en 10 días hábiles que incluye revisión de campañas de pauta.
+Lectura: $59.990 (~USD 65) equivale a ~1,7 horas de un consultor freelance chileno y se ubica en el extremo accesible del mercado de auditorías de pago. Como el costo marginal de Calibrar (IA) es bajo, hay margen amplio.
+4. Productos de IA similares en LATAM/España
+   * Reportei (Brasil, disponible en español): genera análisis automáticos con IA de Google Ads y Meta Ads, con "recomendaciones para optimizar los anuncios". Pero es suscripción mensual — G2 (actualizado feb-2026) reporta 3 ediciones de USD 24 a USD 79/mes; un artículo con entrevista al cofundador citaba un rango previo de USD 14,50–64,50. En cualquier caso, está orientada a reporting recurrente de agencias, con IA por créditos. No es un diagnóstico one-off para el dueño de PYME.
+   * Existen flujos genéricos de "auditoría de marketing con IA" (subir captura → ChatGPT recomienda), pero no son productos empaquetados con precio para PYME B2B chilena.
+   * No identifiqué un competidor de IA chileno que genere un informe de diagnóstico de pauta one-off en español. Esta es la ventana de Calibrar.
+5. Percepción de valor y disposición a pagar (PYME B2B chilena)
+   * Diagnósticos pagados de marketing para PYME: Agencia Spark ofrece un paquete de diagnóstico desde USD 47 (~$43.000 CLP) y asesoría continua hasta USD 350/mes.
+   * Gestión mensual de pauta (retainer): $120.000–$200.000 (consultor) hasta $390.000–$750.000+/mes (agencia con equipo).
+   * Inversión publicitaria mínima viable: $80.000–$300.000/mes en Google/Meta.
+   * Sensibilidad al precio: alta. Las PYMES chilenas operan con presupuesto limitado, desconfían ("nos han vendido humo antes") y exigen resultados rápidos. Pero ya gastan $300.000+/mes en pauta, por lo que $59.990 representa ~15–25% de un mes de inversión publicitaria típica — una cifra que un dueño que "gastó $300.000 y no le llamó nadie" puede justificar para saber qué está fallando.
+Posicionamiento del precio de Calibrar ($59.990 / USD 65)
+Alternativa
+	Precio
+	Formato
+	Veredicto vs Calibrar
+	Auditoría gratuita de agencia
+	$0
+	Llamada de venta
+	Calibrar cuesta más, pero es independiente y sin pitch
+	WordStream Grader
+	$0
+	Score automático genérico
+	Calibrar es más específico y en español, pero debe justificar el salto desde gratis
+	Fiverr (gig barato)
+	~$46.000
+	PDF, calidad variable
+	Calibrar similar precio, mayor confianza/localización
+	Calibrar
+	$59.990
+	Informe IA en español, one-off
+	—
+	1 hora consultor Chile
+	$35.000–$150.000
+	Sesión en vivo
+	Calibrar más barato que la media
+	Jorge Lovretic / consultoría puntual
+	~$90.000+
+	Sesión + análisis
+	Calibrar más barato
+	Auditoría e-commerce pvirtual.cl
+	USD 250–500 (~$235.000–$470.000)
+	Informe 25–30 pág. humano
+	Calibrar mucho más barato (pero menos profundo)
+	Reportei (IA español)
+	USD 24–79/mes
+	Suscripción reporting
+	Distinto modelo; Calibrar es one-off para el dueño
+	Recommendations
+Diagnóstico central: $59.990 NO es alto. Si acaso, está ligeramente subvalorado frente a entregables humanos de pago. El verdadero riesgo competitivo es el ancla de $0 de las auditorías gratuitas y la fricción de pedirle a una PYME escéptica que pague por algo que asocia con "gratis". Por tanto, la estrategia debe atacar la percepción de valor, no bajar el número de forma permanente.
+Etapa 1 — Piloto (primeros 2–3 meses, objetivo: prueba social y casos):
+   * Precio piloto $29.990–$39.990 CLP (no menos), enmarcado explícitamente como "precio de lanzamiento por tiempo limitado" para preservar el ancla de $59.990.
+   * Meta: 20–40 informes vendidos + 8–12 testimonios con resultados concretos ("Calibrar detectó que el 60% de mi presupuesto se iba en términos sin intención de compra").
+   * Por qué no más barato: un precio piloto bajo (<$20.000) anclaría la percepción de valor demasiado abajo y dificultaría volver a $59.990. La evidencia chilena (Agencia Spark cobra USD 47 por diagnóstico) muestra que la PYME paga rangos similares.
+Etapa 2 — Precio regular: $59.990 CLP.
+   * Mantener este precio una vez que existan ≥10 testimonios y ≥1 caso cuantificado de ahorro/mejora (ej. "recuperé $X de presupuesto desperdiciado").
+   * Posicionar el mensaje contra el ancla gratis: "Las auditorías gratis quieren venderte un retainer de $500.000/mes. Calibrar te da el diagnóstico independiente por $59.990, una sola vez".
+Etapa 3 — Escalar a $79.990–$99.990 (6–12 meses).
+   * Subir el precio cuando el producto demuestre que el informe genera decisiones que recuperan más de lo que cuesta. A USD ~87–108, sigue por debajo de una auditoría humana one-off y de una hora de consultor senior.
+Umbrales que cambiarían la recomendación:
+   * Si la tasa de conversión a $59.990 es <2–3% del tráfico calificado tras tener testimonios → bajar a $44.990 o reforzar garantía ("si no encuentras valor, te devolvemos el 100%", práctica común en Chile).
+   * Si la conversión es >8–10% a $59.990 → subir antes a $79.990; señal de que está subvalorado.
+   * Si aparece un competidor de IA en español one-off → competir por especialización (B2B chileno, foco en leads) más que por precio.
+Palancas de valor a incluir (justifican el precio sin bajarlo):
+   * Garantía de devolución del 100% (estándar en el mercado chileno; reduce el riesgo percibido).
+   * Entregable tangible y "premium": informe en PDF + resumen en video de 2–3 min (como hacen los consultores de pago de mayor valor).
+   * Enmarcar en términos del gasto del cliente: "$59.990 es el 20% de un mes de pauta; te dice si el otro 80% se está malgastando".
+Caveats
+   * Tipo de cambio: se usó 1 USD = 920 CLP por instrucción. Algunas fuentes (subagente) usaron ~940; las conversiones son aproximadas y los precios USD fluctúan.
+   * Precios SaaS basados en ad spend: Madgicx, Revealbot, Adalysis y Optmyzr escalan según inversión gestionada; las cifras citadas son los pisos publicados y pueden variar.
+   * Reportei: hay divergencia entre fuentes (G2 feb-2026: USD 24–79/mes; artículo con cofundador: USD 14,50–64,50/mes). Conviene confirmar el precio actual en la página oficial antes de decisiones finales.
+   * WordStream Advisor: precio quote-based; las cifras (USD 264–400+, SoftwareFinder $294) son estimaciones de terceros, no tarifa oficial publicada.
+   * pvirtual.cl: publica el precio solo en USD (250–500); la cifra en CLP es conversión propia, no oficial.
+   * Fiverr: los precios son listados públicos a la fecha de consulta y fluctúan; la calidad es muy variable.
+   * No se hallaron datos públicos de un estudio formal de sensibilidad al precio (van Westendorp o similar) para servicios de consultoría digital en Chile; las inferencias de WTP se basan en precios de mercado observados, no en un estudio cuantitativo de demanda.
+   * Calibrar es un producto nuevo (2026): no hay datos de conversión propios todavía; las recomendaciones de precio son hipótesis a validar con el piloto.

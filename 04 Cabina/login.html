@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Calibrar · Acceso — Precisión</title>
+<link rel="stylesheet" href="assets/cabina.css?v=12">
+<style>
+  :root{
+    --lz: #F5A623;               /* láser / ámbar de marca */
+    --fondo-0: #0a1118; --fondo-1: #0e1720;
+  }
+  html, body { height: 100%; }
+  body{
+    background:
+      radial-gradient(1100px 700px at 50% 38%, var(--fondo-1) 0%, var(--fondo-0) 62%),
+      var(--fondo-0);
+  }
+  /* Retícula fina de fondo — papel milimetrado de instrumento */
+  body::before{
+    content:""; position: fixed; inset: 0; pointer-events: none; opacity: .05;
+    background:
+      repeating-linear-gradient(0deg,  transparent 0 39px, #7fb2c9 39px 40px),
+      repeating-linear-gradient(90deg, transparent 0 39px, #7fb2c9 39px 40px);
+  }
+
+  /* ════ SECUENCIA DE CALIBRACIÓN (CSS puro, ~2.4 s, corre una vez al cargar) ════ */
+  #calib{
+    position: fixed; inset: 0; z-index: 50; display: grid; place-items: center;
+    background: var(--fondo-0);
+    animation: calib-out .5s ease 2.5s forwards;
+  }
+  @keyframes calib-out{ to{ opacity: 0; visibility: hidden; } }
+
+  /* Hilos del retículo: barren desde los bordes y se cruzan al centro */
+  .hilo-h, .hilo-v{ position: absolute; background: linear-gradient(90deg, transparent, rgba(245,166,35,.85), transparent); }
+  .hilo-h{ left: 0; right: 0; height: 1px; top: 0; animation: hilo-h 1.1s cubic-bezier(.2,.8,.2,1) forwards; box-shadow: 0 0 12px rgba(245,166,35,.35); }
+  .hilo-v{ top: 0; bottom: 0; width: 1px; left: 0; animation: hilo-v 1.1s cubic-bezier(.2,.8,.2,1) .12s forwards; background: linear-gradient(180deg, transparent, rgba(245,166,35,.85), transparent); box-shadow: 0 0 12px rgba(245,166,35,.35); }
+  @keyframes hilo-h{ to{ top: 50%; } }
+  @keyframes hilo-v{ to{ left: 50%; } }
+
+  /* El punto láser: aparece cuando los hilos se cruzan, late y se apaga */
+  .laser{
+    position: absolute; top: 50%; left: 50%; width: 10px; height: 10px; margin: -5px 0 0 -5px;
+    border-radius: 50%; background: var(--lz); opacity: 0;
+    box-shadow: 0 0 8px 2px rgba(245,166,35,.9), 0 0 34px 10px rgba(245,166,35,.4);
+    animation: laser-lock 1.3s ease 1.1s forwards;
+  }
+  @keyframes laser-lock{
+    0%{ opacity: 0; transform: scale(3); }
+    25%{ opacity: 1; transform: scale(1); }
+    60%{ opacity: 1; transform: scale(1.25); }
+    100%{ opacity: 0; transform: scale(.6); }
+  }
+  /* Anillo de enganche */
+  .aro{
+    position: absolute; top: 50%; left: 50%; width: 64px; height: 64px; margin: -32px 0 0 -32px;
+    border: 1px solid rgba(245,166,35,.7); border-radius: 50%; opacity: 0;
+    animation: aro 1s ease 1.15s forwards;
+  }
+  @keyframes aro{ 0%{ opacity:.9; transform: scale(.2);} 100%{ opacity:0; transform: scale(1.5);} }
+
+  .calib-centro{ position: relative; text-align: center; z-index: 2; }
+
+  /* La marca entra en foco: de letras dispersas y borrosas a alineadas */
+  .calib-marca{
+    font-size: clamp(30px, 5vw, 46px); font-weight: 800; color: #fff;
+    letter-spacing: .42em; filter: blur(6px); opacity: .25;
+    animation: foco 1.15s cubic-bezier(.2,.8,.2,1) .9s forwards;
+  }
+  .calib-marca b{ color: var(--lz); font-weight: 800; }
+  @keyframes foco{ to{ letter-spacing: .16em; filter: blur(0); opacity: 1; } }
+
+  /* Ecualizador: barras que oscilan como espectro y se ASIENTAN en línea calibrada */
+  .eq{ display: flex; gap: 5px; justify-content: center; align-items: flex-end; height: 34px; margin-top: 22px; }
+  .eq i{
+    width: 5px; height: 6px; background: linear-gradient(180deg, var(--lz), rgba(245,166,35,.35));
+    border-radius: 2px; transform-origin: bottom;
+    animation: eq-osc .48s ease-in-out infinite alternate, eq-fin .01s linear 2.05s forwards;
+  }
+  .eq i:nth-child(odd){ animation-duration: .38s, .01s; }
+  .eq i:nth-child(1){ animation-delay: .00s, 2.05s } .eq i:nth-child(2){ animation-delay: .07s, 2.08s }
+  .eq i:nth-child(3){ animation-delay: .13s, 2.10s } .eq i:nth-child(4){ animation-delay: .05s, 2.12s }
+  .eq i:nth-child(5){ animation-delay: .18s, 2.14s } .eq i:nth-child(6){ animation-delay: .02s, 2.16s }
+  .eq i:nth-child(7){ animation-delay: .11s, 2.18s } .eq i:nth-child(8){ animation-delay: .21s, 2.20s }
+  .eq i:nth-child(9){ animation-delay: .04s, 2.22s } .eq i:nth-child(10){ animation-delay: .15s, 2.24s }
+  .eq i:nth-child(11){ animation-delay: .08s, 2.26s } .eq i:nth-child(12){ animation-delay: .19s, 2.28s }
+  .eq i:nth-child(13){ animation-delay: .01s, 2.30s } .eq i:nth-child(14){ animation-delay: .12s, 2.32s }
+  .eq i:nth-child(15){ animation-delay: .06s, 2.34s } .eq i:nth-child(16){ animation-delay: .16s, 2.36s }
+  @keyframes eq-osc{ from{ transform: scaleY(1);} to{ transform: scaleY(4.6);} }
+  @keyframes eq-fin{ to{ animation-play-state: paused; transform: scaleY(1.6); } }
+
+  /* Estado: calibrando… → CALIBRADO ✓ */
+  .calib-estado{ position: relative; height: 18px; margin-top: 16px;
+    font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; }
+  .calib-estado span{ position: absolute; left: 0; right: 0; }
+  .est-1{ color: #7f95a3; animation: est1 .01s linear 2.05s forwards; }
+  .est-2{ color: var(--lz); opacity: 0; animation: est2 .35s ease 2.05s forwards; }
+  @keyframes est1{ to{ opacity: 0; } }
+  @keyframes est2{ to{ opacity: 1; } }
+  .est-1 i{ font-style: normal; animation: puntos 1s steps(4) infinite; }
+  @keyframes puntos{ 0%{content:''} }
+
+  /* Sin movimiento si el sistema lo pide — directo al login */
+  @media (prefers-reduced-motion: reduce){ #calib{ display: none; } }
+
+  /* ════ LA PUERTA ════ */
+  .login-wrap{ min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px; position: relative; }
+  .login-card{
+    width: 100%; max-width: 430px; position: relative; text-align: center;
+    background: linear-gradient(180deg, rgba(20,32,42,.92), rgba(13,22,30,.96));
+    border: 1px solid rgba(127,178,201,.16); border-radius: 20px; padding: 40px 36px 30px;
+    box-shadow: 0 30px 80px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.04);
+    opacity: 0; transform: translateY(10px); animation: carta 0.6s cubic-bezier(.2,.8,.2,1) 2.45s forwards;
+  }
+  @media (prefers-reduced-motion: reduce){ .login-card{ animation: none; opacity: 1; transform: none; } }
+  @keyframes carta{ to{ opacity: 1; transform: none; } }
+  /* Filo superior ámbar, como aguja en cero */
+  .login-card::before{
+    content:""; position: absolute; top: -1px; left: 18%; right: 18%; height: 2px; border-radius: 2px;
+    background: linear-gradient(90deg, transparent, var(--lz), transparent);
+  }
+  .login-card img{ height: 30px; margin-bottom: 18px; opacity: .95; }
+  .login-card h1{ font-size: 24px; font-weight: 800; letter-spacing: .16em; color: #fff; margin-bottom: 10px; }
+  .login-card h1 b{ color: var(--lz); }
+  .login-id{
+    font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 10.5px; font-weight: 700;
+    letter-spacing: .16em; text-transform: uppercase; color: #7fb2c9; margin-bottom: 18px;
+  }
+  .login-id b{ color: #cfe3ec; font-weight: 700; }
+  .login-sub{ font-size: 12.5px; color: var(--texto2); margin-bottom: 24px; }
+  #g-btn{ display: flex; justify-content: center; margin-bottom: 8px; }
+  .login-sep{ display: flex; align-items: center; gap: 10px; color: var(--texto2); font-size: 10.5px;
+    text-transform: uppercase; letter-spacing: .14em; margin: 18px 0; }
+  .login-sep::before, .login-sep::after{ content: ""; flex: 1; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(127,178,201,.25)); }
+  .login-sep::after{ background: linear-gradient(90deg, rgba(127,178,201,.25), transparent); }
+  .login-card input{
+    width: 100%; font-family: inherit; font-size: 15px; color: var(--texto); text-align: center;
+    background: rgba(9,16,22,.85); border: 1px solid rgba(127,178,201,.2); border-radius: 10px;
+    padding: 13px 14px; transition: border-color .15s, box-shadow .15s;
+  }
+  .login-card input:focus{ outline: none; border-color: var(--lz);
+    box-shadow: 0 0 0 3px rgba(245,166,35,.18); }
+  .login-btn{
+    width: 100%; margin-top: 12px; font-family: inherit; font-size: 14px; font-weight: 800;
+    letter-spacing: .04em; cursor: pointer; background: var(--lz); color: #211602;
+    border: 0; border-radius: 10px; padding: 13px; transition: transform .12s, box-shadow .15s, filter .15s;
+  }
+  .login-btn:hover{ transform: translateY(-1px); filter: brightness(1.05);
+    box-shadow: 0 8px 26px rgba(245,166,35,.3); }
+  .login-btn:active{ transform: translateY(0); }
+  #login-msg{ min-height: 18px; font-size: 12.5px; color: #e0685f; margin-top: 12px; }
+  .login-nota{ font-size: 11.5px; color: var(--texto2); line-height: 1.5; }
+  .login-pie{ font-size: 10.5px; color: var(--texto2); opacity: .75; margin-top: 24px; line-height: 1.5; }
+</style>
+</head>
+<body>
+
+<!-- Secuencia de calibración: retículo que se cruza, láser que engancha,
+     marca que entra en foco, ecualizador que se asienta. CSS puro. -->
+<div id="calib" aria-hidden="true">
+  <div class="hilo-h"></div><div class="hilo-v"></div>
+  <div class="aro"></div><div class="laser"></div>
+  <div class="calib-centro">
+    <div class="calib-marca">CALI<b>BRAR</b></div>
+    <div class="eq"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="calib-estado">
+      <span class="est-1">calibrando<i>…</i></span>
+      <span class="est-2">calibrado ✓</span>
+    </div>
+  </div>
+</div>
+
+<div class="login-wrap">
+  <div class="login-card">
+    <img src="../03 Front/assets/logo-precision-blanco.png" alt="Precisión">
+    <h1>CALI<b>BRAR</b></h1>
+    <p class="login-id"><b>Precisión</b> · Crecimiento Comercial y Digital B2B</p>
+    <p class="login-sub">Instrumento interno de diagnóstico. Identifícate para entrar.</p>
+    <div id="g-zona"><div id="g-btn"></div></div>
+    <div class="login-sep">o con clave local</div>
+    <input id="clave" type="password" placeholder="Clave de acceso" autocomplete="current-password"
+      onkeydown="if(event.key==='Enter')loginClave()">
+    <button class="login-btn" onclick="loginClave()">Entrar</button>
+    <p id="login-msg"></p>
+    <p class="login-pie">Los datos de las reuniones viven solo en este equipo. Esta puerta detiene el
+      acceso casual; no reemplaza el cifrado del disco ni la sesión del sistema.</p>
+  </div>
+</div>
+<script src="assets/config.js?v=12"></script>
+<script src="assets/auth.js?v=12"></script>
+<script src="https://accounts.google.com/gsi/client" async defer onload="iniciarGoogle()" onerror="iniciarGoogle()"></script>
+<script>
+  if (autenticado()) window.location.replace(destinoPostLogin());
+  setTimeout(() => { if (!(window.google && google.accounts)) iniciarGoogle(); }, 2500);
+</script>
+</body>
+</html>
